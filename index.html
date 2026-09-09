@@ -1006,7 +1006,7 @@
             <!-- ===== 6. 初回商談資料作成 /proposal ===== -->
             <section class="scene" data-start="113" data-end="130" data-nav="/proposal" data-step="5" data-scroll="0:0,1.4:0,2.5:382,5.7:382,6.7:865,13.9:865,14.6:1082,17:1082">
               <div class="page"><div class="container">
-                <div class="page-head"><h1>初回商談資料作成</h1><div class="meta">ヒアリングと企業データから課題仮説をAI生成し、提案書を生成（初回は媒体を提案しません）</div>
+                <div class="page-head"><h1>初回商談資料作成</h1><div class="meta">課題仮説をAI生成し、媒体プランから初回商談の資料を生成</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>5</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: テレアポ</span><span class="flow-link next">次: 商談議事録 →</span></span></div></div>
                 <div class="panel" data-fx="0.4:2.1:アポ獲得済みの企業を選ぶ"><div class="h2row"><h2>顧客選択（1件）</h2><span class="btn secondary">再取得</span></div><p class="small muted" style="margin:-6px 0 8px">アポ獲得済み（工程4:テレアポが完了）で、初回商談資料がまだの企業だけを表示しています。</p>
                   <table class="tbl"><thead><tr><th>会社名</th><th>カテゴリ</th><th>自社担当</th><th>工程4状態</th></tr></thead><tbody><tr class="cue in" data-click="0.7" data-sel="0.9"><td>ロジテック物流株式会社</td><td>MY10_運輸交通物流倉庫</td><td class="mono">misaki.takahashi@neo-career.co.jp</td><td><span class="pill done">完了</span></td></tr></tbody></table></div>
@@ -1094,11 +1094,11 @@
             <section class="scene" data-start="147" data-end="157" data-nav="/estimate" data-step="8">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>🧾 見積</h1><div class="meta">一覧・発行（工程8）</div></div>
-                <div class="panel" data-fx="0.6:3.8:企業とプランを選ぶ"><h2>見積を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:280px;margin:0"><label>企業</label><div class="sel"><span class="type" data-type="ロジテック物流株式会社（K000004）" data-in="0.7" data-dur="0.9"></span></div></div><div class="field" style="min-width:220px;margin:0"><label>プラン</label><div class="sel"><span class="type" data-type="プロ（¥29,800/月）" data-in="2" data-dur="0.7"></span></div></div><span class="btn success" data-click="3.3">👀 内容を確認して見積を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。契約発行時は確定受注金額を確定します。</p></div>
-                <div class="panel p0"><table class="tbl"><thead><tr><th>ID</th><th>会社</th><th class="r">金額</th><th>状態</th><th>発行日</th></tr></thead><tbody>
-                  <tr class="show" data-in="6.0" data-fx="6.0:6.7:番号は Q＋日付＋連番"><td class="mono">Q20260925-001</td><td><a>ロジテック物流株式会社</a></td><td class="r tnum">¥32,780</td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-09-25</td></tr>
-                  <tr><td class="mono">Q20260605-001</td><td><a>グルメダイニング株式会社</a></td><td class="r tnum">¥550,000</td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-08-28</td></tr>
-                  <tr><td class="mono">Q20260601-001</td><td><a>プレミアム建設株式会社</a></td><td class="r tnum">¥1,650,000</td><td><span class="pill done">受注済</span></td><td class="small">2026-08-24</td></tr>
+                <div class="panel" data-fx="0.6:3.8:企業と品目を選ぶ。割引は閾値以上で承認へ"><h2>見積を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel"><span class="type" data-type="ロジテック物流株式会社（K000004）" data-in="0.7" data-dur="0.9"></span></div></div><div class="field" style="min-width:230px;margin:0"><label>プラン</label><div class="sel">ドライバーズワーク 掲載（¥29,800/月）</div></div><div class="field" style="min-width:200px;margin:0"><label>宛名（ご担当者）</label><div class="sel cue in" data-out="2.0"><span class="ph">— 会社宛のみ —</span></div><div class="sel show" data-in="2.0">高橋 誠 様（採用担当）</div></div><div class="field" style="width:100px;margin:0"><label>割引率（%）</label><div class="inp">0</div></div><span class="btn success" data-click="3.3">👀 内容を確認して見積を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。有効期限は発行日から30日。割引は 10% 以上で本人以外の承認が要ります（上限 30%）。</p></div>
+                <div class="panel p0"><table class="tbl"><thead><tr><th>見積ID</th><th>会社</th><th>品目</th><th class="r">金額(税込)</th><th>割引 / 承認</th><th>状態</th><th>発行日</th><th>有効期限</th><th>帳票</th><th></th></tr></thead><tbody>
+                  <tr class="show" data-in="6.0" data-fx="6.0:6.7:番号は Q＋日付＋連番"><td class="mono small">Q20260925-001</td><td><a>ロジテック物流株式会社</a></td><td class="small">ドライバーズワーク 掲載</td><td class="r tnum">¥32,780</td><td class="small muted">—</td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-09-25</td><td class="small mono">2026-10-25</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary">PDF化</span></td><td><span class="btn sm success">✍️ 申込を起こす</span> <span class="btn sm secondary">失注</span></td></tr>
+                  <tr><td class="mono small">Q20260827-002</td><td><a>グルメダイニング株式会社</a></td><td class="small">飲食ジョブ 掲載</td><td class="r tnum">¥495,000</td><td class="small">10%（¥50,000）<span class="pill pending" style="margin-left:4px">承認待ち</span></td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-08-27</td><td class="small mono">2026-09-26</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm success">✔ 承認</span> <span class="btn sm secondary">差戻し</span></td></tr>
+                  <tr><td class="mono small">Q20260601-001</td><td><a>プレミアム建設株式会社</a></td><td class="small">建設ジョブ 掲載（3枠）</td><td class="r tnum">¥1,650,000</td><td class="small muted">—</td><td><span class="pill done">受注済</span></td><td class="small">2026-08-24</td><td class="small mono">2026-09-23</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="small">申込 C20260603-001 →</span></td></tr>
                 </tbody></table></div>
               </div></div>
               <!-- DocPreviewModal -->
@@ -1133,13 +1133,14 @@
             <section class="scene" data-start="157" data-end="168" data-nav="/contract" data-step="9">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>✍️ 申し込み</h1><div class="meta">一覧・発行（工程9）</div></div>
-                <div class="panel" data-fx="0.5:2.6:申込書を発行する"><h2>申込書を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:280px;margin:0"><label>企業</label><div class="sel">ロジテック物流株式会社（K000004）</div></div><div class="field" style="min-width:220px;margin:0"><label>プラン</label><div class="sel">プロ（¥29,800/月）</div></div><div class="field" style="width:90px;margin:0"><label>契約月数</label><div class="inp">12</div></div><span class="btn success" data-click="2.2">🚀 申込書を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。契約発行時は確定受注金額を確定します。</p></div>
-                <div class="panel p0"><table class="tbl"><thead><tr><th>ID</th><th>会社</th><th class="r">金額</th><th>状態</th><th>発行日</th></tr></thead><tbody>
-                  <tr class="show" data-in="7.9" data-fx="7.9:11:発行済みの申込書が積み上がる"><td class="mono">C20260930-001</td><td><a>ロジテック物流株式会社</a></td><td class="r tnum">¥393,360</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-09-30</td></tr>
-                  <tr><td class="mono">C20260603-001</td><td><a>プレミアム建設株式会社</a></td><td class="r tnum">¥1,650,000</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-08-26</td></tr>
+                <div class="panel" data-fx="0.5:2.6:根拠の見積を選ぶだけ"><h2>申込書を発行</h2><div class="row" style="align-items:flex-end;margin-bottom:10px"><div class="field" style="min-width:560px;margin:0"><label>根拠にする見積（発行済）</label><div class="sel"><span class="type" data-type="Q20260925-001｜ロジテック物流株式会社｜ドライバーズワーク 掲載｜¥32,780/月（〜2026-10-25）" data-in="0.6" data-dur="1.0"></span></div></div></div><div class="row show" data-in="1.7" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel">ロジテック物流株式会社（K000004）</div></div><div class="field" style="margin:0"><label>品目・月額（見積どおり）</label><div class="small" style="padding:6px 0">ドライバーズワーク 掲載 ／ <b>¥32,780</b>（税込）／月</div></div><div class="field" style="width:100px;margin:0"><label>契約月数</label><div class="inp">12</div></div><span class="btn success" data-click="2.3">👀 内容を確認して申込書を発行</span></div><p class="small muted" style="margin:8px 0 0">見積の金額と品目をそのまま契約に写します。発行すると見積は「受注済」になります。契約総額＝月額×契約月数（確定受注金額）。</p></div>
+                <div class="panel p0"><table class="tbl"><thead><tr><th>申込ID</th><th>会社</th><th>根拠見積</th><th class="r">契約総額</th><th>期間</th><th>状態</th><th>締結日</th><th>帳票</th><th></th></tr></thead><tbody>
+                  <tr class="show" data-in="7.9" data-fx="7.9:11:発行済みの申込書が積み上がる"><td class="mono small">C20260930-001</td><td><a>ロジテック物流株式会社</a></td><td class="mono small">Q20260925-001</td><td class="r tnum">¥393,360</td><td class="small mono">2026-09-30 〜 2027-09-29</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-09-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary">PDF化</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
+                  <tr><td class="mono small">C20260901-003</td><td><a>東和デリバリー株式会社</a></td><td class="mono small">Q20260828-004</td><td class="r tnum">¥633,600</td><td class="small mono">2026-09-01 〜 2027-08-31</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-08-29</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
+                  <tr><td class="mono small">C20260603-001</td><td><a>プレミアム建設株式会社</a></td><td class="mono small">Q20260601-001</td><td class="r tnum">¥1,650,000</td><td class="small mono">2026-08-26 〜 2027-08-25</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-08-26</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                 </tbody></table></div>
               </div></div>
-              <div class="toast cue" data-in="7.7" data-out="8.9"><div class="banner ok">✅ 申込書を発行しました（C20260930-001）。🟢 実Googleドキュメント生成 進行ボード 工程9:申し込み を更新。</div></div>
+              <div class="toast cue" data-in="7.7" data-out="8.9"><div class="banner ok">✅ 申込書を発行しました（C20260930-001）。見積 Q20260925-001 は受注済に。🟢 実Googleドキュメント生成 進行ボード 工程9:申し込み を更新。</div></div>
               <!-- 「申込書を発行」で実際に作られる書面（lib/actions/issue.impl.ts の本文と同じ） -->
               <div class="fullcard show" data-in="2.6" data-out="7.6"><div class="fc">
                 <p class="fc-h">「申込書を発行」を押すと、この書面が Google ドキュメントに作られる</p>
@@ -1165,20 +1166,25 @@
             <!-- ===== 9a. 掲載 /publication ===== -->
             <section class="scene" data-start="168" data-end="181" data-nav="/publication" data-step="10">
               <div class="page"><div class="container">
-                <div class="page-head"><h1>📰 掲載</h1><div class="meta">掲載案件・原稿制作（工程10）</div></div>
-                <div class="panel" data-fx="1:5.2:掲載案件を登録"><h2>掲載案件を登録</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:280px;margin:0"><label>企業</label><div class="sel">ロジテック物流株式会社（K000004）</div></div><div class="field" style="min-width:200px;margin:0"><label>媒体名</label><div class="inp"><span class="type" data-type="ドライバーズワーク" data-in="1" data-dur="1.3"><span class="ph">例: 建設ジョブ</span></span></div></div><span class="btn success" data-click="3.6">📰 掲載原稿を制作</span></div></div>
-                <div class="panel p0"><table class="tbl"><thead><tr><th>掲載ID</th><th>会社</th><th>媒体</th><th>状態</th><th>開始日</th></tr></thead><tbody>
-                  <tr class="show" data-in="5.2" data-fx="5.2:13:入稿待ち → 掲載中"><td class="mono">P20261001-001</td><td><a>K000004</a></td><td>ドライバーズワーク</td><td><span class="pill in_progress cue in" data-out="8.9">入稿待ち</span><span class="pill done show" data-in="8.9">掲載中</span></td><td class="small">2026-10-01</td></tr>
-                  <tr><td class="mono">P20260605-001</td><td><a>K000013</a></td><td>建設ジョブ</td><td><span class="pill done">掲載中</span></td><td class="small">2026-08-31</td></tr>
+                <div class="page-head"><h1>📰 掲載</h1><div class="meta">掲載案件・原稿制作・掲載開始／終了（工程10）。請求は掲載中・終了の掲載から起こします。</div></div>
+                <div class="panel" data-fx="1:4.4:申込を選ぶと、企業と期間はそこから決まる"><h2>掲載を登録</h2>
+                  <div class="row" style="align-items:flex-end"><div class="field" style="min-width:240px;margin:0"><label>企業</label><div class="sel cue in" data-out="2.2"><span class="ph">— 選択 —</span></div><div class="sel show" data-in="2.2">ロジテック物流株式会社（K000004）</div></div><div class="field" style="min-width:430px;margin:0"><label>申込（進行中）</label><div class="sel"><span class="type" data-type="C20260930-001｜ロジテック物流株式会社｜¥393,360｜〜2027-09-29" data-in="1.1" data-dur="1.0"></span></div></div></div>
+                  <div class="row" style="align-items:flex-end;margin-top:10px"><div class="field" style="min-width:220px;margin:0"><label>媒体</label><div class="sel cue in" data-out="2.9"><span class="ph">— 選択 —</span></div><div class="sel show" data-in="2.9">ドライバーズワーク</div></div><div class="field" style="margin:0"><label>掲載開始日</label><div class="inp">2026-10-01</div></div><div class="field" style="margin:0"><label>掲載終了日（空＝継続中）</label><div class="inp cue in" data-out="2.2"><span class="ph">yyyy-mm-dd</span></div><div class="inp show" data-in="2.2">2027-09-29</div></div><span class="btn success" data-click="4.0">📰 掲載を登録（原稿を制作）</span></div>
+                  <p class="small muted" style="margin:8px 0 0">登録直後は「入稿待ち」です。原稿が入稿できたら一覧の「掲載開始」を押してください。請求は<b>掲載中・終了</b>の掲載から、掲載月ごとに起こします。</p></div>
+                <div class="panel p0"><table class="tbl"><thead><tr><th>掲載ID</th><th>会社</th><th>申込</th><th>媒体</th><th>期間</th><th>状態</th><th class="r">応募数</th><th></th></tr></thead><tbody>
+                  <tr class="show" data-in="4.8" data-fx="8.2:10.4:原稿が入ったら、人が「掲載開始」を押す"><td class="mono small">P20261001-001</td><td><a>ロジテック物流株式会社</a></td><td class="mono small">C20260930-001</td><td>ドライバーズワーク</td><td class="small mono">2026-10-01 〜 2027-09-29</td><td><span class="pill in_progress cue in" data-out="9.2">入稿待ち</span><span class="pill done show" data-in="9.2">掲載中</span></td><td class="r">0</td><td><span class="btn sm success cue in" data-click="8.6" data-out="9.2">▶ 掲載開始</span><span class="show" data-in="9.2" data-fx="10.6:13:掲載中になった月から、請求の対象に並ぶ"><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></span></td></tr>
+                  <tr><td class="mono small">P20260901-002</td><td><a>東和デリバリー株式会社</a></td><td class="mono small">C20260901-003</td><td>建設ジョブ</td><td class="small mono">2026-09-01 〜 継続中</td><td><span class="pill done">掲載中</span></td><td class="r">12</td><td><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></td></tr>
+                  <tr><td class="mono small">P20260605-001</td><td><a>プレミアム建設株式会社</a></td><td class="mono small">C20260603-001</td><td>建設ジョブ</td><td class="small mono">2026-06-05 〜 継続中</td><td><span class="pill done">掲載中</span></td><td class="r">38</td><td><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                 </tbody></table></div>
               </div></div>
-              <div class="toast cue" data-in="4.7" data-out="10.6"><div class="banner ok">✅ 掲載案件を登録しました（P20261001-001）。工程10:掲載 を進行中に。</div></div>
+              <div class="toast cue" data-in="4.5" data-out="7.9"><div class="banner ok">✅ 掲載を登録しました（P20261001-001）。申込 C20260930-001 に紐づけました。工程10を進行中に。原稿が入稿できたら「掲載開始」を押してください。</div></div>
+              <div class="toast cue" data-in="9.3" data-out="12.6"><div class="banner ok">✅ P20261001-001 を掲載中にしました。工程10を完了。今月分から請求対象に並びます。</div></div>
             </section>
 
             <!-- ===== 9b. 請求 /invoice ===== -->
-            <section class="scene" data-start="181" data-end="195" data-nav="/invoice" data-step="11">
+            <section class="scene" data-start="181" data-end="195" data-nav="/invoice" data-step="11" data-scroll="0:0,6.4:0,7.4:170,14:170">
               <div class="page"><div class="container">
-                <div class="page-head"><h1>💴 請求</h1><div class="meta">請求対象の抽出・発行（工程11）</div></div>
+                <div class="page-head"><h1>💴 請求</h1><div class="meta">一覧・発行（工程11）</div></div>
                 <div class="panel" data-fx="0.4:2.6:掲載から請求対象が積み上がる"><div class="h2row"><h2>今月の請求対象（掲載から自動抽出）</h2><div class="field" style="width:150px;margin:0"><label>請求月</label><div class="inp">2026年10月</div></div><span class="small"><span class="chk"></span>発行済みも見る</span><span class="btn success sm cue in" data-out="2.9" style="opacity:.45">🚀 選択した 0件をまとめて発行</span><span class="btn success sm show" data-in="2.9" data-click="3.4">🚀 選択した 2件をまとめて発行</span></div>
                   <p class="small muted" style="margin:-4px 0 6px">請求は掲載と1対1です。掲載月の<b>月末締め・翌月末払い</b>で対象を出しています。金額は申込書・受注済み見積からの参考値なので、送る前に必ず確認してください。</p>
                   <p class="small" style="margin:0 0 8px">未発行 <b>3</b>件 / 発行済み 0件 ・ 参考合計 <b>¥85,580</b> <span class="pill error" style="margin-left:8px">金額の根拠なし 1件</span></p>
@@ -1187,6 +1193,7 @@
                     <tr><td><span class="chk cue in" data-out="2.9"></span><span class="chk on show" data-in="2.9"></span></td><td><a>東和デリバリー株式会社</a></td><td>商談1<br><span class="small muted">建設ジョブ（P20260901-002・掲載中）</span></td><td class="small">2026-09-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px">52800</div><div class="tiny muted">受注済み見積 Q20260828-004</div></td><td><span class="btn success sm">👀 内容を確認して発行</span></td></tr>
                     <tr><td></td><td><a>丸高運送株式会社</a></td><td>商談未特定<br><span class="small muted">ドライバーズワーク（P20261001-003・掲載中）</span></td><td class="small">2026-10-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px"><span class="ph">金額を入力</span></div><div class="tiny" style="color:var(--danger)">根拠なし（申込書・見積とも無し）</div></td><td><span class="btn success sm" style="opacity:.45">👀 内容を確認して発行</span></td></tr>
                   </tbody></table></div>
+                <div class="panel"><h2>請求を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel"><span class="ph">— 選択 —</span></div></div><div class="field" style="min-width:230px;margin:0"><label>プラン</label><div class="sel">ドライバーズワーク 掲載（¥29,800/月）</div></div><div class="field" style="min-width:200px;margin:0"><label>宛名（ご担当者）</label><div class="sel"><span class="ph">— 会社宛のみ —</span></div></div><span class="btn success">👀 内容を確認して請求を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。支払期限は発行日から30日（掲載から起こす請求は翌月末）。</p></div>
                 <div class="panel p0"><div style="padding:10px 14px;font-size:13px;font-weight:700">発行済みの一覧</div>
                   <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:110px">金額(税込)</th><th class="r" style="width:100px">残額</th><th style="width:110px">状態</th><th style="width:105px">支払期限</th><th style="width:150px">帳票</th><th style="width:185px"></th></tr></thead><tbody>
                     <tr class="show" data-in="6.6" data-fx="6.6:8.8:2件ぶんの請求書ができる"><td class="mono small">I20261031-001</td><td><a>ロジテック物流株式会社</a></td><td class="r tnum">¥32,780</td><td class="r tnum">¥0</td><td><span class="pill done">入金済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary cue in" data-click="9.4" data-out="9.7">PDF化</span><span class="small show" data-in="9.7">PDF</span></td><td></td></tr>
@@ -1304,6 +1311,7 @@
   // ---- サイドバー（lib/ui/nav.ts の並び・見出し・工程バッジどおり。アイコンは NavIcon.tsx の線画を簡略化） ----
   const ICO = {
     '/dashboard':'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    '/overview':'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>',
     '/tasks':'<path d="M4 7l2 2 3-3M4 15l2 2 3-3M12 8h8M12 16h8"/>',
     '/funnel':'<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',
     '/growth':'<path d="M12 21V11M12 11c0-4 3-7 8-7 0 5-3 8-8 7zM12 15c0-3-2-5-6-5 0 4 2 6 6 5z"/>',
@@ -1335,7 +1343,7 @@
     '/settings':'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>',
   };
   const NAV = [
-    {cat:null,title:null,items:[['/dashboard','ダッシュボード'],['/tasks','タスク'],['/funnel','目標逆算'],['/growth','営業スタイル・成長']]},
+    {cat:null,title:null,items:[['/dashboard','ダッシュボード'],['/overview','今月の営業'],['/tasks','タスク'],['/funnel','目標逆算'],['/growth','営業スタイル・成長']]},
     {cat:'MA',title:'リード獲得・育成',items:[['/targeting','ターゲット分析'],['/signals','採用市況・検知'],['/list-build','リスト作成','1'],['/list-import','リスト取込','1'],['/outreach','メール送信','2'],['/form-outreach','フォーム送信','3']]},
     {cat:'SFA',title:'インサイドセールス',items:[['/teleapo','テレアポ','4'],['/teleapo-analysis','テレアポ分析']]},
     {cat:null,title:'フィールドセールス',items:[['/proposal','初回商談資料作成','5'],['/minutes2','商談議事録','6'],['/proposal2','2回目商談資料作成','7'],['/deal-analysis','商談分析'],['/estimate','見積','8'],['/contract','申し込み','9']]},
@@ -1420,9 +1428,9 @@
     [ 161.4,  165.4, '金額を打ち直す場所はありません'],
     [ 165.6,  168.0, '発行すると、進行ボードの工程9が完了します', '発行すると、工程きゅうが完了します'],
 
-    [ 168.6,  172.0, '受注した案件は、自動で掲載フローに移行します', '受注した案件は、自動で掲載に進みます'],
-    [ 172.2,  177.0, '入稿待ち　→　原稿入稿　→　掲載中', '入稿待ちから原稿入稿、そして掲載中へ'],
-    [ 177.2,  181.0, '掲載URLも、管理画面から', '掲載のユーアールエルも、管理画面から'],
+    [ 168.6,  172.0, '受注した申込から、掲載を起こします', '申込から、掲載を起こします'],
+    [ 172.2,  177.0, '入稿待ち　→　掲載開始　→　掲載中（人が押して進める）', '入稿待ちから、掲載開始を押して掲載中へ'],
+    [ 177.2,  181.0, '掲載中になった月から、請求の対象に並びます', '掲載中の分が、請求に並びます'],
 
     [ 181.6,  186.0, '請求は掲載と一対一。月末締めで積み上がります', '掲載したぶんが月末締めで積み上がります'],
     [ 186.2,  190.4, '中身を確かめて、まとめて発行します'],
