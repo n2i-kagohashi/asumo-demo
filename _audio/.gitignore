@@ -1,4 +1,5 @@
 cache/
 cues.json
 caps.js
+__pycache__/
 *.mp3
