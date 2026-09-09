@@ -1,6 +1,8 @@
 cache/
 cues.json
+cues_v2.json
 caps.js
 __pycache__/
 voice.wav
 narration.mp3
+narration_v2.mp3

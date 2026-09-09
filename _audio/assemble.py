@@ -2,14 +2,16 @@
 """cues.json の各音声を、タイムラインの秒数どおりに 213秒の1本へ並べる。
    窓に入らない行だけ atempo で詰める。bgm.mp3 があれば、声が鳴っている間だけ
    BGM を自動で下げて（ダッキング）混ぜる。最後に音量を揃える。"""
-import json, pathlib, subprocess, sys
+import json, os, pathlib, subprocess, sys
 HERE = pathlib.Path(__file__).parent
-TOTAL = 213.0
+TOTAL = float(os.environ.get("TOTAL", "213.0"))   # 台本の版で尺が変わる
 OUT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "narration.mp3"
 BGM = HERE / "bgm.mp3"
 BGM_GAIN = 0.12          # 声の下に敷く量（≒ -18dB）。声の無い区間で -30dB 前後、声の間はさらに沈む
 
-cues = json.loads((HERE / "cues.json").read_text(encoding="utf-8"))
+import os
+CUES = pathlib.Path(os.environ.get("CUES", str(HERE / "cues.json")))   # 台本の版を切り替えられるように
+cues = json.loads(CUES.read_text(encoding="utf-8"))
 inputs, filters, labels = [], [], []
 for n, c in enumerate(cues):
     inputs += ["-i", c["path"]]
