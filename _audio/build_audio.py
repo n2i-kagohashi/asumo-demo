@@ -6,8 +6,10 @@ import os, re, json, hashlib, pathlib, subprocess, sys, urllib.request, importli
 HERE = pathlib.Path(__file__).parent
 CACHE = HERE / "cache"; CACHE.mkdir(exist_ok=True)
 VOICE = "WQz3clzUdMqvBf0jswZQ"          # Shizuka - Natural（ユーザー選定）
-MODEL = "eleven_multilingual_v2"
-SETTINGS = {"stability": 0.45, "similarity_boost": 0.75, "style": 0.0, "use_speaker_boost": True}
+MODEL = "eleven_v3"
+# v3 の stability は 0.0=Creative / 0.5=Natural / 1.0=Robust の3段。
+# 楽しい抑揚がほしいので Creative。multilingual_v2 より 25% ほど速く読むので窓に余裕が出る。
+SETTINGS = {"stability": 0.0, "similarity_boost": 0.75}
 TOTAL = 213.0
 MAX_TEMPO = 1.22                         # これ以上速めると聞いて分かるので、超えたら文を直す
 GAP = 0.10                               # 次のキューとのあいだに必ず空ける間
@@ -21,7 +23,7 @@ def key():
 def load_narr():
     spec = importlib.util.spec_from_file_location("n", HERE / "narration.py")
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
-    return m.NARR
+    return m.NARR, getattr(m, "TAG_DEFAULT", ""), getattr(m, "TAGS", {})
 
 def dur(p):
     return float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
@@ -54,15 +56,16 @@ def write_caps(narr):
         out.append(row + "],")
         prev = b
     out.append("  ];")
-    (HERE/"caps.js").write_text("\n".join(out), encoding="utf-8")
+    (HERE/"caps.js").write_text("\n".join(out) + "\n", encoding="utf-8")
     print(f"caps.js を書き出しました（index.html の CAPS と差し替えて使います）")
 
 def main():
-    k = key(); narr = load_narr()
+    k = key(); narr, tag_default, tags = load_narr()
     rows, over = [], []
     for i,(a,b,cap,say) in enumerate(narr):
         text = say or cap.replace("\\n","").replace("\n","")
-        p = tts(text, k); d = dur(p); win = b - a
+        tag = tags.get(a, tag_default)          # 抑揚の指定は音声にだけ乗せ、字幕には出さない
+        p = tts((tag + " " + text).strip(), k); d = dur(p); win = b - a
         # 収める先は「字幕の窓」ではなく「次のキューが始まるまで」。字幕が一瞬早く消えるのは
         # 気づかれないが、次の声に被るのは事故なので、そこだけは必ず空ける。
         nxt = narr[i+1][0] if i+1 < len(narr) else TOTAL
