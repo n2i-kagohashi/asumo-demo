@@ -10,6 +10,8 @@ MODEL = "eleven_v3"
 # v3 の stability は 0.0=Creative / 0.5=Natural / 1.0=Robust の3段。
 # 楽しい抑揚がほしいので Creative。multilingual_v2 より 25% ほど速く読むので窓に余裕が出る。
 SETTINGS = {"stability": 0.0, "similarity_boost": 0.75}
+# 言語を明示する。指定しないと v3 はカタカナ語を英語の抑揚で読むことがある（「英語っぽい」の正体）。
+LANGUAGE = "ja"
 TOTAL = 213.0
 MAX_TEMPO = 1.22                         # これ以上速めると聞いて分かるので、超えたら文を直す
 GAP = 0.10                               # 次のキューとのあいだに必ず空ける間
@@ -30,11 +32,11 @@ def dur(p):
                                  "-of","csv=p=0",str(p)], capture_output=True, text=True).stdout.strip())
 
 def tts(text, k):
-    h = hashlib.sha1(f"{VOICE}|{MODEL}|{json.dumps(SETTINGS,sort_keys=True)}|{text}".encode()).hexdigest()[:16]
+    h = hashlib.sha1(f"{VOICE}|{MODEL}|{LANGUAGE}|{json.dumps(SETTINGS,sort_keys=True)}|{text}".encode()).hexdigest()[:16]
     raw, trimmed = CACHE/f"{h}.mp3", CACHE/f"{h}.trim.wav"
     if not trimmed.exists():
         if not raw.exists():
-            body = json.dumps({"text": text, "model_id": MODEL, "voice_settings": SETTINGS}).encode()
+            body = json.dumps({"text": text, "model_id": MODEL, "language_code": LANGUAGE, "voice_settings": SETTINGS}).encode()
             req = urllib.request.Request(
                 f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE}?output_format=mp3_44100_128",
                 data=body, headers={"xi-api-key": k, "Content-Type": "application/json"})
