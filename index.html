@@ -542,7 +542,7 @@
   .ctl-row .voice{border:1px solid var(--theater-line);background:var(--theater);color:var(--theater-text);border-radius:8px;padding:5px 8px;font-size:11px;max-width:186px;font-family:inherit}
   .ctl-row .cb.aud.off{background:transparent;border:1px solid var(--theater-line);color:var(--theater-muted)}
   .noaudio{display:none;font-size:11px;color:var(--warn)}
-  body.no-tts .noaudio{display:inline}body.no-tts .voice,body.no-tts .cb.aud{display:none}
+  body.no-tts .noaudio{display:inline}body.no-tts .cb.aud{display:none}
   .keys{font-size:11px;color:var(--theater-muted);display:flex;gap:14px;flex-wrap:wrap;opacity:0;transition:opacity .3s}
   .controls:hover .keys,.controls:focus-within .keys{opacity:.9}
   .keys kbd{font-size:10px;border:1px solid var(--theater-line);border-radius:4px;padding:0 5px;color:var(--theater-text);margin-right:3px}
@@ -1178,23 +1178,32 @@
             <!-- ===== 9b. 請求 /invoice ===== -->
             <section class="scene" data-start="181" data-end="195" data-nav="/invoice" data-step="11">
               <div class="page"><div class="container">
-                <div class="page-head"><h1>💴 請求</h1><div class="meta">一覧・発行（工程11）</div></div>
-                <div class="panel" data-fx="0.5:2.8:掲載から自動で抽出"><div class="h2row"><h2>今月の請求対象（掲載から自動抽出）</h2><div class="field" style="width:150px;margin:0"><label>請求月</label><div class="inp">2026年10月</div></div><span class="small"><span class="chk"></span>発行済みも見る</span></div>
+                <div class="page-head"><h1>💴 請求</h1><div class="meta">請求対象の抽出・発行（工程11）</div></div>
+                <div class="panel" data-fx="0.4:2.6:掲載から請求対象が積み上がる"><div class="h2row"><h2>今月の請求対象（掲載から自動抽出）</h2><div class="field" style="width:150px;margin:0"><label>請求月</label><div class="inp">2026年10月</div></div><span class="small"><span class="chk"></span>発行済みも見る</span><span class="btn success sm cue in" data-out="2.9" style="opacity:.45">🚀 選択した 0件をまとめて発行</span><span class="btn success sm show" data-in="2.9" data-click="3.4">🚀 選択した 2件をまとめて発行</span></div>
                   <p class="small muted" style="margin:-4px 0 6px">請求は掲載と1対1です。掲載月の<b>月末締め・翌月末払い</b>で対象を出しています。金額は申込書・受注済み見積からの参考値なので、送る前に必ず確認してください。</p>
-                  <p class="small" style="margin:0 0 8px">未発行 <b>1</b>件 / 発行済み 0件 ・ 参考合計 <b>¥32,780</b></p>
-                  <table class="tbl"><thead><tr><th>企業</th><th>商談 / 掲載</th><th style="width:160px">掲載期間</th><th style="width:110px">支払期限</th><th style="width:150px">請求金額（税込）</th><th style="width:170px"></th></tr></thead><tbody><tr><td><a>ロジテック物流株式会社</a></td><td>商談1<br><span class="small muted">ドライバーズワーク（P20261001-001・掲載中）</span></td><td class="small">2026-10-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:32px;padding:4px 8px">32780</div><div class="small muted">申込書 C20260930-001</div></td><td><span class="btn success sm" data-click="2.3">👀 内容を確認して発行</span></td></tr></tbody></table></div>
-                <div class="panel"><h2>請求を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:280px;margin:0"><label>企業</label><div class="sel">— 選択 —</div></div><div class="field" style="min-width:220px;margin:0"><label>プラン</label><div class="sel">シンプル（¥9,800/月）</div></div><span class="btn success">👀 内容を確認して請求を発行</span></div></div>
-                <div class="panel p0"><table class="tbl"><thead><tr><th>ID</th><th>会社</th><th class="r">金額</th><th>状態</th><th>発行日</th><th></th></tr></thead><tbody>
-                  <tr class="show" data-in="4.9" data-fx="4.9:9.3:請求を発行"><td class="mono">I20261031-001</td><td><a>K000004</a></td><td class="r tnum">¥32,780</td><td><span class="pill in_progress cue in" data-out="11.2">発行済</span><span class="pill done show" data-in="11.2">入金済</span></td><td class="small">2026-10-31</td><td><span class="btn sm cue in" data-click="9.8" data-out="11.2">💴 入金済にする</span></td></tr>
-                  <tr><td class="mono">I20260513-001</td><td><a>K000006</a></td><td class="r tnum">¥64,300</td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-09-05</td><td><span class="btn sm">💴 入金済にする</span></td></tr>
-                  <tr><td class="mono">I20260410-001</td><td><a>K000013</a></td><td class="r tnum">¥90,000</td><td><span class="pill error">期限超過</span></td><td class="small">2026-07-03</td><td><span class="btn sm">💴 入金済にする</span></td></tr>
-                </tbody></table></div>
+                  <p class="small" style="margin:0 0 8px">未発行 <b>3</b>件 / 発行済み 0件 ・ 参考合計 <b>¥85,580</b> <span class="pill error" style="margin-left:8px">金額の根拠なし 1件</span></p>
+                  <table class="tbl"><thead><tr><th style="width:28px"><span class="chk cue in" data-out="2.75"></span><span class="chk on show" data-in="2.75"></span></th><th>企業</th><th>商談 / 掲載</th><th style="width:150px">掲載期間</th><th style="width:100px">支払期限</th><th style="width:140px">請求金額（税込）</th><th style="width:150px"></th></tr></thead><tbody>
+                    <tr data-fx="2.7:3.9:未発行をまとめて選ぶ"><td><span class="chk cue in" data-out="2.8"></span><span class="chk on show" data-in="2.8"></span></td><td><a>ロジテック物流株式会社</a></td><td>商談1<br><span class="small muted">ドライバーズワーク（P20261001-001・掲載中）</span></td><td class="small">2026-10-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px">32780</div><div class="tiny muted">申込書 C20260930-001</div></td><td><span class="btn success sm">👀 内容を確認して発行</span></td></tr>
+                    <tr><td><span class="chk cue in" data-out="2.9"></span><span class="chk on show" data-in="2.9"></span></td><td><a>東和デリバリー株式会社</a></td><td>商談1<br><span class="small muted">建設ジョブ（P20260901-002・掲載中）</span></td><td class="small">2026-09-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px">52800</div><div class="tiny muted">受注済み見積 Q20260828-004</div></td><td><span class="btn success sm">👀 内容を確認して発行</span></td></tr>
+                    <tr><td></td><td><a>丸高運送株式会社</a></td><td>商談未特定<br><span class="small muted">ドライバーズワーク（P20261001-003・掲載中）</span></td><td class="small">2026-10-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px"><span class="ph">金額を入力</span></div><div class="tiny" style="color:var(--danger)">根拠なし（申込書・見積とも無し）</div></td><td><span class="btn success sm" style="opacity:.45">👀 内容を確認して発行</span></td></tr>
+                  </tbody></table></div>
+                <div class="panel p0"><div style="padding:10px 14px;font-size:13px;font-weight:700">発行済みの一覧</div>
+                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:110px">金額(税込)</th><th class="r" style="width:100px">残額</th><th style="width:110px">状態</th><th style="width:105px">支払期限</th><th style="width:150px">帳票</th><th style="width:185px"></th></tr></thead><tbody>
+                    <tr class="show" data-in="6.6" data-fx="6.6:8.8:2件ぶんの請求書ができる"><td class="mono small">I20261031-001</td><td><a>ロジテック物流株式会社</a></td><td class="r tnum">¥32,780</td><td class="r tnum">¥0</td><td><span class="pill done">入金済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary cue in" data-click="9.4" data-out="9.7">PDF化</span><span class="small show" data-in="9.7">PDF</span></td><td></td></tr>
+                    <tr class="show" data-in="6.75"><td class="mono small">I20261031-002</td><td><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum"><b>¥52,800</b></td><td><span class="pill in_progress">発行済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary cue in" data-click="9.5" data-out="9.8">PDF化</span><span class="small show" data-in="9.8">PDF</span></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr><td class="mono small">I20260905-001</td><td><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum"><b>¥64,300</b></td><td><span class="pill error">期限超過</span></td><td class="small mono">2026-10-05</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr data-fx="11.4:13.8:取消は赤伝。元の番号が残る"><td class="mono small">I20260703-002<div class="tiny muted">再発行 ← I20260703-001</div></td><td><a>港南ロジスティクス株式会社</a></td><td class="r tnum">¥90,000</td><td class="r tnum"><b>¥90,000</b></td><td><span class="pill in_progress">発行済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr><td class="mono small">I20260703-001</td><td><a>港南ロジスティクス株式会社</a></td><td class="r tnum">¥90,000</td><td class="r tnum">—</td><td><span class="pill skip">取消</span><div class="tiny muted">金額誤り（媒体プラン変更前の単価）</div></td><td class="small mono">2026-10-31</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm secondary" style="opacity:.45">↻ 再発行</span></td></tr>
+                  </tbody></table></div>
               </div></div>
-              <div class="show" data-in="2.8" data-out="4.6" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="2.9:4.7:内容を確認して発行" style="width:640px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0;font-size:15px;color:var(--n-900)">この内容で発行します</h3><div class="small muted" style="margin-bottom:8px">請求書_ロジテック物流株式会社_I20261031-001</div>
-                <table class="tbl"><tbody><tr><td><b>請求書</b></td><td></td><td></td><td></td></tr><tr><td>御社名</td><td>ロジテック物流株式会社</td><td>請求ID</td><td class="mono">I20261031-001</td></tr><tr><td>請求対象月</td><td>2026-10</td><td>支払期限</td><td>2026-11-30</td></tr><tr><td>ドライバーズワーク掲載（2026-10分）</td><td class="r">1</td><td class="r">29,800</td><td class="r">29,800</td></tr><tr><td>消費税(10%)</td><td></td><td></td><td class="r">2,980</td></tr><tr><td><b>合計(税込)</b></td><td></td><td></td><td class="r"><b>32,780</b></td></tr><tr><td>振込先</td><td colspan="3">三菱UFJ銀行 新宿支店 普通 1234567 カ)ネオキャリア</td></tr></tbody></table>
-                <div class="row" style="justify-content:flex-end;margin-top:8px"><b class="small">合計（税込）: ¥32,780</b><span class="btn secondary">やめる</span><span class="btn success" data-click="4">🚀 この掲載ぶんを請求する</span></div></div></div>
-              <div class="toast cue" data-in="4.7" data-out="8.8"><div class="banner ok">✅ 請求を発行しました（I20261031-001）。🟢 実Googleドキュメント生成 進行ボード 工程11:請求 を更新。</div></div>
-              <div class="toast cue" data-in="11" data-out="13.8" data-fx="9.3:14:入金済 → 請求が完了"><div class="banner ok">✅ I20261031-001 を入金済にしました。工程11:請求 が完了です。</div></div>
+              <div class="show" data-in="4.1" data-out="6.5" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="4.1:6.4:出す前に中身を確認" style="width:700px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0;font-size:15px;color:var(--n-900)">この内容で 2件を発行します</h3><div class="small muted" style="margin-bottom:8px">請求月 2026-10 ・ 月末締め / 翌月末払い（支払期限 2026-11-30）</div>
+                <table class="tbl"><thead><tr><th>企業</th><th>掲載</th><th class="r" style="width:130px">金額（税込）</th></tr></thead><tbody>
+                  <tr><td>ロジテック物流株式会社</td><td class="small">ドライバーズワーク（P20261001-001）<div class="tiny muted">根拠: 申込書 C20260930-001</div></td><td class="r tnum">¥32,780</td></tr>
+                  <tr><td>東和デリバリー株式会社</td><td class="small">建設ジョブ（P20260901-002）<div class="tiny muted">根拠: 受注済み見積 Q20260828-004</div></td><td class="r tnum">¥52,800</td></tr>
+                </tbody></table>
+                <div class="row" style="justify-content:flex-end;margin-top:8px"><b class="small">合計（税込）: ¥85,580</b><span class="btn secondary">やめる</span><span class="btn success" data-click="5.9">🚀 2件を発行する</span></div></div></div>
+              <div class="toast cue" data-in="6.6" data-out="10.4"><div class="banner ok">✅ 2件の請求を発行しました（I20261031-001・I20261031-002）。🟢 実Googleドキュメント 2件。進行ボード 工程11:請求 を更新。</div></div>
+              <div class="toast cue" data-in="9.9" data-out="12.4" data-fx="9:11.2:PDFにしてファイル管理へ"><div class="banner ok">✅ 2件を PDF にしてファイル管理へ置きました。</div></div>
             </section>
 
             <!-- ===== 9c. 月次レポート /monthly ===== -->
@@ -1203,10 +1212,10 @@
                 <div class="page-head"><h1>📈 月次レポート</h1><div class="meta">月ごとに締めた受注・請求・入金の実績です。いま止まっている請求を追うのは発行状況の画面です。</div></div>
                 <div class="panel" data-fx="0.5:2.8:この月を集計する"><h2>月を締める</h2><p class="small muted" style="margin:-6px 0 8px">対象月の申込（受注）・請求・入金を数え直して1行にします。<b>何度実行しても同じ月は上書き</b>されるので、月の途中で回して構いません。本番では毎月1日 朝8時に前月分を自動集計します。</p>
                   <div class="row" style="align-items:flex-end"><div class="field" style="width:160px;margin:0"><label>対象月</label><div class="inp">2026年11月</div></div><span class="btn success" data-click="1.8">📊 この月を集計する</span><span class="btn secondary">🗂️ 発行状況（未入金を追う）へ</span></div></div>
-                <div class="grid" data-fx="2.8:5.6:受注・請求・入金"><div class="iss-card"><div class="iss-title">受注社数（2026-11）</div><div class="iss-num" data-count="0,1" data-in="2.8" data-dur="0.8">0<span> 社</span></div><div class="small muted">受注額(税抜) ¥325,091</div></div><div class="iss-card"><div class="iss-title">請求発行(税込)</div><div class="iss-num" style="font-size:22px">¥<span data-count="0,32780" data-in="2.8" data-dur="1.5">0</span></div><div class="small muted">2026-11に発行したぶん</div></div><div class="iss-card" style="border-left-color:var(--accent)"><div class="iss-title">入金済</div><div class="iss-num" style="font-size:22px;color:var(--accent)">¥<span data-count="0,32780" data-in="3" data-dur="1.5">0</span></div><div class="small muted">2026-11に入金されたぶん</div></div><div class="iss-card" data-fx="7.6:10:未入金は発行状況の画面で追う"><div class="iss-title">未入金</div><div class="iss-num" style="font-size:22px">¥0</div><div class="small muted">回収済み</div></div></div>
+                <div class="grid" data-fx="2.8:5.6:受注・請求・入金"><div class="iss-card"><div class="iss-title">受注社数（2026-11）</div><div class="iss-num" data-count="0,1" data-in="2.8" data-dur="0.8">0<span> 社</span></div><div class="small muted">受注額(税抜) ¥325,091</div></div><div class="iss-card"><div class="iss-title">請求発行(税込)</div><div class="iss-num" style="font-size:22px">¥<span data-count="0,85580" data-in="2.8" data-dur="1.5">0</span></div><div class="small muted">2026-11に発行したぶん</div></div><div class="iss-card" style="border-left-color:var(--accent)"><div class="iss-title">入金済</div><div class="iss-num" style="font-size:22px;color:var(--accent)">¥<span data-count="0,32780" data-in="3" data-dur="1.5">0</span></div><div class="small muted">2026-11に入金されたぶん</div></div><div class="iss-card" data-fx="7.6:10:未入金は発行状況の画面で追う"><div class="iss-title">未入金</div><div class="iss-num" style="font-size:22px;color:var(--danger)">¥52,800</div><div class="small muted">東和デリバリー 1件（期限内）</div></div></div>
                 <div class="panel p0 show" data-in="0" data-fx="5.6:7.4:ひと月が1行に積み上がる"><div style="padding:10px 14px;font-size:13px;font-weight:700">月次の推移（新しい順） <span class="small muted" style="font-weight:400;margin-left:8px">行をクリックすると担当者別の内訳が開きます</span></div>
                   <table class="tbl"><thead><tr><th>月度</th><th class="r">受注社数</th><th class="r">受注額(税抜)</th><th class="r">請求発行(税込)</th><th style="width:130px"></th><th class="r">入金済</th><th style="width:130px"></th><th class="r">未入金</th></tr></thead><tbody>
-                    <tr class="show" data-in="2.8"><td><b>2026-11</b> <span class="tiny muted">▸</span></td><td class="r">1</td><td class="r">¥325,091</td><td class="r">¥32,780</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:3%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥32,780</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:4%;background:var(--accent);border-radius:999px"></i></span></td><td class="r">¥0</td></tr>
+                    <tr class="show" data-in="2.8"><td><b>2026-11</b> <span class="tiny muted">▸</span></td><td class="r">1</td><td class="r">¥325,091</td><td class="r">¥85,580</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:4%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥32,780</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:2%;background:var(--accent);border-radius:999px"></i></span></td><td class="r" style="color:var(--danger)">¥52,800</td></tr>
                     <tr><td><b>2026-09</b> <span class="tiny muted">▸</span></td><td class="r">1</td><td class="r">¥1,090,909</td><td class="r">¥1,200,000</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:50%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥393,800</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:45%;background:var(--accent);border-radius:999px"></i></span></td><td class="r" style="color:var(--danger)">¥806,200</td></tr>
                     <tr><td><b>2026-08</b> <span class="tiny muted">▸</span></td><td class="r">2</td><td class="r">¥2,181,818</td><td class="r">¥2,400,000</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:100%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥880,000</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:100%;background:var(--accent);border-radius:999px"></i></span></td><td class="r" style="color:var(--danger)">¥1,520,000</td></tr>
                   </tbody></table></div>
@@ -1265,19 +1274,20 @@
          <h2>求人広告営業のすべてを、ひとつに<br>リスト作成から入金まで、11工程</h2>
          <span class="ps">求人広告代理店の営業が触る画面を、リスト作成から請求・入金まで11工程ぶん。すべてデプロイ済みの実機UIの文言・構成に合わせています。3分33秒。</span>
          <span class="pb">▶ 再生する</span>
-         <span class="pn"><b>音声はありません。テロップだけで進みます</b>（🔊 ボタンで読み上げを足すこともできます）。<br>会場で流すときは <b>F</b> キーで全画面に。</span>
+         <span class="pn"><b>ナレーション付きで再生します</b>（🔇 ボタン、または <b>M</b> キーで消せます）。<br>会場で流すときは <b>F</b> キーで全画面に。</span>
        </button>
       </div><!-- /stage -->
 
       <div class="controls">
         <div class="scrub" id="scrub" role="slider" aria-label="再生位置" aria-valuemin="0" aria-valuemax="213" aria-valuenow="0" tabindex="0"><div class="track"></div><div class="fill" id="fill"></div><div id="marks"></div><div class="knob" id="knob"></div></div>
-        <div class="ctl-row"><button class="cb" id="play" aria-label="再生 / 一時停止">▶</button><button class="cb sec" id="prev" aria-label="前の章">‹</button><button class="cb sec" id="next" aria-label="次の章">›</button><span class="time"><span id="tcur">0:00</span> <span>/ <span id="ttot">3:33</span></span></span><button class="speed" data-speed="1" title="ナレーションも同じ倍率で速くなります">1×</button><button class="speed" data-speed="1.25" title="ナレーションも同じ倍率で速くなります">1.25×</button><button class="speed" data-speed="1.5" title="ナレーションも同じ倍率で速くなります">1.5×</button><button class="speed" data-speed="2" title="ナレーションも同じ倍率で速くなります">2×</button><button class="cb aud" id="audio" type="button" aria-label="ナレーション音声の入切" title="ナレーション音声の入切（M）" style="width:auto;padding:0 10px;font-size:12px">🔊 音声</button><select class="voice" id="voice" aria-label="読み上げ音声"></select><span class="noaudio">このブラウザは読み上げ音声に対応していません（字幕のみ）</span><button class="cb sec" id="fs" aria-label="全画面" title="全画面（F）" style="width:auto;padding:0 10px;font-size:12px">⛶ 全画面</button><div class="now"><span id="now-eyebrow">オープニング</span><b id="now-title">ASUMO 営業ジャーニー</b></div></div>
+        <div class="ctl-row"><button class="cb" id="play" aria-label="再生 / 一時停止">▶</button><button class="cb sec" id="prev" aria-label="前の章">‹</button><button class="cb sec" id="next" aria-label="次の章">›</button><span class="time"><span id="tcur">0:00</span> <span>/ <span id="ttot">3:33</span></span></span><button class="speed" data-speed="1" title="ナレーションも同じ倍率で速くなります">1×</button><button class="speed" data-speed="1.25" title="ナレーションも同じ倍率で速くなります">1.25×</button><button class="speed" data-speed="1.5" title="ナレーションも同じ倍率で速くなります">1.5×</button><button class="speed" data-speed="2" title="ナレーションも同じ倍率で速くなります">2×</button><button class="cb aud" id="audio" type="button" aria-label="ナレーション音声の入切" title="ナレーション音声の入切（M）" style="width:auto;padding:0 10px;font-size:12px">🔊 音声</button><span class="noaudio">ナレーションを読み込めませんでした（字幕のみで再生します）</span><button class="cb sec" id="fs" aria-label="全画面" title="全画面（F）" style="width:auto;padding:0 10px;font-size:12px">⛶ 全画面</button><div class="now"><span id="now-eyebrow">オープニング</span><b id="now-title">ASUMO 営業ジャーニー</b></div></div>
         <div class="keys"><span><kbd>Space</kbd>再生/停止</span><span><kbd>←</kbd><kbd>→</kbd>5秒</span><span><kbd>[</kbd><kbd>]</kbd>章の移動</span><span><kbd>R</kbd>最初から</span><span><kbd>F</kbd>全画面</span><span><kbd>M</kbd>音声</span><span><kbd>C</kbd>チャプター</span></div>
       </div>
       <aside class="index" id="index"><div class="h">工程の一覧　<button class="ghostbtn" id="idxclose" type="button" style="float:right;padding:2px 10px">✕</button></div><div class="note">ボタン・文字・数字・スクロールはすべて時刻から描画しているので、<b>シークしても同じ画が出ます</b>。画面の文言・並び・色は本体コード（各 page.tsx / globals.css）から取り、実機スクショと照合しています。<br><br><b>ショートカット</b><br>Space 再生/停止　← → 5秒　[ ] 章移動<br>R 最初から　F 全画面　M 音声の入切</div></aside>
     </div>
   </div>
 </div>
+<audio id="narr" src="narration.mp3" preload="auto"></audio>
 <script>
 (function(){
   'use strict';
@@ -1367,62 +1377,62 @@
   // [開始秒, 終了秒, テロップ]。改行は \n（バックスラッシュ + n の2文字）で書くと <br> になる。
   // 読み上げは既定オフなので、長さの制約は「読めるか」だけ。目安は 1 行 22 字・1 秒 6 字。
   // 章の頭（工程名）はチャプターカードが出すので、テロップに同じ文字を重ねない。
-  const CAPS = [
-    [  0.4,   3.0, '求人広告営業に必要なものは、'],
-    [  3.2,   7.0, 'すべて、ASUMOひとつで。'],
+  /* 字幕。[開始, 終了, 画面に出す字幕, 読み上げ文]。第4要素は narration.mp3 を焼いた文で、
+     記号や英字をそのまま読ませると誤読するところだけ書き換えてある（省略時は字幕そのもの）。 */
+const CAPS = [
+    [   0.4,    3.0, '求人広告営業に必要なものは、', '求人広告営業に必要なものは'],
+    [   3.2,    7.0, 'すべて、ASUMOひとつで。', 'すべて、アスモひとつで。'],
+    [   7.4,   11.0, '営業先のアプローチリストを作ります'],
 
-    [  7.4,  11.0, '営業先のアプローチリストを作ります'],
-    [ 21.2,  27.0, '条件に合致した企業が、こう表示されます'],
-    [ 27.2,  33.0, '1社ごとに、会社の切り口が付きます'],
+    [  21.2,   27.0, '条件に合致した企業が、こう表示されます'],
+    [  27.2,   33.0, '1社ごとに、会社の切り口が付きます', 'いっしゃごとに、会社の切り口が付きます'],
 
-    [ 37.2,  41.0, 'CSVを貼るだけ。列の対応は自動で推定します'],
+    [  37.2,   41.0, 'CSVを貼るだけ。列の対応は自動で推定します', 'シーエスブイを貼るだけです'],
+    [  41.4,   46.0, '作成したリストに、メールでアプローチします'],
+    [  46.2,   50.0, '1社ずつ、AIが書き分けます', 'いっしゃずつ、エーアイが書き分けます'],
+    [  50.2,   54.0, '送信は、あなたのGmailから', '送信は、あなたのジーメールから'],
 
-    [ 41.4,  46.0, '作成したリストに、メールでアプローチします'],
-    [ 46.2,  50.0, '1社ずつ、AIが書き分けます'],
-    [ 50.2,  54.0, '送信は、あなたのGmailから'],
+    [  58.2,   62.0, '問い合わせフォームからも、アプローチできます'],
 
-    [ 58.2,  62.0, '問い合わせフォームからも、アプローチできます'],
+    [  62.6,   68.0, 'メール・フォーム送信後の企業に、テレアポでアプローチできます', 'メールやフォームを送った企業に、テレアポでアプローチできます'],
+    [  68.2,   72.0, '左：企業情報　中央：企業ごとの切り口　右：架電メモ', '左から企業情報と切り口とメモ'],
+    [  72.2,   76.0, '発信はワンクリック。終話も自動です'],
+    [  76.2,   84.0, '会話の内容は、自動判定でフラグが立っていきます'],
+    [  84.2,   89.0, '通話中に人がやるのは、架電メモだけ'],
+    [  89.2,   94.0, '録音と文字起こしは、自動でASUMOの中に溜まります', '録音と文字起こしは、自動でアスモの中に溜まります'],
+    [  94.2,   98.0, '通話が終了したら、最後に架電結果を選択', '通話が終わったら、架電結果を選びます'],
+    [  98.2,  102.0, 'ヒアリングは、自動で埋まります'],
 
-    [ 62.6,  68.0, 'メール・フォーム送信後の企業に、テレアポでアプローチできます'],
-    [ 68.2,  72.0, '左：企業情報　中央：企業ごとの切り口　右：架電メモ'],
-    [ 72.2,  76.0, '発信はワンクリック。終話も自動です'],
-    [ 76.2,  84.0, '会話の内容は、自動判定でフラグが立っていきます'],
-    [ 84.2,  89.0, '通話中に人がやるのは、架電メモだけ'],
-    [ 89.2,  94.0, '録音と文字起こしは、自動でASUMOの中に溜まります'],
-    [ 94.2,  98.0, '通話が終了したら、最後に架電結果を選択'],
-    [ 98.2, 102.0, 'ヒアリングは、自動で埋まります'],
+    [ 102.6,  106.0, 'メールでアポを取る際は、このように日程調整できます', 'メールでアポを取るときは、こう調整します'],
+    [ 106.2,  110.0, 'カレンダーから候補日を送信', 'カレンダーから候補日を送ります'],
+    [ 110.2,  113.0, 'お客様はスマホで選ぶだけ。ログイン不要', 'スマホで選ぶだけです'],
 
-    [102.6, 106.0, 'メールでアポを取る際は、このように日程調整できます'],
-    [106.2, 110.0, 'カレンダーから候補日を送信'],
-    [110.2, 113.0, 'お客様はスマホで選ぶだけ。ログイン不要'],
+    [ 113.6,  118.0, '初回商談準備は、このようにします', '初回商談の準備は、こうします'],
+    [ 118.2,  124.0, '材料は、テレアポヒアリングと議事録'],
+    [ 124.2,  130.0, '初回商談は、ヒアリングと会社概要\n企業の採用情報の収集をもとに作成されます', 'ヒアリングと会社概要、採用情報をもとに作られます'],
 
-    [113.6, 118.0, '初回商談準備は、このようにします'],
-    [118.2, 124.0, '材料は、テレアポヒアリングと議事録'],
-    [124.2, 130.0, '初回商談は、ヒアリングと会社概要\n企業の採用情報の収集をもとに作成されます'],
-    [135.2, 139.0, '議事録を、瞬時に作成します'],
-    [139.2, 143.0, 'サンクスメールも作成します'],
-    [143.2, 147.0, '議事録をもとに、2回目以降の資料も作成されます'],
+    [ 135.2,  139.0, '議事録を、瞬時に作成します'],
+    [ 139.2,  143.0, 'サンクスメールも作成します', 'お礼のメールも作ります'],
+    [ 143.2,  147.0, '議事録をもとに、2回目以降の資料も作成されます', '議事録から、次の資料も作られます'],
+    [ 147.4,  152.0, '商談を繰り返して、受注。\n見積書は、提案の時点で作成されています', '見積書は、提案の時点でできています'],
+    [ 152.2,  157.0, 'Excelで見積書の作成', 'エクセルでも見積書を作れます'],
+    [ 157.4,  161.2, '合意した見積書の内容が、そのまま申込書になります', '見積書が、そのまま申込書になります'],
+    [ 161.4,  165.4, '金額を打ち直す場所はありません'],
+    [ 165.6,  168.0, '発行すると、進行ボードの工程9が完了します', '発行すれば工程は完了'],
 
-    [147.4, 152.0, '商談を繰り返して、受注。\n見積書は、提案の時点で作成されています'],
-    [152.2, 157.0, 'Excelで見積書の作成'],
-    [157.4, 161.2, '合意した見積書の内容が、そのまま申込書になります'],
-    [161.4, 165.4, '金額を打ち直す場所はありません'],
-    [165.6, 168.0, '発行すると、進行ボードの工程9が完了します'],
+    [ 168.6,  172.0, '受注した案件は、自動で掲載フローに移行します', '受注すると、掲載に進みます'],
+    [ 172.2,  177.0, '入稿待ち　→　原稿入稿　→　掲載中', '入稿待ちから原稿入稿、そして掲載中へ'],
+    [ 177.2,  181.0, '掲載URLも、管理画面から', '掲載のユーアールエルも、管理画面から'],
 
-    [168.6, 172.0, '受注した案件は、自動で掲載フローに移行します'],
-    [172.2,   177, '入稿待ち　→　原稿入稿　→　掲載中'],
-    [177.2,   181, '掲載URLも、管理画面から'],
+    [ 181.6,  186.0, '請求は掲載と一対一。月末締めで積み上がります', '掲載したぶんが、月末に積み上がります'],
+    [ 186.2,  190.4, '中身を確かめて、まとめて発行します'],
+    [ 190.6,  195.0, '取り消して出し直しても、元の番号は残ります'],
 
-    [181.6,   186, '請求は掲載と一対一。掲載中になった時点で発生します'],
-    [186.2,   190, '月末に、自動で集計'],
-    [190.2,   193, '発行ボタンで、顧客に送られます'],
-    [193.2,   195, '入金が確認できたら、入金完了へ'],
+    [ 195.6,  201.0, '当月のアポ／商談実施／受注／発生／今月入金予定額', '今月のアポと商談と受注、入金の予定額'],
+    [ 201.2,  205.0, '未入金の追いかけは、発行状況の画面へ'],
 
-    [195.6,   201, '当月のアポ／商談実施／受注／発生／今月入金予定額'],
-    [201.2,   205, '未入金の追いかけは、発行状況の画面へ'],
-
-    [205.6,   209, '人が集中するのは、話す工程だけ。'],
-    [209.2,   213, '求人広告営業のすべてを、ひとつに。ASUMO'],
+    [ 205.6,  209.0, '人が集中するのは、話す工程だけ。', '人が集中するのは、話す工程だけ'],
+    [ 209.2,  213.0, '求人広告営業のすべてを、ひとつに。ASUMO', '営業のすべてを、ひとつに。アスモ'],
   ];
 
   // ---- 索引・目盛 ----
@@ -1578,8 +1588,6 @@
       // 頭から入ったキューだけ読み上げる（シークで途中に落ちたときは黙って字幕だけ）。
       // 窓の4割までは「頭から入った」と見なす——固定 0.8 秒だと、描画が一瞬詰まった
       // フレームで判定に間に合わず、字幕だけ出て一文まるごと無音になることがあった。
-      if(playing && ci>=0 && ci!==spokenIdx && t-CAPS[ci][0] < (CAPS[ci][1]-CAPS[ci][0]) * 0.4) speakCue(ci);
-      if(ci>=0) spokenIdx=ci;
     }
 
     // チャプターカード（章の頭 0.35〜3.75秒だけ。シネマ章は元の絵があるので出さない）
@@ -1605,154 +1613,67 @@
   // 倍速にすると読み上げ速度もその分だけ上がる（速すぎる帯は rate 上限で頭打ち）。
   let t=0, playing=false, speed=1, raf=null, lastTs=null;
   const playBtn=$('#play');
-  function loop(ts){ if(!playing) return; if(lastTs!=null){ t+=Math.min(0.1,(ts-lastTs)/1000)*speed; } lastTs=ts; if(t>=TOTAL){ t=TOTAL-0.001; render(t); pause(); playBtn.textContent='↺'; return; } render(t); raf=requestAnimationFrame(loop); }
-  function play(){ if(t>=TOTAL-0.01){ t=0; spokenIdx=-1; } playing=true; lastTs=null; playBtn.textContent='❚❚'; bump(); syncSpeech(); cancelAnimationFrame(raf); raf=requestAnimationFrame(loop); }
-  function pause(){ playing=false; cancelAnimationFrame(raf); playBtn.textContent='▶'; stopSpeech(); stageWrap.classList.remove('idle'); }
-  function seek(x){ t=Math.max(0,Math.min(TOTAL-0.001,x)); stopSpeech(); spokenIdx=-1; render(t); if(playing) syncSpeech(); else playBtn.textContent='▶'; }
+  function loop(ts){
+    if(!playing) return;
+    // 音が鳴っているあいだは映像の時刻を音に合わせる。自前で足し込むとズレが溜まる。
+    if(narrOk && audioOn && !narr.paused && !narr.seeking) t = narr.currentTime;
+    else if(lastTs!=null) t += Math.min(0.1,(ts-lastTs)/1000)*speed;
+    lastTs=ts;
+    if(t>=TOTAL){ t=TOTAL-0.001; render(t); pause(); playBtn.textContent='↺'; return; }
+    render(t); raf=requestAnimationFrame(loop);
+  }
+  function play(){ if(t>=TOTAL-0.01){ t=0; } playing=true; lastTs=null; playBtn.textContent='❚❚'; bump(); syncNarr(); cancelAnimationFrame(raf); raf=requestAnimationFrame(loop); }
+  function pause(){ playing=false; cancelAnimationFrame(raf); playBtn.textContent='▶'; stopNarr(); stageWrap.classList.remove('idle'); }
+  function seek(x){
+    t=Math.max(0,Math.min(TOTAL-0.001,x));
+    if(narrOk){ try{ narr.currentTime = t; }catch(_){} }
+    render(t);
+    if(playing) syncNarr(); else { stopNarr(); playBtn.textContent='▶'; }
+  }
   function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+pad(s%60); }
-  /* ---------- ナレーション（Web Speech API） ----------
-     Windows の Microsoft 日本語ボイス（Nanami / Ayumi / Haruka / Keita など）を使う。
-     外部サービスもファイルも要らないので、この HTML 1枚のまま音が出る。
-     ・キューごとに 1 発話。読み上げ速度は「文の長さ ÷ 字幕の表示時間」から自動で決める。
-     ・シーク・停止では必ず cancel する（前の文が被って喋り続けるのを防ぐ）。 */
-  const synth = window.speechSynthesis || null;
-  const audioBtn = $('#audio'), voiceSel = $('#voice');
-  // 映像構成 v3 は「テロップだけ」で構成する。読み上げは既定オフ（🔊 ボタンで出せる）。
-  let voices = [], voice = null, audioOn = false, spokenIdx = -1, ttsReady = false, userMuted = true;
-  if(!synth) document.body.classList.add('no-tts');
+  /* ---------- ナレーション（収録済みの通しトラック） ----------
+     ElevenLabs（Shizuka・eleven_multilingual_v2）で字幕を1本ずつ読み上げ、
+     タイムラインの秒数どおりに並べて 213 秒の narration.mp3 に焼いてある。
+     映像の時刻 t と currentTime が同じ意味になるので、シーク・一時停止・倍速が
+     そのまま音にも効く——ブラウザ読み上げのときのように、窓に収まるかを
+     モーラ数から見積もって速度を調整する必要はもう無い。
+     読み上げ文は CAPS の第4要素（無ければ字幕そのもの）。作り直しは _audio/ を参照。 */
+  const narr = $('#narr'), audioBtn = $('#audio');
+  let audioOn = true, narrOk = false;
 
-  // 日本語のモーラ数をざっくり見積もる（数字と漢字は字数より長く読まれる）
-  function moras(str){
-    let m = 0;
-    for(const ch of str){
-      if(/[0-9]/.test(ch)) m += 2.4;
-      else if(/[\u4E00-\u9FFF]/.test(ch)) m += 1.9;
-      else if(/[\u30A0-\u30FF]/.test(ch)) m += 1.05;
-      else if(/[\u3040-\u309F]/.test(ch)) m += 1;
-      else if(/[A-Za-z]/.test(ch)) m += 0.9;
-      else if(/[、。・「」（）]/.test(ch)) m += 0.9;
-      else m += 0.6;
-    }
-    return m;
+  function narrFailed(){                                     // 読み込めなければ字幕だけで進む
+    narrOk = false; document.body.classList.add('no-tts');
   }
-  const VOICE_RANK = ['nanami','ayumi','haruka','sayaka','mayu','keita','ichiro'];
-  function voiceScore(v){
-    const nm = (v.name||'').toLowerCase();
-    let sc = (/natural|online/.test(nm) ? 0 : 4);            // Edge の Natural 音声を最優先
-    const i = VOICE_RANK.findIndex(k=>nm.includes(k));
-    sc += (i < 0 ? 9 : i);
-    if(v.localService) sc -= 0.2;
-    return sc;
-  }
-  function loadVoices(){
-    if(!synth) return;
-    const all = synth.getVoices() || [];
-    voices = all.filter(v=>/^ja\b|^ja[-_]/i.test(v.lang||'')).sort((a,b)=>voiceScore(a)-voiceScore(b));
-    // getVoices() は初回 [] を返すブラウザがある（voiceschanged で後から来る）。
-    // その間に音声を切ってしまうと二度と戻らないので、ここでは userMuted を尊重して戻す。
-    if(!voices.length){ voiceSel.innerHTML = '<option>日本語音声なし</option>'; voiceSel.disabled = true; audioOn = false; paintAudio(); return; }
-    voiceSel.disabled = false;
-    voiceSel.innerHTML = voices.map((v,i)=>'<option value="'+i+'">'+v.name.replace(/ - Japanese.*$/,'')+'</option>').join('');
-    if(!voice || !voices.includes(voice)){ voice = voices[0]; voiceSel.value = '0'; }
-    audioOn = !userMuted; paintAudio();   // userMuted は既定 true＝音声オフで始まる
-  }
-  if(synth){ loadVoices(); synth.addEventListener ? synth.addEventListener('voiceschanged',loadVoices) : (synth.onvoiceschanged = loadVoices); }
-  voiceSel.addEventListener('change',()=>{
-    voice = voices[+voiceSel.value] || voices[0];
-    stopSpeech();
-    if(playing){ syncSpeech(); return; }
-    if(!audioOn || !voice) return;                          // 停止中なら試聴を1回だけ（会場での音出し確認）
-    try{ const u = new SpeechSynthesisUtterance('ナレーションは、この声で流れます。'); u.voice = voice; u.lang = voice.lang || 'ja-JP'; synth.speak(u); }catch(_){}
-  });
+  narr.addEventListener('canplay', ()=>{ narrOk = true; if(playing) syncNarr(); }, {once:true});
+  narr.addEventListener('error', narrFailed);
+  // preload が効かない環境でも、開始カードのクリックで鳴らせるように読みにいく
+  try{ narr.load(); }catch(_){ }
 
-  /* 読み上げ時間の見積り。Windows の Microsoft Ayumi で全キューを等倍実測して出した係数。
-     1秒あたり 5.81 モーラ、発話ごとの立ち上がりが 0.55 秒。
-     以前は 8.6×0.94＝8.08 モーラ/秒＝実際より 1.39 倍速く喋る前提で見積もっており、
-     窓に収まらない文を rate 0.85〜1.55 で押し込もうとしていた。上限に張り付いた文は
-     それでも溢れ、次のキューの cancel で途中から切られる——これが「字幕と音声が違う」
-     「流ちょうじゃない」の正体だった。テロップを窓に収まる長さへ直したので、既定は等倍。 */
-  const MORA_SEC = 0.1721, SPEAK_LEAD = 0.552;
-  const speakSec = c => MORA_SEC * moras(c[2]) + SPEAK_LEAD;
-  const RATE_CAP = 2.6;
-  // 全キューを同じ速度で読む＝抑揚が揃う。収まらない文があるときだけ、その文だけ速める。
-  function baseRate(c){ return Math.max(1, Math.min(1.3, speakSec(c) / ((c[1]-c[0]) * 0.95))); }
-  function rateFor(c){ return Math.min(RATE_CAP, baseRate(c) * speed); }
-
-  // 文のどこまで読んだか。boundary が取れる音声はそれを、取れなければ経過時間から見積もる。
-  function charAtMoras(str, target){
-    let m = 0, i = 0;
-    for(const ch of str){ if(m >= target) return i; m += moras(ch); i += ch.length; }
-    return str.length;
+  function syncNarr(){
+    if(!narrOk) return;
+    try{
+      narr.muted = !audioOn;
+      narr.playbackRate = speed;
+      if(Math.abs(narr.currentTime - t) > 0.25) narr.currentTime = t;
+      if(playing && audioOn) narr.play().catch(()=>{}); else narr.pause();
+    }catch(_){ }
   }
-
-  // 言い直しの切り口を語の頭へ寄せる（「ぶと、架電…」ではなく「選ぶと、架電…」から言い直す）
-  function snapBack(str, at){
-    const a = Array.from(str);
-    let ai = 0, seen = 0;
-    while(ai < a.length && seen < at){ seen += a[ai].length; ai++; }
-    const kind = ch => /[ぁ-んゝ]/.test(ch) ? 1 : /[ァ-ヴー]/.test(ch) ? 2 : /[一-龥々]/.test(ch) ? 3 : /[0-9A-Za-z]/.test(ch) ? 4 : 0;
-    const stop = Math.max(0, ai - 8);
-    while(ai > stop && kind(a[ai-1]) === 1) ai--;             // 送り仮名・助詞をまたいで戻る
-    while(ai > stop && kind(a[ai-1]) >= 2) ai--;              // その手前の漢字・カナ・英数のかたまりの頭まで
-    return a.slice(0, ai).join('').length;
-  }
-
-  let cur = null;                                            // いま喋っている発話の状態
-  function stopSpeech(){ cur = null; if(synth){ try{ synth.cancel(); }catch(_){} } }
-  function speakText(i, text){
-    if(!synth || !audioOn || !voice || !text) return;
-    try{ synth.cancel(); }catch(_){}
-    const u = new SpeechSynthesisUtterance(text);
-    u.voice = voice; u.lang = voice.lang || 'ja-JP'; u.pitch = 1; u.volume = 1;
-    u.rate = rateFor(CAPS[i]);
-    const st = { i, text, rate: u.rate, t0: performance.now(), at: null };
-    u.onboundary = e => { if(cur === st && typeof e.charIndex === 'number') st.at = e.charIndex; };
-    u.onend = u.onerror = () => { if(cur === st) cur = null; };
-    cur = st;                                                // cancel の onend は古い st を見るので取り違えない
-    try{ synth.speak(u); }catch(_){ cur = null; }
-  }
-  function speakCue(i){ spokenIdx = i; const c = CAPS[i]; if(c) speakText(i, c[2]); }
-
-  // 倍率を変えたら、いま喋っている文もその場で言い直す（次のキューまで待たない）。
-  // rate は発話の途中で変えられない仕様なので、読み残しを新しい速度で喋り直す。
-  function repaceSpeech(){
-    if(!synth || !audioOn || !cur) return;
-    const st = cur;
-    const raw = st.at != null ? st.at : charAtMoras(st.text, Math.max(0, (performance.now() - st.t0) / 1000 - SPEAK_LEAD) * st.rate / MORA_SEC);
-    const rest = st.text.slice(snapBack(st.text, raw));
-    if(!rest || rest.length < st.text.length * 0.25) return;  // 言い終わりかけなら触らない
-    speakText(st.i, rest);
-  }
-  function syncSpeech(){
-    const i = capIdxAt(t);
-    if(i < 0){ spokenIdx = -1; return; }
-    // キューの序盤で再生を始めたときだけ喋り直す（途中復帰で頭から読み直さない）
-    if(t - CAPS[i][0] < (CAPS[i][1]-CAPS[i][0]) * 0.28) speakCue(i);
-    else spokenIdx = i;
-  }
+  function stopNarr(){ if(narrOk){ try{ narr.pause(); }catch(_){ } } }
   function paintAudio(){
     audioBtn.textContent = audioOn ? '🔊 音声' : '🔇 音声';
     audioBtn.classList.toggle('off', !audioOn);
     audioBtn.setAttribute('aria-pressed', String(audioOn));
   }
-  function toggleAudio(){
-    audioOn = !audioOn; userMuted = !audioOn;
-    paintAudio();
-    if(!audioOn) stopSpeech(); else if(playing) syncSpeech();
-  }
+  function toggleAudio(){ audioOn = !audioOn; paintAudio(); syncNarr(); }
   audioBtn.addEventListener('click',toggleAudio);
   paintAudio();
-  window.addEventListener('pagehide',stopSpeech);
-  window.addEventListener('beforeunload',stopSpeech);
+  window.addEventListener('pagehide',stopNarr);
+  window.addEventListener('beforeunload',stopNarr);
 
   /* ---------- 開始カード（ブラウザは操作なしでは喋れないので必ず1クリック） ---------- */
   const poster = $('#poster');
   poster.addEventListener('click',()=>{
     poster.classList.add('gone');
-    if(synth && !ttsReady){                                  // 無音の1発話で読み上げ権限を起こす
-      ttsReady = true;
-      try{ const w = new SpeechSynthesisUtterance(' '); w.volume = 0; synth.speak(w); }catch(_){}
-    }
     play();
   });
 
@@ -1776,7 +1697,7 @@
   $$('.speed').forEach(b=>b.addEventListener('click',()=>{
     speed = +b.dataset.speed;
     $$('.speed').forEach(x=>x.classList.toggle('on',x===b));
-    if(playing) repaceSpeech();                              // ナレーションも同じ倍率に切り替える
+    if(narrOk) narr.playbackRate = speed;                    // ナレーションも同じ倍率に切り替える
   }));
   $$('.speed').forEach(x=>x.classList.toggle('on', +x.dataset.speed===speed));
 
