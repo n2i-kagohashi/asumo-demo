@@ -624,9 +624,19 @@
   .dk-title{font-size:15px;font-weight:700}
   .dk-cap{font-size:14px;color:var(--em-200);background:rgba(255,255,255,.10);border-radius:999px;padding:5px 14px}
 
+  /* 見本であることの帯。動画の外側に固定で出す（本編の見た目は変えない） */
+  .sample-note{position:sticky;top:0;z-index:60;background:#7A2E12;color:#fff;
+    font-size:13.5px;line-height:1.6;padding:9px 18px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;
+    border-bottom:1px solid rgba(255,255,255,.28)}
+  .sample-note b{background:#fff;color:#7A2E12;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:800;letter-spacing:.04em}
+  .sample-note span{opacity:.95}
+  .poster .psample{display:inline-block;margin-bottom:14px;background:#7A2E12;color:#fff;border-radius:999px;
+    padding:6px 16px;font-size:13px;font-weight:700;letter-spacing:.02em}
+
   @media (prefers-reduced-motion:reduce){.scene,.cue,.btn,.res{transition:none}.type::after,.m2-dot{animation:none}}
 </style>
 <div class="wrap">
+  <div class="sample-note"><b>見本 / 使いません</b><span>これは作り方の見本として残してある版です。<b style="background:none;color:#fff;padding:0;font-weight:800">実際に使うのは Codex が作る版</b>です。この版をそのまま発表や配布に使わないでください。</span></div>
   <header class="masthead">
     <div class="brand"><span class="logo">ASUMO</span><h1>求人広告営業のすべてを、ひとつに</h1></div>
     <div class="meta">リスト作成から入金まで、<b>11工程</b>を通しで見る疑似動画（3分52秒）　<button class="ghostbtn" id="idxbtn" type="button">☰ 工程の一覧</button></div>
@@ -1297,6 +1307,7 @@
        <div class="dayclock" id="dayclock" aria-hidden="true"></div>
        <div class="subs hide" id="subs" aria-live="polite"><span id="cap"></span></div>
        <button class="poster" id="poster" type="button" aria-label="再生を開始">
+         <span class="psample">見本 — 実際に使うのは Codex 版です</span>
          <span class="pl">ASUMO</span>
          <h2>求人広告営業のすべてを、ひとつに<br>リスト作成から入金まで、11工程</h2>
          <span class="ps">求人広告代理店の営業が触る画面を、リスト作成から請求・入金まで11工程ぶん。すべてデプロイ済みの実機UIの文言・構成に合わせています。3分52秒。</span>

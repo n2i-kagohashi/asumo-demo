@@ -99,5 +99,25 @@ s = s.replace('色が付いている <b>テレアポ</b> と <b>商談</b> 以�
               '<b>テレアポ</b> と <b>商談</b> 以外の裏側は、すべて AI とシステムが。')
 s = s.replace('<div class="et-sub">リスト作成・メール・フォーム・テレアポ・商談・見積・申込・掲載・請求——11工程</div>',
               '<div class="et-sub">求人広告の営業プロセスを、AIで変える。</div>')
+
+# ---- 「使わない見本」であることを、開いた人に必ず伝える ----
+NOTICE_CSS = """
+  /* 見本であることの帯。動画の外側に固定で出す（本編の見た目は変えない） */
+  .sample-note{position:sticky;top:0;z-index:60;background:#7A2E12;color:#fff;
+    font-size:13.5px;line-height:1.6;padding:9px 18px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;
+    border-bottom:1px solid rgba(255,255,255,.28)}
+  .sample-note b{background:#fff;color:#7A2E12;border-radius:5px;padding:2px 8px;font-size:12px;font-weight:800;letter-spacing:.04em}
+  .sample-note span{opacity:.95}
+  .poster .psample{display:inline-block;margin-bottom:14px;background:#7A2E12;color:#fff;border-radius:999px;
+    padding:6px 16px;font-size:13px;font-weight:700;letter-spacing:.02em}
+"""
+NOTICE_HTML = ('<div class="sample-note"><b>見本 / 使いません</b>'
+               '<span>これは作り方の見本として残してある版です。<b style="background:none;color:#fff;padding:0;font-weight:800">実際に使うのは Codex が作る版</b>です。'
+               'この版をそのまま発表や配布に使わないでください。</span></div>')
+s = s.replace('<header class="masthead">', NOTICE_HTML + '\n  <header class="masthead">', 1)
+s = s.replace('<span class="pl">ASUMO</span>',
+              '<span class="psample">見本 — 実際に使うのは Codex 版です</span>\n         <span class="pl">ASUMO</span>', 1)
+s = s.replace('\n  @media (prefers-reduced-motion:reduce)', NOTICE_CSS + '\n  @media (prefers-reduced-motion:reduce)', 1)
+
 p.write_text(s, encoding='utf-8')
 print(f"finish_v2: TOTAL={TOTAL} ({mm}:{ss:02d}) / CAPS {sum(1 for r in tl['rows'] if r['kind']!='title')}行 / 章 {len(CH)} / 文言・CSS 更新")
