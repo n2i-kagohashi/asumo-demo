@@ -575,27 +575,6 @@
   body.fs .stage-wrap.idle .controls:hover{opacity:1;pointer-events:auto}
   body.fs .keys{display:none}
   .stage-wrap:fullscreen{background:var(--theater)}
-  /* ── タイトルカード（章の頭。機能名を画面センターに約2秒）────────────── */
-  .scene.tcard{display:flex;align-items:center;justify-content:center;background:var(--theater);padding:0 80px}
-  .tc{text-align:center;max-width:1120px}
-  .tc-eyebrow{font-size:15px;letter-spacing:.22em;color:var(--em-400);font-weight:700;margin-bottom:18px;min-height:20px}
-  .tc-title{font-size:52px;line-height:1.28;font-weight:800;color:#fff;margin:0;letter-spacing:.01em}
-  .tc-sub{font-size:26px;line-height:1.5;color:var(--em-200);margin:18px 0 0;font-weight:500}
-  .tc-note{font-size:22px;color:var(--em-200);margin:26px 0 0;font-weight:500}
-  .s11wrap{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:1000px;margin:6px auto 0}
-  .s11{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
-       color:#fff;border-radius:999px;padding:8px 16px;font-size:16px;font-weight:600;white-space:nowrap}
-  .s11 b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;
-         background:var(--em-500);color:#08201d;font-size:12px;font-weight:800}
-  /* 提案書の実物 */
-  .scene.deckshot{display:flex;align-items:center;justify-content:center;background:var(--theater);padding:34px 60px}
-  .dk-wrap{width:100%;max-width:1180px}
-  .dk-stage{position:relative;width:100%;aspect-ratio:16/9;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
-  .dk{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
-  .dk-bar{display:flex;align-items:center;gap:14px;margin-top:14px;color:#fff;flex-wrap:wrap}
-  .dk-title{font-size:15px;font-weight:700}
-  .dk-cap{font-size:14px;color:var(--em-200);background:rgba(255,255,255,.10);border-radius:999px;padding:5px 14px}
-
   @media (prefers-reduced-motion:reduce){.scene,.cue,.btn,.res{transition:none}.type::after,.m2-dot{animation:none}}
 </style>
 <div class="wrap">
@@ -612,15 +591,15 @@
           <nav class="sidebar" id="sb" aria-hidden="true"></nav>
           <div class="app-main">
 
-            <!-- リスト作成 No.5-10 -->
-            <section class="scene" data-start="19.3" data-end="54.2" data-nav="/list-build" data-step="1" data-scroll="0.0:0,9.8:0,11.5:1020,26.0:1020,27.0:1454,34.9:1454">
+            <!-- ===== 1. リスト作成 /list-build ===== -->
+            <section class="scene" data-start="7" data-end="33" data-nav="/list-build" data-step="1" data-scroll="0:0,7.3:0,8.6:1020,19.4:1020,20.1:1454,26:1454">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>🧱 リスト作成</h1><div class="meta">架電・DMの対象になる企業リストを組み立てます（外から新しい企業を探す／いまある企業から ICP適合で当たり先を選ぶ）。</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>1</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link disabled">← 最初の工程</span><span class="flow-link next">次: メール送信 →</span></span></div></div>
                 <div class="tabs"><span class="tab active">🌱 新しくリストを作る</span><span class="tab">📚 作成したリスト</span></div>
-                <div class="panel" data-fx="0.7:5.5:リストの作り方を選ぶ"><h2>どうやってリストを作りますか</h2>
+                <div class="panel" data-fx="0.5:4.1:リストの作り方を選ぶ"><h2>どうやってリストを作りますか</h2>
                   <div class="row" style="align-items:stretch">
-                    <div class="btn cue in" data-click="1.3" style="flex:1 1 280px;text-align:left;padding:12px 14px;white-space:normal;align-items:flex-start;gap:10px"><div><b>🎯 ICP適合 × インテントで当たり先を選ぶ</b><br><span class="pill done" style="margin-top:4px">すぐ使える</span></div><span class="small" style="opacity:.85;font-weight:400">asumo が既に持っている企業から、理想顧客像への合致（ICP適合）と、今その会社が動いているか（インテント）の2軸で選びます。母集団は増えません（設定不要ですぐ使えます）。</span></div>
+                    <div class="btn cue in" data-click="1" style="flex:1 1 280px;text-align:left;padding:12px 14px;white-space:normal;align-items:flex-start;gap:10px"><div><b>🎯 ICP適合 × インテントで当たり先を選ぶ</b><br><span class="pill done" style="margin-top:4px">すぐ使える</span></div><span class="small" style="opacity:.85;font-weight:400">asumo が既に持っている企業から、理想顧客像への合致（ICP適合）と、今その会社が動いているか（インテント）の2軸で選びます。母集団は増えません（設定不要ですぐ使えます）。</span></div>
                     <div class="btn secondary" style="flex:1 1 280px;text-align:left;padding:12px 14px;white-space:normal;align-items:flex-start;gap:10px"><div><b>🌐 外から新しい企業を探す</b><br><span class="pill error" style="margin-top:4px">設定が要る</span></div><span class="small" style="opacity:.85;font-weight:400">gBizINFO（経済産業省の公式API）から、まだ asumo に無い企業を連れてきます。母集団が増えます。</span></div>
                   </div>
                   <p class="small muted" style="margin:10px 0 0">違いは<b>母集団が増えるかどうか</b>です。手元にCSVがあるなら <a style="color:var(--em-700)">リスト取込</a>でも増やせます。</p>
@@ -628,48 +607,48 @@
                 <div class="banner info">asumo が持っている企業を <b>ICP適合</b>（新卒インテント・採用ファネル・規模・到達性・タイミング・継続信用の6軸／<a style="color:var(--em-700)">ターゲット分析</a>と同じ採点）と<b>インテント</b>（今その会社が動いているか＝採用ページの差分から検知したトリガー）の<b>2軸</b>で並べ、上位からリストにします。<b>母集団は増えません</b>——新しい会社を増やすなら「🌐 外から新しい企業を探す」か<a style="color:var(--em-700)"> リスト取込</a>です。</div>
                 <div class="banner" style="margin-bottom:10px">💡 <b>良い企業</b>と<b>今動いている企業</b>は別物です。企業は常時検討モードではなく、トリガー（秋採用・担当者の交代・募集人数の増加…）の後の数週間〜数か月だけ窓が開きます。窓が閉じている間の「今は考えていない」は拒絶ではなく反射なので、属性をいくら絞っても超えられません。<b>このリストの成果物は社数ではなく「なぜ今この会社に電話するか」</b>です。</div>
                 <div class="panel"><div class="h2row"><h2>条件</h2><span class="small">並べ方 <span class="sel" style="display:inline-flex;min-height:30px;padding:4px 10px">窓が開いている順 → ICP適合順（既定）</span></span><span class="scope"><span class="radio"></span>自分の担当 <span class="radio on"></span>チーム全体</span><span class="btn secondary sm">✕ 条件をすべて外す</span></div>
-                  <p class="small muted" id="lb-filterlabel">連絡先: 電話がある企業だけ ／ 架電の状況: 未架電（新規）だけ<span class="cue" data-in="4.4"> ／ 所在地: 東京都・神奈川県・埼玉県・千葉県</span><span class="cue" data-in="6.2"> ／ 採用カテゴリ: 運輸・交通・物流・倉庫</span></p>
+                  <p class="small muted" id="lb-filterlabel">連絡先: 電話がある企業だけ ／ 架電の状況: 未架電（新規）だけ<span class="cue" data-in="3.3"> ／ 所在地: 東京都・神奈川県・埼玉県・千葉県</span><span class="cue" data-in="4.6"> ／ 採用カテゴリ: 運輸・交通・物流・倉庫</span></p>
                   <div class="row" style="align-items:flex-end"><div class="field" style="flex:1;margin:0"><label>キーワード（会社名・業種・所在地・市区町村・担当者名・タグ）</label><div class="inp"><span class="ph">製造 東京 -商社　のように空白区切り（-語 でその語を除く）</span></div></div><span class="btn secondary">検索</span></div>
                   <p class="small muted" style="margin:4px 0 10px">空白区切りは<b>AND</b>／<code>-語</code> は<b>その語を含まない</b>。選択肢に無い切り口（社名の一部・住所の細かい違い）はここで絞ります</p>
                   <div class="row">
-                    <div class="field" style="width:150px"><label>ICP適合 最低点</label><div class="inp"><span class="cue" data-in="7.4">60</span><span class="ph show" data-in="0.0" data-out="7.4">60</span></div></div>
+                    <div class="field" style="width:150px"><label>ICP適合 最低点</label><div class="inp"><span class="cue" data-in="5.5">60</span><span class="ph show" data-in="0" data-out="5.5">60</span></div></div>
                     <div class="field" style="width:220px"><label>連絡先</label><div class="sel">電話がある企業だけ</div></div>
                     <div class="field" style="width:220px"><label>架電の状況</label><div class="sel">未架電（新規）だけ</div></div>
                   </div>
-                  <div class="field"><label>ICP優先度 <span class="small muted">クリックで 含む → 除く → 解除</span></label><div class="pickset"><span class="pill pending">後回し</span><span class="pill done cue in" data-click="2.8">✓ 今週架電</span><span class="pill pending">ナーチャリング</span></div></div>
+                  <div class="field"><label>ICP優先度 <span class="small muted">クリックで 含む → 除く → 解除</span></label><div class="pickset"><span class="pill pending">後回し</span><span class="pill done cue in" data-click="2.1">✓ 今週架電</span><span class="pill pending">ナーチャリング</span></div></div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 📐 規模・採用の数字で絞る</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 📋 採用ニーズで絞る（区分 × 対象期 × 温度）</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 🎓 採用の状況で絞る</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 🎯 ICP適合の内訳で絞る（何が強い企業を選ぶか）</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 🪟 今、窓が開いているかで絞る（インテント）</div>
-                  <details open style="margin-top:10px;border-top:1px solid #e5e7eb;padding-top:8px" data-fx="11.5:15.3:条件を足して、当たり先を絞る"><summary style="font-weight:600;font-size:13px">🏢 業種・地域・担当で絞る <span class="pill in_progress cue" data-in="4.4">指定あり</span></summary>
-                    <div class="field" style="margin-top:8px"><label>所在地（都道府県）</label><div class="pickset show" data-in="0.0" data-out="4.4"><span class="pill pending cue in" data-click="3.8">東京都</span><span class="pill pending cue in" data-click="3.9">神奈川県</span><span class="pill pending cue in" data-click="4.2">埼玉県</span><span class="pill pending cue in" data-click="4.4">千葉県</span><span class="pill pending">大阪府</span><span class="pill pending">愛知県</span></div><div class="pickset show" data-in="4.4"><span class="pill done">✓ 東京都</span><span class="pill done">✓ 神奈川県</span><span class="pill done">✓ 埼玉県</span><span class="pill done">✓ 千葉県</span><span class="pill pending">大阪府</span><span class="pill pending">愛知県</span></div></div>
-                    <div class="field"><label>採用カテゴリ（大分類）</label><div class="pickset show" data-in="0.0" data-out="6.2"><span class="pill pending">メーカー</span><span class="pill pending">サービス・レジャー</span><span class="pill pending">流通・小売・フード</span><span class="pill pending cue in" data-click="5.9">運輸・交通・物流・倉庫</span><span class="pill pending">不動産・建設・設備</span></div><div class="pickset show" data-in="6.2"><span class="pill pending">メーカー</span><span class="pill pending">サービス・レジャー</span><span class="pill pending">流通・小売・フード</span><span class="pill done">✓ 運輸・交通・物流・倉庫</span><span class="pill pending">不動産・建設・設備</span></div></div>
+                  <details open style="margin-top:10px;border-top:1px solid #e5e7eb;padding-top:8px" data-fx="8.6:11.4:条件を足して、当たり先を絞る"><summary style="font-weight:600;font-size:13px">🏢 業種・地域・担当で絞る <span class="pill in_progress cue" data-in="3.3">指定あり</span></summary>
+                    <div class="field" style="margin-top:8px"><label>所在地（都道府県）</label><div class="pickset show" data-in="0" data-out="3.3"><span class="pill pending cue in" data-click="2.8">東京都</span><span class="pill pending cue in" data-click="2.9">神奈川県</span><span class="pill pending cue in" data-click="3.1">埼玉県</span><span class="pill pending cue in" data-click="3.3">千葉県</span><span class="pill pending">大阪府</span><span class="pill pending">愛知県</span></div><div class="pickset show" data-in="3.3"><span class="pill done">✓ 東京都</span><span class="pill done">✓ 神奈川県</span><span class="pill done">✓ 埼玉県</span><span class="pill done">✓ 千葉県</span><span class="pill pending">大阪府</span><span class="pill pending">愛知県</span></div></div>
+                    <div class="field"><label>採用カテゴリ（大分類）</label><div class="pickset show" data-in="0" data-out="4.6"><span class="pill pending">メーカー</span><span class="pill pending">サービス・レジャー</span><span class="pill pending">流通・小売・フード</span><span class="pill pending cue in" data-click="4.4">運輸・交通・物流・倉庫</span><span class="pill pending">不動産・建設・設備</span></div><div class="pickset show" data-in="4.6"><span class="pill pending">メーカー</span><span class="pill pending">サービス・レジャー</span><span class="pill pending">流通・小売・フード</span><span class="pill done">✓ 運輸・交通・物流・倉庫</span><span class="pill pending">不動産・建設・設備</span></div></div>
                   </details>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 🏷 タグで絞る（人が付けたまとまり）</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 📞 架電の履歴で絞る</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ ✅ データの質で絞る</div>
                   <div style="border-top:1px solid #e5e7eb;margin-top:10px;padding-top:8px;font-weight:600;font-size:13px">▶ 🚫 除外・重複</div>
                 </div>
-                <div class="panel" data-fx="15.6:27.2:名前を付けてリストを固定する"><h2>窓が開いている順 → ICP適合順（既定）でリストにする</h2>
+                <div class="panel" data-fx="11.6:20.3:名前を付けてリストを固定する"><h2>窓が開いている順 → ICP適合順（既定）でリストにする</h2>
                   <div class="row" style="align-items:flex-end">
-                    <div class="field" style="flex:1 1 320px;margin:0"><label>リスト名</label><div class="inp"><span class="type" data-type="首都圏・運輸物流・未架電（9月第2週）" data-in="15.8" data-dur="2.4"></span></div></div>
-                    <div class="field" style="flex:1 1 260px;margin:0"><label>メモ（何のために作るか）</label><div class="inp"><span class="type" data-type="来週の架電ぶん" data-in="18.5" data-dur="1.1"></span></div></div>
-                    <span class="btn" data-click="20.7">🎯 リストを作る</span>
+                    <div class="field" style="flex:1 1 320px;margin:0"><label>リスト名</label><div class="inp"><span class="type" data-type="首都圏・運輸物流・未架電（9月第2週）" data-in="11.8" data-dur="1.8"></span></div></div>
+                    <div class="field" style="flex:1 1 260px;margin:0"><label>メモ（何のために作るか）</label><div class="inp"><span class="type" data-type="来週の架電ぶん" data-in="13.8" data-dur="0.8"></span></div></div>
+                    <span class="btn" data-click="15.4">🎯 リストを作る</span>
                   </div>
                   <p class="small muted" style="margin:10px 0 0">作ると<b>そのときの企業が固定</b>されます（あとから採点が動いても入れ替わりません）。作ったリストはテレアポ・メール送信の絞り込みから名前で選べます。</p>
                   <p class="small" style="color:var(--warn);margin:6px 0 0">🗣 <b>電話をかける理由がありません</b>（シグナル未検知）の企業が混ざっています。「トリガー」で絞るか、巡回が進むのを待ってから作るほうが、同じ社数でも通ります。</p>
                 </div>
                 <div class="panel p0"><div style="padding:10px 14px;font-size:13px">リストに入る企業（窓が開いている順 → ICP適合順（既定））</div>
                   <table class="tbl"><thead><tr><th>順位</th><th>会社・なぜ今か</th><th>地域/業種</th><th>規模</th><th>採用/エントリー</th><th>ATS</th><th>連絡先</th><th>架電</th><th>🪟 インテント</th><th>ICP適合 <span class="small muted">新/フ/規/到/時/信</span></th></tr></thead><tbody>
-                    <tr class="cue sel" data-in="27.2" data-fx="27.2:34.9:1社ごとの「なぜ今か」" data-fxz="1"><td class="mono">1</td><td><b><a>ロジテック物流株式会社</a></b><br><span class="small">👤 高橋 誠</span><br><span class="small"><b>🪟 人事が薄いのに採用人数が多い（推定）</b></span></td><td>神奈川県<br><span class="small muted">物流</span></td><td>80名</td><td>10名<br><span class="small muted">E—</span></td><td><span class="pill done">未導入</span></td><td class="mono">045-666-7777<br><span class="small">takahashi@logitech-buturyu.example.jp</span></td><td>未架電</td><td><span class="pill done">予兆あり 62</span><br><span class="small muted">6日前</span></td><td><span class="pill in_progress">今週架電 71</span><br><span class="small muted">14/18/9/12/10/8</span></td></tr>
-                    <tr class="cue" data-in="27.7"><td class="mono">2</td><td><b><a>丸高運送株式会社</a></b><br><span class="small"><b>🪟 新しい卒年の採用を開始した</b></span></td><td>埼玉県<br><span class="small muted">運送</span></td><td>120名</td><td>6名<br><span class="small muted">E—</span></td><td>—</td><td class="mono">048-000-1200<br><span class="small muted">メールなし</span></td><td>未架電</td><td><span class="pill done">窓が開いている 74</span><br><span class="small muted">2日前</span></td><td><span class="pill in_progress">今週架電 68</span></td></tr>
-                    <tr class="cue" data-in="28.2"><td class="mono">3</td><td><b><a>東和デリバリー株式会社</a></b><br><span class="small"><b>🪟 採用まわりが動いた（内容は未分類）</b></span></td><td>東京都<br><span class="small muted">配送</span></td><td>64名</td><td>—<br><span class="small muted">E—</span></td><td>—</td><td class="mono">03-0000-6400<br><span class="small">info@towa-dlv.example.jp</span></td><td>未架電</td><td><span class="pill in_progress">予兆あり 55</span></td><td><span class="pill in_progress">今週架電 61</span></td></tr>
-                    <tr class="cue" data-in="28.6"><td class="mono">4</td><td><b><a>ベイサイド倉庫サービス株式会社</a></b></td><td>千葉県<br><span class="small muted">倉庫</span></td><td>210名</td><td>12名</td><td><span class="pill error">導入済</span></td><td class="mono">043-000-2100</td><td>未架電</td><td>未観測</td><td><span class="pill in_progress">今週架電 58</span></td></tr>
+                    <tr class="cue sel" data-in="20.3" data-fx="20.3:26:1社ごとの「なぜ今か」" data-fxz="1"><td class="mono">1</td><td><b><a>ロジテック物流株式会社</a></b><br><span class="small">👤 高橋 誠</span><br><span class="small"><b>🪟 人事が薄いのに採用人数が多い（推定）</b></span></td><td>神奈川県<br><span class="small muted">物流</span></td><td>80名</td><td>10名<br><span class="small muted">E—</span></td><td><span class="pill done">未導入</span></td><td class="mono">045-666-7777<br><span class="small">takahashi@logitech-buturyu.example.jp</span></td><td>未架電</td><td><span class="pill done">予兆あり 62</span><br><span class="small muted">6日前</span></td><td><span class="pill in_progress">今週架電 71</span><br><span class="small muted">14/18/9/12/10/8</span></td></tr>
+                    <tr class="cue" data-in="20.6"><td class="mono">2</td><td><b><a>丸高運送株式会社</a></b><br><span class="small"><b>🪟 新しい卒年の採用を開始した</b></span></td><td>埼玉県<br><span class="small muted">運送</span></td><td>120名</td><td>6名<br><span class="small muted">E—</span></td><td>—</td><td class="mono">048-000-1200<br><span class="small muted">メールなし</span></td><td>未架電</td><td><span class="pill done">窓が開いている 74</span><br><span class="small muted">2日前</span></td><td><span class="pill in_progress">今週架電 68</span></td></tr>
+                    <tr class="cue" data-in="21"><td class="mono">3</td><td><b><a>東和デリバリー株式会社</a></b><br><span class="small"><b>🪟 採用まわりが動いた（内容は未分類）</b></span></td><td>東京都<br><span class="small muted">配送</span></td><td>64名</td><td>—<br><span class="small muted">E—</span></td><td>—</td><td class="mono">03-0000-6400<br><span class="small">info@towa-dlv.example.jp</span></td><td>未架電</td><td><span class="pill in_progress">予兆あり 55</span></td><td><span class="pill in_progress">今週架電 61</span></td></tr>
+                    <tr class="cue" data-in="21.3"><td class="mono">4</td><td><b><a>ベイサイド倉庫サービス株式会社</a></b></td><td>千葉県<br><span class="small muted">倉庫</span></td><td>210名</td><td>12名</td><td><span class="pill error">導入済</span></td><td class="mono">043-000-2100</td><td>未架電</td><td>未観測</td><td><span class="pill in_progress">今週架電 58</span></td></tr>
                   </tbody></table></div>
               </div></div>
               <!-- 条件パネルを画面いっぱいに表示する。.page の外に置く。 -->
-              <div class="fullcard show" data-in="5.6" data-out="11.3"><div class="fc">
+              <div class="fullcard show" data-in="4.2" data-out="8.4"><div class="fc">
                 <p class="fc-h">この2つの掛け算で、当たり先を選ぶ</p>
                 <p class="fc-sub">asumo が持っている企業を、下の2つの条件で絞り込む。</p>
                 <div class="fc-2">
@@ -686,19 +665,20 @@
                 </div>
                 <p class="fc-note">ICP は「合っているか」、インテントは「いま動いているか」。片方だけでは電話をかける理由になりません。</p>
               </div></div>
-              <div class="toast cue" data-in="21.9" data-out="26.7"><div class="banner ok">✅ 「首都圏・運輸物流・未架電（9月第2週）」（BL0007）を作りました。そのまま架電できます。</div></div>
+              <div class="toast cue" data-in="16.3" data-out="19.9"><div class="banner ok">✅ 「首都圏・運輸物流・未架電（9月第2週）」（BL0007）を作りました。そのまま架電できます。</div></div>
             </section>
-            <!-- リスト取込 No.11 -->
-            <section class="scene" data-start="54.2" data-end="57.9" data-nav="/list-import" data-step="1" data-scroll="0.0:0,1.4:0,2.1:520,2.8:980">
+
+            <!-- ===== 2. リスト取込 /list-import ===== -->
+            <section class="scene" data-start="33" data-end="41" data-nav="/list-import" data-step="1" data-scroll="0:0,3:0,4.5:520,6:980">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>リスト取込</h1><div class="meta">CSV/TSV貼付 → 自動プレビュー → 投入（列マッピング・重複処理は詳細設定）</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>1</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link disabled">← 最初の工程</span><span class="flow-link next">次: メール送信 →</span></span></div></div>
-                <div class="panel" data-fx="0.1:1.3:CSVを貼るだけ"><h2><span class="panel-step">1</span>データ取込</h2>
+                <div class="panel" data-fx="0.3:2.8:CSVを貼るだけ"><h2><span class="panel-step">1</span>データ取込</h2>
                   <div style="border:2px dashed var(--n-300);border-radius:12px;padding:18px;text-align:center;background:var(--n-25)"><div style="font-size:22px">📄</div><div style="font-weight:700">CSV / TSV をここにドラッグ＆ドロップ</div><div class="small muted">クリックでフォルダからファイルを選べます。複数ファイル・フォルダごとのドロップにも対応（画面のどこに落としてもOK / 1行目=ヘッダ）</div><div class="row" style="justify-content:center;margin-top:8px"><span class="btn secondary sm">📂 ファイルを選択</span><span class="btn secondary sm">🗂 フォルダを選択</span></div></div>
-                  <div class="field" style="margin-top:12px"><label>または、CSV / TSV を直接貼り付け（1行目=ヘッダ）</label><div class="ta mono" style="min-height:96px"><span class="type" data-type="企業名,HP,業種,職種,担当者,TEL&#10;やまなみ農業協同組合,https://www.ja-yamanami.example.jp,農業協同組合（JA金融機関含む）/共済,一般事務・技術職・専門職,川浦,0267-24-3318&#10;社会福祉法人 みどり川福祉会,https://www.midorikawa-fukushikai.example.jp,福祉サービス/医療機関,介護スタッフ,西沢,0258-46-7124&#10;鶴見台運輸株式会社,https://www.tsurumidai-unyu.example.jp,物流・倉庫/陸運（貨物・バス・タクシー）,,五十住,045-511-8072&#10;五葉信用組合,https://www.goyo-shinkumi.example.jp,信用金庫・労働金庫・信用組合,新卒（大学・院）,吉岡,0178-43-6205&#10;北信越設備工業株式会社,https://www.hokushinetsu-setsubi.example.jp,建設・設備/設備工事・設備設計,,小林,076-233-4180" data-in="0.3" data-dur="1.0"></span></div></div>
+                  <div class="field" style="margin-top:12px"><label>または、CSV / TSV を直接貼り付け（1行目=ヘッダ）</label><div class="ta mono" style="min-height:96px"><span class="type" data-type="企業名,HP,業種,職種,担当者,TEL&#10;やまなみ農業協同組合,https://www.ja-yamanami.example.jp,農業協同組合（JA金融機関含む）/共済,一般事務・技術職・専門職,川浦,0267-24-3318&#10;社会福祉法人 みどり川福祉会,https://www.midorikawa-fukushikai.example.jp,福祉サービス/医療機関,介護スタッフ,西沢,0258-46-7124&#10;鶴見台運輸株式会社,https://www.tsurumidai-unyu.example.jp,物流・倉庫/陸運（貨物・バス・タクシー）,,五十住,045-511-8072&#10;五葉信用組合,https://www.goyo-shinkumi.example.jp,信用金庫・労働金庫・信用組合,新卒（大学・院）,吉岡,0178-43-6205&#10;北信越設備工業株式会社,https://www.hokushinetsu-setsubi.example.jp,建設・設備/設備工事・設備設計,,小林,076-233-4180" data-in="0.6" data-dur="2.2"></span></div></div>
                   <div class="row"><span class="btn secondary sm">サンプルを入れて試す</span><span class="btn secondary sm">下書きを破棄</span><span class="small muted">ファイルを入れるか貼り付けると自動でプレビューします。各列の対応先は自動推定されます。</span></div>
                 </div>
-                <div class="panel cue in" data-in="1.2" data-dis="5.2"><h2><span class="panel-step">2</span>プレビュー</h2>
+                <div class="panel cue in" data-in="2.6" data-dis="5.2" data-fx="2.8:5.5:列の対応先は自動で推定"><h2><span class="panel-step">2</span>プレビュー</h2>
                   <div class="row" style="margin-bottom:10px"><span class="iss-card" style="padding:6px 10px;border-left:none;display:inline-block"><b style="display:block;font-size:16px">,</b><span class="small muted">区切り</span></span><span class="iss-card" style="padding:6px 10px;border-left:none;display:inline-block"><b style="display:block;font-size:16px">6</b><span class="small muted">列数</span></span><span class="iss-card" style="padding:6px 10px;border-left:none;display:inline-block"><b style="display:block;font-size:16px">378</b><span class="small muted">行数</span></span><span class="iss-card" style="padding:6px 10px;border-left:none;display:inline-block"><b style="display:block;font-size:16px">100%</b><span class="small muted">取込先が決まった列</span></span></div>
                   <table class="tbl"><thead><tr><th>企業名<div class="small muted" style="letter-spacing:0">→ 会社名</div></th><th>HP<div class="small muted" style="letter-spacing:0">→ URL</div></th><th>業種<div class="small muted" style="letter-spacing:0">→ 業種</div></th><th>職種<div class="small muted" style="letter-spacing:0">→ 採用対象</div></th><th>担当者<div class="small muted" style="letter-spacing:0">→ 担当者氏名</div></th><th>TEL<div class="small muted" style="letter-spacing:0">→ 担当者電話</div></th></tr></thead><tbody>
                     <tr><td>やまなみ農業協同組合</td><td class="small muted">https://www.ja-yamanami.example.jp</td><td class="small muted">農業協同組合（JA金融機関含む）/共済</td><td>一般事務・技術職・専門職</td><td>川浦</td><td>0267-24-3318</td></tr>
@@ -709,26 +689,27 @@
                   </tbody></table>
                   <p class="small muted" style="margin:10px 0 0">列の対応先や重複時の扱いを変えたいときは、下の「詳細設定」を開いてください。問題なければ「投入実行」へ進めます。</p>
                 </div>
-                <div class="panel cue in" data-in="1.2" style="padding:14px 22px"><b>詳細設定（列マッピング・重複処理）</b> <span class="small muted">▸ merge（既存の空欄のみ補完）</span></div>
-                <div class="panel cue in" data-in="1.2"><h2><span class="panel-step">3</span>既定担当・リード元</h2><div class="grid2"><div class="field"><label>既定の自社担当（salesEmail）</label><div class="inp"><span class="ph">空欄の場合は実行ユーザーが担当になります</span></div></div><div class="field"><label>リード元（leadSource）</label><div class="inp">リスト取込</div></div></div></div>
-                <div class="panel cue in" data-in="1.2" data-fx="2.5:3.7:Dry-Run → 確定して投入"><h2><span class="panel-step">4</span>投入実行</h2>
-                  <div class="row"><span class="btn secondary" data-click="2.2">Dry-Run</span><span class="btn success" data-click="2.9">確定して投入</span><span class="small muted">Dry-Run は書き込まずに件数だけ確認します。</span></div>
-                  <div class="cue" data-in="3.1" style="margin-top:12px"><div class="row"><span class="pill done">新規 341</span><span class="pill error">既存に統合 24</span><span class="pill pending">社名のみ一致 8</span><span class="pill skip">取込不可 5</span><span class="pill in_progress">登録 341</span><span class="pill in_progress">更新 24</span><span class="pill skip">スキップ 13</span></div><div class="small muted" style="margin-top:6px">投入結果 ／ 合計 378 行</div><div class="small" style="margin-top:8px">取り込んだ 341 社は工程5（テレアポ）の対象になりました。 <span class="empty-hint-link">③ テレアポへ →</span></div></div>
+                <div class="panel cue in" data-in="2.6" style="padding:14px 22px"><b>詳細設定（列マッピング・重複処理）</b> <span class="small muted">▸ merge（既存の空欄のみ補完）</span></div>
+                <div class="panel cue in" data-in="2.6"><h2><span class="panel-step">3</span>既定担当・リード元</h2><div class="grid2"><div class="field"><label>既定の自社担当（salesEmail）</label><div class="inp"><span class="ph">空欄の場合は実行ユーザーが担当になります</span></div></div><div class="field"><label>リード元（leadSource）</label><div class="inp">リスト取込</div></div></div></div>
+                <div class="panel cue in" data-in="2.6" data-fx="5.5:8:Dry-Run → 確定して投入"><h2><span class="panel-step">4</span>投入実行</h2>
+                  <div class="row"><span class="btn secondary" data-click="4.8">Dry-Run</span><span class="btn success" data-click="6.2">確定して投入</span><span class="small muted">Dry-Run は書き込まずに件数だけ確認します。</span></div>
+                  <div class="cue" data-in="6.6" style="margin-top:12px"><div class="row"><span class="pill done">新規 341</span><span class="pill error">既存に統合 24</span><span class="pill pending">社名のみ一致 8</span><span class="pill skip">取込不可 5</span><span class="pill in_progress">登録 341</span><span class="pill in_progress">更新 24</span><span class="pill skip">スキップ 13</span></div><div class="small muted" style="margin-top:6px">投入結果 ／ 合計 378 行</div><div class="small" style="margin-top:8px">取り込んだ 341 社は工程5（テレアポ）の対象になりました。 <span class="empty-hint-link">③ テレアポへ →</span></div></div>
                 </div>
               </div></div>
-              <div class="toast cue" data-in="1.1" data-out="2.0"><div class="banner ok">✅ プレビューを生成しました（378行 / 取込先が決まった列 100%）</div></div>
-              <div class="toast cue" data-in="2.4" data-out="2.8"><div class="banner ok">✅ Dry-Run 完了（書き込みはしていません）：新規 341 / 既存に統合 24</div></div>
-              <div class="toast cue" data-in="3.0" data-out="3.7"><div class="banner ok">✅ 投入完了：新規 341 / 更新 24 件</div></div>
+              <div class="toast cue" data-in="2.4" data-out="4.4"><div class="banner ok">✅ プレビューを生成しました（378行 / 取込先が決まった列 100%）</div></div>
+              <div class="toast cue" data-in="5.1" data-out="6.1"><div class="banner ok">✅ Dry-Run 完了（書き込みはしていません）：新規 341 / 既存に統合 24</div></div>
+              <div class="toast cue" data-in="6.5" data-out="8"><div class="banner ok">✅ 投入完了：新規 341 / 更新 24 件</div></div>
             </section>
-            <!-- メール送信 No.12 -->
-            <section class="scene" data-start="57.9" data-end="63.4" data-nav="/outreach" data-step="2" data-scroll="0.0:0,0.2:0,0.7:846,1.6:846,1.8:1104,3.2:1104,3.6:1548,5.5:1548">
+
+            <!-- ===== 3. メール送信 /outreach?tab=dm ===== -->
+            <section class="scene" data-start="41" data-end="54" data-nav="/outreach" data-step="2" data-scroll="0:0,0.5:0,1.6:846,3.8:846,4.2:1104,7.6:1104,8.4:1548,13:1548">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>📧 メール送信</h1><div class="meta">asumo があなたのGmailから送るメールはすべてここから。新規接触の一斉DMと、日程が決まらなかったアポの調整・リスケ。届いた返信も同じ画面で把握します。</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>2</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: リスト作成</span><span class="flow-link next">次: フォーム送信 →</span></span></div></div>
                 <div class="tabs"><span class="tab active">📧 一斉DM</span><span class="tab">📅 日程調整・リスケ</span><span class="tab">📥 受信（返信）</span></div>
                 <p class="small muted" style="margin:-6px 0 12px">リストの企業へ、テンプレートから一斉にメールを出す（新規接触） ／ 相手のサイトの問い合わせフォームから送るなら <b style="color:var(--em-700)">フォーム送信 →</b></p>
                 <div class="panel" style="padding:12px 22px"><div class="row"><span class="pill in_progress">対象</span><span class="pill pending">DM未送</span><span class="pill done">選択中</span><span class="scope" style="margin-left:auto"><span class="radio on"></span>自分の担当 <span class="radio"></span>チーム全体</span></div></div>
-                <div class="panel" style="padding:12px 22px"><div class="row"><span class="btn secondary sm" style="border-color:var(--em-500);color:var(--em-800)">🔍 送る相手を絞り込む ▲</span><div class="inp" style="flex:1"><span class="ph">会社名・担当者名・メール・業種・所在地で検索…（空白区切りでAND）</span></div><span class="btn sm cue in" data-click="0.4">✓ 該当をすべて選択</span><span class="btn secondary sm">✕ 条件をクリア</span></div></div>
+                <div class="panel" style="padding:12px 22px"><div class="row"><span class="btn secondary sm" style="border-color:var(--em-500);color:var(--em-800)">🔍 送る相手を絞り込む ▲</span><div class="inp" style="flex:1"><span class="ph">会社名・担当者名・メール・業種・所在地で検索…（空白区切りでAND）</span></div><span class="btn sm cue in" data-click="0.9">✓ 該当をすべて選択</span><span class="btn secondary sm">✕ 条件をクリア</span></div></div>
                 <div class="panel" style="padding:14px 22px">
                   <div class="flt-row"><span class="flt-lab">🎯 材料ランク（その会社にしか書けない一文を書けるか）</span><span class="flt-chip on">✓ A 観測あり</span><span class="flt-chip on">✓ B 事実あり</span><span class="flt-chip">C 材料なし</span><span class="small muted">A=出典のある観測／B=名指しできる事実／C=取込リストの項目だけ（既定では送りません）</span></div>
                   <div class="flt-row"><span class="flt-lab">🧱 保存済みリスト</span><span class="flt-chip on">✓ 首都圏・運輸物流・未架電（9月第2週）</span><span class="small muted">工程1「リスト作成」で保存したまとまり</span></div>
@@ -741,38 +722,38 @@
                   <div class="row" style="gap:16px;margin-top:6px"><div class="field" style="width:200px;margin:0"><label>メールアドレス</label><div class="sel">すべて</div></div><div class="field" style="width:220px;margin:0"><label>事前調査（パーソナライズの材料）</label><div class="sel">すべて</div></div><div class="field" style="width:200px;margin:0"><label>架電禁止(DNC)の企業</label><div class="sel">一覧に出さない（既定）</div></div></div>
                 </div>
                 <div style="display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start">
-                  <div class="panel" data-fx="0.6:1.7:作ったリストから、送る相手を選ぶ"><h2>対象企業（DM可）</h2>
-                    <div class="tbl-scroll"><table class="tbl"><thead><tr><th style="width:32px"><span class="chk cue in" data-in="0.5"></span></th><th>会社名</th><th>担当者</th><th>メール</th><th>所在地</th><th>カテゴリ</th><th>材料</th><th>DMステータス</th></tr></thead><tbody>
-                      <tr class="cue sel" data-in="0.5"><td><span class="chk on"></span></td><td>ロジテック物流株式会社</td><td>高橋 誠</td><td>takahashi@logitech-buturyu.example.jp</td><td class="small muted">神奈川県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue sel" data-in="0.6"><td><span class="chk on"></span></td><td>東和デリバリー株式会社</td><td><span class="muted">—</span></td><td>info@towa-dlv.example.jp</td><td class="small muted">東京都</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill done">A</span> <span class="small muted">観測あり</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue sel" data-in="0.6"><td><span class="chk on"></span></td><td>ベイサイド倉庫サービス株式会社</td><td>小林 部長</td><td>recruit@bayside-wh.example.jp</td><td class="small muted">千葉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue sel" data-in="0.6"><td><span class="chk on"></span></td><td>第一梱包運輸株式会社</td><td>森 健一</td><td>mori@daiichi-konpou.example.jp</td><td class="small muted">埼玉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill done">A</span> <span class="small muted">観測あり</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue sel" data-in="0.7"><td><span class="chk on"></span></td><td>港南ロジスティクス株式会社</td><td><span class="muted">—</span></td><td>saiyo@konan-logi.example.jp</td><td class="small muted">東京都</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue sel" data-in="0.7"><td><span class="chk on"></span></td><td>みなと急配株式会社</td><td>岡田 主任</td><td>okada@minato-kyuhai.example.jp</td><td class="small muted">神奈川県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue" data-in="0.8"><td><span class="chk"></span></td><td>丸高運送株式会社</td><td><span class="muted">—</span></td><td style="color:var(--danger)">未設定</td><td class="small muted">埼玉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">C</span> <span class="small muted">一般論のみ</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue" data-in="0.8"><td><span class="chk"></span></td><td>セントラル運送株式会社</td><td><span class="muted">—</span></td><td>info@central-unso.example.jp</td><td class="small muted">千葉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">C</span> <span class="small muted">一般論のみ</span></td><td><span class="pill pending">未着手</span></td></tr>
-                      <tr class="cue" data-in="0.9"><td><span class="chk"></span></td><td>青葉台配送センター株式会社</td><td><span class="muted">—</span></td><td>soumu@aobadai-hs.example.jp</td><td class="small muted">神奈川県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">C</span> <span class="small muted">一般論のみ</span></td><td><span class="pill pending">未着手</span></td></tr>
+                  <div class="panel" data-fx="1.4:4.1:作ったリストから、送る相手を選ぶ"><h2>対象企業（DM可）</h2>
+                    <div class="tbl-scroll"><table class="tbl"><thead><tr><th style="width:32px"><span class="chk cue in" data-in="1.1"></span></th><th>会社名</th><th>担当者</th><th>メール</th><th>所在地</th><th>カテゴリ</th><th>材料</th><th>DMステータス</th></tr></thead><tbody>
+                      <tr class="cue sel" data-in="1.2"><td><span class="chk on"></span></td><td>ロジテック物流株式会社</td><td>高橋 誠</td><td>takahashi@logitech-buturyu.example.jp</td><td class="small muted">神奈川県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue sel" data-in="1.3"><td><span class="chk on"></span></td><td>東和デリバリー株式会社</td><td><span class="muted">—</span></td><td>info@towa-dlv.example.jp</td><td class="small muted">東京都</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill done">A</span> <span class="small muted">観測あり</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue sel" data-in="1.4"><td><span class="chk on"></span></td><td>ベイサイド倉庫サービス株式会社</td><td>小林 部長</td><td>recruit@bayside-wh.example.jp</td><td class="small muted">千葉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue sel" data-in="1.5"><td><span class="chk on"></span></td><td>第一梱包運輸株式会社</td><td>森 健一</td><td>mori@daiichi-konpou.example.jp</td><td class="small muted">埼玉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill done">A</span> <span class="small muted">観測あり</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue sel" data-in="1.6"><td><span class="chk on"></span></td><td>港南ロジスティクス株式会社</td><td><span class="muted">—</span></td><td>saiyo@konan-logi.example.jp</td><td class="small muted">東京都</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue sel" data-in="1.7"><td><span class="chk on"></span></td><td>みなと急配株式会社</td><td>岡田 主任</td><td>okada@minato-kyuhai.example.jp</td><td class="small muted">神奈川県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress">B</span> <span class="small muted">事実あり</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue" data-in="1.8"><td><span class="chk"></span></td><td>丸高運送株式会社</td><td><span class="muted">—</span></td><td style="color:var(--danger)">未設定</td><td class="small muted">埼玉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">C</span> <span class="small muted">一般論のみ</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue" data-in="2"><td><span class="chk"></span></td><td>セントラル運送株式会社</td><td><span class="muted">—</span></td><td>info@central-unso.example.jp</td><td class="small muted">千葉県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">C</span> <span class="small muted">一般論のみ</span></td><td><span class="pill pending">未着手</span></td></tr>
+                      <tr class="cue" data-in="2.1"><td><span class="chk"></span></td><td>青葉台配送センター株式会社</td><td><span class="muted">—</span></td><td>soumu@aobadai-hs.example.jp</td><td class="small muted">神奈川県</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">C</span> <span class="small muted">一般論のみ</span></td><td><span class="pill pending">未着手</span></td></tr>
                     </tbody></table></div></div>
                   <div class="panel"><h2>一斉DM</h2>
-                    <div class="field"><label>テンプレート</label><div class="sel"><span class="type" data-type="T03-dm" data-in="0.9" data-dur="0.1"></span></div></div>
-                    <div class="field"><label>文面のパーソナライズ</label><div class="small"><span class="chk on"></span>1社ずつ、その企業の情報をもとに文面を変える</div><div class="small"><span class="chk cue in" data-click="1.2" data-out="1.2"></span><span class="chk on show" data-in="1.2"></span>AIに書かせる（上限を超えたぶんは自動生成文）</div><div class="small muted">差し込む位置はテンプレ本文に {個別提案} と書くと指定できます（無い場合は署名の手前に入ります）。</div><div class="small muted">選択中の材料: A 観測あり / B 事実あり / C 材料なし（既定では C へは送りません）</div></div>
-                    <div class="field cue" data-in="1.3" data-fxz="1.34"><label>プレビュー（先頭の選択企業）</label><div class="panel" style="background:#fafafa;padding:12px;margin:0;box-shadow:none">
+                    <div class="field"><label>テンプレート</label><div class="sel"><span class="type" data-type="T03-dm" data-in="2.2" data-dur="0.2"></span></div></div>
+                    <div class="field"><label>文面のパーソナライズ</label><div class="small"><span class="chk on"></span>1社ずつ、その企業の情報をもとに文面を変える</div><div class="small"><span class="chk cue in" data-click="2.8" data-out="2.9"></span><span class="chk on show" data-in="2.9"></span>AIに書かせる（上限を超えたぶんは自動生成文）</div><div class="small muted">差し込む位置はテンプレ本文に {個別提案} と書くと指定できます（無い場合は署名の手前に入ります）。</div><div class="small muted">選択中の材料: A 観測あり / B 事実あり / C 材料なし（既定では C へは送りません）</div></div>
+                    <div class="field cue" data-in="3.1" data-fx="3.8:5.2:1社ずつAIが書き分ける" data-fxz="1.34"><label>プレビュー（先頭の選択企業）</label><div class="panel" style="background:#fafafa;padding:12px;margin:0;box-shadow:none">
                       <div class="small muted">To: takahashi@logitech-buturyu.example.jp</div><div class="row" style="margin:4px 0"><span class="pill done">差し込み: 観測</span><span class="pill done">裏づけ 82点</span></div>
-                      <div style="font-weight:600;margin:6px 0"><span class="type" data-type="ロジテック物流株式会社様のトラックドライバー採用を支援できます【ネオキャリア】" data-in="1.4" data-dur="0.6"></span></div>
-                      <pre class="small" style="white-space:pre-wrap;margin:0;font-family:inherit"><span class="type" data-type="ロジテック物流株式会社&#10;高橋 誠様&#10;&#10;突然のご連絡失礼いたします。ネオキャリアの高橋と申します。&#10;貴社の採用ページで中型ドライバーを通年で募集されているのを拝見しました。首都圏で中型免許を保有する登録者の直近30日データを、1枚にまとめております。" data-in="2.0" data-dur="1.4"></span></pre>
+                      <div style="font-weight:600;margin:6px 0"><span class="type" data-type="ロジテック物流株式会社様のトラックドライバー採用を支援できます【ネオキャリア】" data-in="3.4" data-dur="1.3"></span></div>
+                      <pre class="small" style="white-space:pre-wrap;margin:0;font-family:inherit"><span class="type" data-type="ロジテック物流株式会社&#10;高橋 誠様&#10;&#10;突然のご連絡失礼いたします。ネオキャリアの高橋と申します。&#10;貴社の採用ページで中型ドライバーを通年で募集されているのを拝見しました。首都圏で中型免許を保有する登録者の直近30日データを、1枚にまとめております。" data-in="4.8" data-dur="3.3"></span></pre>
                       <div class="small muted" style="margin-top:6px">この企業について確認できている材料: 採用ページ（中型ドライバー募集・観測 6日前）・掲載中媒体1件 <span class="btn secondary sm">材料を見る</span></div>
                     </div></div>
                     <div class="field"><span class="btn secondary" style="width:100%;justify-content:center">📄 全社ぶんの文面を確認</span></div>
                     <div class="field"><label>送信モード</label><div class="small"><span class="radio"></span>下書き　<span class="radio on"></span>送信</div><div class="small muted">どちらも<b>あなたのGmail</b>から出ます（下書きはあなたの下書きに入ります）。返信は担当者本人に届きます。</div></div>
                     <div class="field"><span class="btn secondary" style="width:100%;justify-content:center">🔎 採用ページを観測して材料を取る</span><div class="small muted" style="margin-top:4px">相手の採用ページを読み、募集職種・人数・卒年などを記録します。これが取れるとランクCの企業でも<b>「◯◯を拝見しました」で書き出せる</b>ようになります。読めなかった企業は理由が残ります（推測では埋めません）。</div></div>
                     <div class="field"><span class="btn secondary" style="width:100%;justify-content:center">📧 送信前にメール検証</span><div class="small muted" style="margin-top:4px">無効・使い捨て・MXの無い宛先へ送るとバウンスが積み上がり、正当な宛先にも届かなくなります。実送信の前に確認してください。</div></div>
-                    <span class="btn success" data-click="3.7" style="width:100%;justify-content:center" data-fx="3.8:4.6:あなたのGmailから送る">選択企業に一斉DM</span>
+                    <span class="btn success" data-click="8.7" style="width:100%;justify-content:center" data-fx="9.0:10.8:あなたのGmailから送る">選択企業に一斉DM</span>
                   </div>
                 </div>
                 <div class="panel" style="padding:14px 22px;font-size:13px"><b>▶ 🔗 送ったリンクの反応（URL別）</b> <span class="small muted">どの入口が押されているか。開封より確かな指標です</span></div>
               </div></div>
               <!-- 生成された本文を2社分ならべ、書き出しの違いを見せる。 -->
-              <div class="fullcard show" data-in="2.2" data-out="3.8"><div class="fc">
+              <div class="fullcard show" data-in="5.3" data-out="8.9"><div class="fc">
                 <p class="fc-h">同じテンプレートから、1社ずつ違う書き出しになる</p>
                 <p class="fc-sub">差し込むのは観測した事実。<b>色の付いた一文がその会社にしか書けないところ</b>です。</p>
                 <div class="mailcmp">
@@ -794,25 +775,25 @@
                 <p class="fc-note">材料が無い企業（ランクC）は一般論しか書けません。だから工程1で「なぜ今か」を持った企業だけを選んでいます。</p>
               </div></div>
             </section>
-            <!-- フォーム送信 No.13 -->
-            <section class="scene" data-start="63.4" data-end="69.7" data-nav="/form-outreach" data-step="3">
+            <!-- ===== 3b. フォーム送信 /form-outreach ===== -->
+            <section class="scene" data-start="54" data-end="62" data-nav="/form-outreach" data-step="3">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>📝 フォーム送信</h1><div class="meta">相手サイトの問い合わせフォームへ投稿する。文面とURLはここで作り、投稿は担当者が手で行う。</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>3</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: メール送信</span><span class="flow-link next">次: テレアポ →</span></span></div></div>
-                <div class="banner info" data-fx="0.4:2.6:投稿するのは担当者。asumo は手前まで">この画面から<b>自動送信はされません</b>。asumo が引き受けるのは投稿の<b>前</b>——①「🔎 フォームを下調べ」で相手の問い合わせページ・入力欄・<b>営業お断りの明記</b>を実測し、②「フォームを展開」で文面を作り、③各社カードの<b>貼り付けシート</b>を1欄ずつコピーして相手の画面に貼る、までです。送ったら「✓ 送信済」を押すと工程に反映されます（そのあと<b>15分以内の追いかけコール</b>が最も効きます）。</div>
+                <div class="banner info" data-fx="0.5:3.3:投稿するのは担当者。asumo は手前まで">この画面から<b>自動送信はされません</b>。asumo が引き受けるのは投稿の<b>前</b>——①「🔎 フォームを下調べ」で相手の問い合わせページ・入力欄・<b>営業お断りの明記</b>を実測し、②「フォームを展開」で文面を作り、③各社カードの<b>貼り付けシート</b>を1欄ずつコピーして相手の画面に貼る、までです。送ったら「✓ 送信済」を押すと工程に反映されます（そのあと<b>15分以内の追いかけコール</b>が最も効きます）。</div>
                 <div class="panel" style="padding:12px 22px"><div class="row"><span class="pill in_progress">対象 1,763 社</span><span class="pill pending">フォーム未送 1,763</span><span class="pill done">選択中</span><span class="scope" style="margin-left:auto"><span class="radio on"></span>自分の担当 <span class="radio"></span>チーム全体</span></div></div>
                 <div style="display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start">
-                  <div class="panel" data-fx="2.8:6.3:未送信 → 送信済（押すのは人）"><h2>対象企業（フォーム可 1,763 社）</h2>
+                  <div class="panel" data-fx="3.5:8:未送信 → 送信済（押すのは人）"><h2>対象企業（フォーム可 1,763 社）</h2>
                     <div class="banner error small" style="margin-bottom:8px;padding:9px 13px">このうち <b>112 社</b>は相手サイトに「営業お断り」の明記があり、選べません。意思表示を無視した投稿は民法709条の不法行為・信義則違反として扱われます（迷惑料の請求実例あり）。</div>
-                    <div class="tbl-scroll"><table class="tbl"><thead><tr><th style="width:32px"><span class="chk cue in" data-in="0.9"></span></th><th>会社名</th><th>URL</th><th>カテゴリ</th><th>フォームステータス</th></tr></thead><tbody>
-                      <tr class="cue sel" data-in="0.9"><td><span class="chk on"></span></td><td>ロジテック物流株式会社</td><td class="small muted">https://www.logitech-buturyu.example.jp/contact</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress cue in" data-out="3.6">未送信</span><span class="pill done show" data-in="3.6">送信済</span></td></tr>
-                      <tr class="cue sel" data-in="1.0"><td><span class="chk on"></span></td><td>東和デリバリー株式会社</td><td class="small muted">https://www.towa-dlv.example.jp/inquiry</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress cue in" data-out="3.7">未送信</span><span class="pill done show" data-in="3.7">送信済</span></td></tr>
-                      <tr class="cue sel" data-in="1.1"><td><span class="chk on"></span></td><td>ベイサイド倉庫サービス株式会社</td><td class="small muted">https://www.bayside-wh.example.jp/contact/</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress cue in" data-out="3.8">未送信</span><span class="pill done show" data-in="3.8">送信済</span></td></tr>
-                      <tr class="cue sel" data-in="1.2"><td><span class="chk on"></span></td><td>第一梱包運輸株式会社</td><td class="small muted">https://www.daiichi-konpou.example.jp/otoiawase</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
-                      <tr class="cue sel" data-in="1.3"><td><span class="chk on"></span></td><td>港南ロジスティクス株式会社</td><td class="small muted">https://www.konan-logi.example.jp/contact</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
-                      <tr class="cue" data-in="1.3"><td><span class="chk"></span></td><td>丸高運送株式会社</td><td class="small muted">https://www.marutaka-unso.example.jp/form</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">営業お断り</span></td></tr>
-                      <tr class="cue" data-in="1.4"><td><span class="chk"></span></td><td>セントラル運送株式会社</td><td class="small muted">https://www.central-unso.example.jp/contact</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
-                      <tr class="cue" data-in="1.5"><td><span class="chk"></span></td><td>青葉台配送センター株式会社</td><td class="small muted">https://www.aobadai-hs.example.jp/inquiry</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
+                    <div class="tbl-scroll"><table class="tbl"><thead><tr><th style="width:32px"><span class="chk cue in" data-in="1.1"></span></th><th>会社名</th><th>URL</th><th>カテゴリ</th><th>フォームステータス</th></tr></thead><tbody>
+                      <tr class="cue sel" data-in="1.2"><td><span class="chk on"></span></td><td>ロジテック物流株式会社</td><td class="small muted">https://www.logitech-buturyu.example.jp/contact</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress cue in" data-out="4.6">未送信</span><span class="pill done show" data-in="4.6">送信済</span></td></tr>
+                      <tr class="cue sel" data-in="1.3"><td><span class="chk on"></span></td><td>東和デリバリー株式会社</td><td class="small muted">https://www.towa-dlv.example.jp/inquiry</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress cue in" data-out="4.7">未送信</span><span class="pill done show" data-in="4.7">送信済</span></td></tr>
+                      <tr class="cue sel" data-in="1.4"><td><span class="chk on"></span></td><td>ベイサイド倉庫サービス株式会社</td><td class="small muted">https://www.bayside-wh.example.jp/contact/</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill in_progress cue in" data-out="4.8">未送信</span><span class="pill done show" data-in="4.8">送信済</span></td></tr>
+                      <tr class="cue sel" data-in="1.5"><td><span class="chk on"></span></td><td>第一梱包運輸株式会社</td><td class="small muted">https://www.daiichi-konpou.example.jp/otoiawase</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
+                      <tr class="cue sel" data-in="1.6"><td><span class="chk on"></span></td><td>港南ロジスティクス株式会社</td><td class="small muted">https://www.konan-logi.example.jp/contact</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
+                      <tr class="cue" data-in="1.7"><td><span class="chk"></span></td><td>丸高運送株式会社</td><td class="small muted">https://www.marutaka-unso.example.jp/form</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill error">営業お断り</span></td></tr>
+                      <tr class="cue" data-in="1.8"><td><span class="chk"></span></td><td>セントラル運送株式会社</td><td class="small muted">https://www.central-unso.example.jp/contact</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
+                      <tr class="cue" data-in="1.9"><td><span class="chk"></span></td><td>青葉台配送センター株式会社</td><td class="small muted">https://www.aobadai-hs.example.jp/inquiry</td><td class="small muted">運輸・交通・物流・倉庫</td><td><span class="pill pending">未送信</span></td></tr>
                     </tbody></table></div></div>
                   <div class="panel"><h2>一斉フォーム</h2>
                     <ol class="small muted" style="padding-left:18px;margin:0 0 12px">
@@ -821,32 +802,33 @@
                       <li>各社カードのURLを開き、貼り付けシートを上から順に貼って送信。</li>
                       <li>送信したら「✓ 送信済」、対象外なら「⨯ スキップ」。15分以内に追いかけコール。</li>
                     </ol>
-                    <span class="btn" data-click="1.7" style="margin-bottom:10px">🔎 フォームを下調べ</span>
-                    <div class="small muted cue" data-in="2.2" style="margin:0 0 10px">選んだ企業のうち、問い合わせページを特定できたものだけが残ります。「営業お断り」の明記がある企業とフォームの無い企業は外れます。</div>
-                    <div class="field"><label>テンプレート</label><div class="sel"><span class="type" data-type="T07-form" data-in="2.5" data-dur="0.2"></span></div></div>
+                    <span class="btn" data-click="2.1" style="margin-bottom:10px">🔎 フォームを下調べ</span>
+                    <div class="small muted cue" data-in="2.8" style="margin:0 0 10px">選んだ企業のうち、問い合わせページを特定できたものだけが残ります。「営業お断り」の明記がある企業とフォームの無い企業は外れます。</div>
+                    <div class="field"><label>テンプレート</label><div class="sel"><span class="type" data-type="T07-form" data-in="3.2" data-dur="0.2"></span></div></div>
                     <div class="small" style="margin:0 0 10px"><span class="chk on"></span>1社ずつ、その企業の情報をもとに文面を変える</div>
                     <span class="btn secondary" style="margin-bottom:8px">🔎 採用ページを観測して材料を取る</span>
-                    <span class="btn" data-click="3.4">📝 フォームを展開</span>
+                    <span class="btn" data-click="4.3">📝 フォームを展開</span>
                   </div>
                 </div>
               </div></div>
-              <div class="toast cue" data-in="2.0" data-out="3.4"><div class="banner ok">✅ 下調べ完了：問い合わせページを特定しました（営業お断り・フォームなしは除外）。</div></div>
-              <div class="toast cue" data-in="3.7" data-out="5.0"><div class="banner ok">✅ 選んだ企業ぶんの貼り付けシートを作りました。各社のURLを開いて貼り付けてください。</div></div>
+              <div class="toast cue" data-in="2.6" data-out="4.3"><div class="banner ok">✅ 下調べ完了：問い合わせページを特定しました（営業お断り・フォームなしは除外）。</div></div>
+              <div class="toast cue" data-in="4.7" data-out="6.4"><div class="banner ok">✅ 選んだ企業ぶんの貼り付けシートを作りました。各社のURLを開いて貼り付けてください。</div></div>
             </section>
-            <!-- テレアポ No.15-22（見せ場・v1 と同じ尺） -->
-            <section class="scene" data-start="72.1" data-end="112.0" data-nav="/teleapo" data-step="4" data-scroll="0.0:0,1.6:0,3.2:260,5.1:260,5.9:130,24.5:130,25.6:780,26.9:780,28.0:750,30.4:750,31.3:120,34.2:120,35.0:875,37.7:875">
+
+            <!-- ===== 4. テレアポ /teleapo ===== -->
+            <section class="scene" data-start="62" data-end="102" data-nav="/teleapo" data-step="4" data-scroll="0:0,1.6:0,3.2:260,5.1:260,5.9:130,24.6:130,25.7:780,27:780,28.1:750,30.5:750,31.4:120,34.3:120,35.1:875,37.8:875">
               <div class="page"><div class="container" style="max-width:1680px;padding-top:14px">
                 <div class="page-head fit"><h1>テレアポ</h1><div class="meta">今日コールすべき企業</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>4</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: フォーム送信</span><span class="flow-link next">次: 初回商談資料作成 →</span></span></div></div>
                 <div class="teleapo-rail">
-                  <div class="rail-panel hot open show" data-in="0.0" data-out="5.1" style="box-shadow:0 0 0 1.5px var(--co-200),var(--e1)">
+                  <div class="rail-panel hot open show" data-in="0" data-out="5.1" style="box-shadow:0 0 0 1.5px var(--co-200),var(--e1)">
                     <div class="row" style="font-weight:700">▼ <span style="color:var(--co-700)">⏰ 追いかけリスト</span> <span class="small" style="color:var(--co-700)">追いかけ 1件（🔔 時間です 1件）</span><span class="btn secondary sm" style="margin-left:auto">🔔 音あり</span></div>
                     <div class="small muted" style="font-weight:400;margin:4px 0 6px">予定時刻になっても画面は切り替わりません。ここで「📞 開く」を押したときだけ架電カードが開きます。（自分の担当ぶんを表示中）</div>
                     <div class="small" style="color:var(--co-700)">🔔 時間です <span class="muted">1件</span></div>
                     <div style="display:grid;grid-template-columns:110px 1fr auto;gap:10px;align-items:center;border:1px solid var(--co-200);background:#fff8f7;border-radius:10px;padding:10px 12px;margin-top:6px;font-weight:400;font-size:12.5px"><div><b class="tnum">10:30</b><br><span class="tiny" style="color:var(--co-700)">10分前</span></div><div><b>さくら介護サービス株式会社</b> <span class="tiny" style="color:var(--co-700)">⏰ 予約</span><br><span class="tiny muted">木村 部長　03-0000-1180　misaki.takahashi</span><br><span class="tiny muted">📝 9時以降なら担当者在席とのこと</span></div><div class="row" style="gap:6px"><span class="btn sm" style="background:linear-gradient(180deg,var(--co-400),var(--co-500))">📞 開く</span><span class="btn secondary sm">+15分</span><span class="btn secondary sm">+1時間</span><span class="btn secondary sm">+3時間</span><span class="btn secondary sm">翌営業日</span><span class="btn success sm">✓ 完了</span><span class="btn danger sm">取消</span></div></div>
                   </div>
                   <div class="rail-panel hot show" data-in="5.1"><span>▶</span><span style="color:var(--co-700)">⏰ 追いかけ</span><span class="small" style="font-weight:700;color:var(--co-700)">1件 🔔1</span><span class="btn secondary sm" style="margin-left:auto">🔔</span></div>
-                  <div class="rail-panel open show" data-in="0.0" data-out="5.1" data-fx="0.3:3.5:今日のコール一覧">
+                  <div class="rail-panel open show" data-in="0" data-out="5.1" data-fx="0.3:3.5:今日のコール一覧">
                     <div class="row" style="font-weight:700">▼ 今日のコール一覧（40件）<span class="btn secondary sm" style="margin-left:auto">📌 架電中は畳む</span></div>
                     <div class="teleapo-tools"><span class="btn secondary sm">🔄 再取得</span><span>自分の担当</span><span class="btn secondary sm">＋ 企業を追加</span><span class="scope"><span class="radio on"></span>自分の担当 <span class="radio"></span>チーム全体</span></div>
                     <div class="row small" style="margin-bottom:8px;font-weight:500;gap:18px">🔥 リストホット化（自分） <span><b>企業の予算検討時期 2</b><span class="muted"> / 11</span></span><span><b>ニーズの存在把握 3</b><span class="muted"> / 19</span></span><span><b>採用担当者名の収集 4</b><span class="muted"> / 27</span></span><span class="muted">本日 / 累計</span></div>
@@ -866,7 +848,7 @@
                   <span class="scope show" data-in="5.1" style="margin-left:auto"><span class="radio on"></span>自分の担当 <span class="radio"></span>チーム全体</span>
                 </div>
 
-                <div class="tcpit show" data-in="5.1" data-fx="5.1:6.8:架電コックピット">
+                <div class="tcpit show" data-in="5.1" data-fx="5.15:6.8:架電コックピット">
                   <div class="app-shell">
                     <div class="app-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="path">/teleapo — 架電</span><span class="modehint">発信モード</span><span class="switch"><span class="on">☎ Zoom運用</span><span>📱 スマホ架電</span></span></div>
                     <div class="app-body"><div class="cockpit">
@@ -878,7 +860,7 @@
                           <div class="co-person"><span class="muted">担当</span><span><span class="muted">部署未登録</span> <span class="linkbtn">✏</span></span><span></span><span class="who">高橋 誠 <span class="linkbtn" style="font-size:11px;vertical-align:middle">✏</span></span><span></span><span class="small"><span class="muted">ふりがな未登録</span> <span class="linkbtn">✏</span> <span class="linkbtn">読みを調べる</span></span></div>
                           <div class="small"><span class="muted">相手</span>　未記録 <span class="linkbtn">✏</span></div>
                           <div class="hotset"><span class="hot cue" data-in="10.5">🔥 企業の予算検討時期：2027年6月</span><span class="hot cue" data-in="13.2">🔥 ニーズの存在把握</span><span class="hot cue" data-in="16.3">🧩 母集団</span></div>
-                          <div class="dial-row" data-fx="10.8:13.5:発信はワンクリック"><span class="dial-num">045-666-7777</span><span class="pill pending">代表</span><span class="btn call show" data-in="0.0" data-click="6.5" data-out="7.0"><span>📞 Zoom発信</span></span><span class="btn call show" data-in="7.0" data-out="17.8">☎ 通話中 <span id="calltimer">0:00</span></span><span class="btn call show" data-in="17.8">📞 Zoom発信</span><span class="linkbtn">✏</span><span class="linkbtn">✉ メール</span></div>
+                          <div class="dial-row" data-fx="10.8:13.5:発信はワンクリック"><span class="dial-num">045-666-7777</span><span class="pill pending">代表</span><span class="btn call show" data-in="0" data-click="6.5" data-out="7"><span>📞 Zoom発信</span></span><span class="btn call show" data-in="7" data-out="17.8">☎ 通話中 <span id="calltimer">0:00</span></span><span class="btn call show" data-in="17.8">📞 Zoom発信</span><span class="linkbtn">✏</span><span class="linkbtn">✉ メール</span></div>
                         </div></div>
                         <div class="blk"><div class="tabbar"><span class="t on">事前調査</span><span class="t">議事録 <span class="n">0</span></span><span class="t">追いかけ</span><span class="t">実績</span></div><div class="tab-panel">
                           <div class="tab-sub">AI調査済 <span class="pill done" style="font-size:10px">出典 十分（72/100）</span></div>
@@ -899,8 +881,8 @@
                       </div>
                       <!-- 中：企業ごとの切り口 / 通話・録音 -->
                       <div class="blk" data-fx="8.1:9.4:中央 ─ この企業ごとの切り口">
-                        <div class="tabbar"><span class="t on show" data-in="0.0" data-out="18.4">企業ごとの切り口</span><span class="t show" data-in="18.4">企業ごとの切り口</span><span class="t">架電結果 <span class="n">0</span></span><span class="t show" data-in="0.0" data-out="18.4">通話・録音 <span class="n">0</span></span><span class="t on show" data-in="18.4">通話・録音 <span class="n">1</span></span></div>
-                        <div class="tab-panel show" data-in="0.0" data-out="18.4">
+                        <div class="tabbar"><span class="t on show" data-in="0" data-out="18.4">企業ごとの切り口</span><span class="t show" data-in="18.4">企業ごとの切り口</span><span class="t">架電結果 <span class="n">0</span></span><span class="t show" data-in="0" data-out="18.4">通話・録音 <span class="n">0</span></span><span class="t on show" data-in="18.4">通話・録音 <span class="n">1</span></span></div>
+                        <div class="tab-panel show" data-in="0" data-out="18.4">
                           <div class="tab-sub"><span class="badge-src intent-on">🎯 ロジテック物流株式会社向け</span><span class="sp"><span class="linkbtn">✏編集</span></span></div>
                           <div class="intent-why"><span class="pill done">予兆あり 62</span> <b>人事が薄いのに採用人数が多い</b> <span class="iw-inf">推定</span><div style="margin-top:4px">従業員80名の規模で年間10名を採用されている</div></div>
                           <div class="rs-sec" style="margin-top:10px"><div class="rs-sec-h">この切り口の出どころ</div>
@@ -908,64 +890,64 @@
                             <div class="tiny muted" style="margin-top:4px">出どころの無い言い切りは作りません。推定は「推定」と付けたまま渡します。</div>
                           </div>
                                                   </div>
-                        <div class="tab-panel show" data-in="18.4" data-fx="21.5:25.0:録音と文字起こしは自動で溜まる">
+                        <div class="tab-panel show" data-in="18.4" data-fx="21.6:25.1:録音と文字起こしは自動で溜まる">
                           <div class="tab-sub"><span class="linkbtn">👁 開かず全件</span><span class="sp">全1件 · <span class="linkbtn">↻更新</span> · <span class="linkbtn">🔄同期</span></span></div>
-                          <div style="display:grid;grid-template-columns:auto auto 1fr auto auto;gap:10px;align-items:center;font-size:12px;padding:8px 6px;border-bottom:1px solid var(--border)"><span class="tnum muted">9/11 10:21</span><span class="pill done" style="font-size:10px">発信</span><span>misaki.takahashi ・ <span id="calldur">5分12秒</span> ・ 接続</span><span style="display:inline-flex;align-items:center;gap:6px;background:var(--panel-3);border-radius:999px;padding:4px 10px;font-size:11px">▶ <span style="display:inline-block;width:90px;height:4px;background:var(--border-strong);border-radius:2px"></span> 0:00</span><span><span class="show" data-in="0.0" data-out="20.0" style="font-size:10.5px;background:#FEF4E8;color:#a16207;padding:1px 7px;border-radius:999px">処理中…</span><span class="linkbtn show" data-in="20.0">📝 全文 <span class="muted">2,140字</span></span></span></div>
+                          <div style="display:grid;grid-template-columns:auto auto 1fr auto auto;gap:10px;align-items:center;font-size:12px;padding:8px 6px;border-bottom:1px solid var(--border)"><span class="tnum muted">9/11 10:21</span><span class="pill done" style="font-size:10px">発信</span><span>misaki.takahashi ・ <span id="calldur">5分12秒</span> ・ 接続</span><span style="display:inline-flex;align-items:center;gap:6px;background:var(--panel-3);border-radius:999px;padding:4px 10px;font-size:11px">▶ <span style="display:inline-block;width:90px;height:4px;background:var(--border-strong);border-radius:2px"></span> 0:00</span><span><span class="show" data-in="0" data-out="20" style="font-size:10.5px;background:#FEF4E8;color:#a16207;padding:1px 7px;border-radius:999px">処理中…</span><span class="linkbtn show" data-in="20">📝 全文 <span class="muted">2,140字</span></span></span></div>
                           <div class="note" style="margin-top:8px">通話が終わると自動で蓄積されます（自律ジョブ zoom-call-sync）。録音は行内で再生できます。</div>
                         </div>
                       </div>
                       <!-- 右：架電メモ ⇄ ヒアリング確定 -->
                       <div class="blk in" data-fx="9.4:10.8:右 ─ 架電メモ">
-                        <div class="show" data-in="0.0" data-out="26.4">
+                        <div class="show" data-in="0" data-out="26.5">
                           <div class="blk-h"><span class="rail"></span>架電メモ（主）</div>
                           <div class="blk-b">
-                            <div class="f memo-big" data-fx="17.3:21.5:打つのは架電メモだけ" data-fxz="1.34"><label>会話しながら記入（架電結果と一緒に保存）</label><div class="ta"><span class="type" data-type="高橋課長ご本人。ドライバーの高齢化、若手が来ない。来期4月に10名増員予定、今年は3名しか採れていない。予算は来年6月に確定で年600万ほど。中型免許の登録数データに反応あり。来週なら時間とれる、日程は追って返事。" data-in="7.3" data-dur="10.3"><span class="ph">通話の要点をそのまま書く…（この内容と録音の文字起こしから、ヒアリング項目が自動反映されます）</span></span></div></div>
-                            <div class="auto"><div class="auto-h">🤖 自動ヒアリング反映 <span class="linkbtn cue in" data-click="22.1">↻ いま書いたメモも読む</span><span class="live">この企業の架電履歴すべてから</span></div>
-                              <div class="note cue in" data-out="22.9">この企業の架電メモからは、まだ反映できる項目が見つかっていません。メモを書いて「↻ いま書いたメモも読む」を押してください。</div>
-                              <dl class="kv2 show" data-in="22.9"><dt>担当者氏名</dt><dd class="cue" data-in="22.9">高橋 誠</dd><dt>役職名</dt><dd class="cue" data-in="23.1">採用課長</dd><dt>採用対象</dt><dd class="cue" data-in="23.3">トラックドライバー</dd><dt>27卒の採用目標人数</dt><dd class="cue" data-in="23.4">10</dd><dt>27卒の採用実績人数</dt><dd class="cue" data-in="23.6">3</dd><dt>課題感</dt><dd class="cue" data-in="23.7">ドライバーの高齢化と若手の応募不足</dd><dt>想定年間採用予算</dt><dd class="cue" data-in="23.9">600万</dd><dt>3カ月以内の導入予算</dt><dd class="cue" data-in="24.1">3カ月以内に検討できる予算がある</dd></dl>
+                            <div class="f memo-big" data-fx="17.3:21.6:打つのは架電メモだけ" data-fxz="1.34"><label>会話しながら記入（架電結果と一緒に保存）</label><div class="ta"><span class="type" data-type="高橋課長ご本人。ドライバーの高齢化、若手が来ない。来期4月に10名増員予定、今年は3名しか採れていない。予算は来年6月に確定で年600万ほど。中型免許の登録数データに反応あり。来週なら時間とれる、日程は追って返事。" data-in="7.3" data-dur="10.3"><span class="ph">通話の要点をそのまま書く…（この内容と録音の文字起こしから、ヒアリング項目が自動反映されます）</span></span></div></div>
+                            <div class="auto"><div class="auto-h">🤖 自動ヒアリング反映 <span class="linkbtn cue in" data-click="22.2">↻ いま書いたメモも読む</span><span class="live">この企業の架電履歴すべてから</span></div>
+                              <div class="note cue in" data-out="23">この企業の架電メモからは、まだ反映できる項目が見つかっていません。メモを書いて「↻ いま書いたメモも読む」を押してください。</div>
+                              <dl class="kv2 show" data-in="23"><dt>担当者氏名</dt><dd class="cue" data-in="23">高橋 誠</dd><dt>役職名</dt><dd class="cue" data-in="23.2">採用課長</dd><dt>採用対象</dt><dd class="cue" data-in="23.4">トラックドライバー</dd><dt>27卒の採用目標人数</dt><dd class="cue" data-in="23.5">10</dd><dt>27卒の採用実績人数</dt><dd class="cue" data-in="23.7">3</dd><dt>課題感</dt><dd class="cue" data-in="23.8">ドライバーの高齢化と若手の応募不足</dd><dt>想定年間採用予算</dt><dd class="cue" data-in="24">600万</dd><dt>3カ月以内の導入予算</dt><dd class="cue" data-in="24.2">3カ月以内に検討できる予算がある</dd></dl>
                               <div class="note">※ 下書きです。<b>アポ獲得</b>を押すと確認フォームが開き、必須項目を確定します。</div></div>
                             <div class="seclab">採用ニーズ <span>（任意・押すとすぐ保存）</span></div><div class="pickset"><span class="pick">新卒(大院)</span><span class="pick">新卒(短専)</span><span class="pick">高卒</span><span class="pick cue in" data-click="10.8" data-on="10.9">中途</span><span class="pick">ﾊﾟｰﾄ</span></div>
-                            <div class="seclab">リストホット化</div><div class="pickset" data-fx="13.5:17.3:リストホット化（予算時期・ニーズ）"><span class="pick cue in" data-click="9.7" data-on="9.9"><span class="cue in" data-out="10.5">企業の予算検討時期</span><span class="show" data-in="10.5">企業の予算検討時期：2027年6月</span></span><span class="pick cue in" data-click="13.0" data-on="13.1">ニーズの存在把握</span><span class="pick cue in" data-click="8.6" data-on="8.8">採用担当者名の収集</span></div>
-                            <div class="show" data-in="9.9" data-out="12.7" style="border:1px solid var(--co-200);background:#fff8f7;border-radius:9px;padding:8px 10px;margin-top:8px"><div class="small"><b>検討時期はいつごろ？</b> <span class="tiny muted">月で選ぶ・聞けていなければ選ばないまま記録してよい</span></div><div class="pickset" style="margin:6px 0"><span class="pick">今月・9月</span><span class="pick">来月・10月</span><span class="pick">11月</span><span class="pick">12月</span><span class="pick">27年1月</span><span class="pick">27年2月</span><span class="pick">27年3月</span><span class="pick">27年4月</span><span class="pick">27年5月</span><span class="pick cue in" data-click="10.4" data-on="10.5">27年6月</span><span class="pick">27年7月</span><span class="pick">27年8月</span></div><div class="tiny muted"><span class="show" data-in="0.0" data-out="10.5">月を選ぶと、架電リストの「🗓 検討時期」で絞り込めるようになります</span><span class="show" data-in="10.5">検討時期: 2027年6月（架電結果を記録すると保存されます）</span></div></div>
-                            <div class="show" data-in="13.1" data-out="17.0" style="border:1px solid var(--co-200);background:#fff8f7;border-radius:9px;padding:8px 10px;margin-top:8px"><div class="small"><b>どんな採用課題？</b> <span class="tiny muted">複数可・押すとすぐ保存</span></div><div class="pickset" style="margin:6px 0"><span class="pick cue in" data-click="16.2" data-on="16.3">母集団</span><span class="pick">歩留まり</span><span class="pick">内定辞退</span><span class="pick">工数</span><span class="pick">単価</span><span class="pick">質・ミスマッチ</span><span class="pick">担当者不在</span></div><div class="tiny muted">中途（2026年度） の課題として保存します</div></div>
-                            <div class="seclab">担当者接続有無</div><div class="pickset"><span class="pick cue in" data-click="24.8" data-on="24.9">接続あり</span><span class="pick">接続なし</span><span class="pick on show" data-in="0.0" data-out="24.9">自動</span><span class="pick show" data-in="24.9">自動</span></div>
+                            <div class="seclab">リストホット化</div><div class="pickset" data-fx="13.5:17.3:リストホット化（予算時期・ニーズ）"><span class="pick cue in" data-click="9.7" data-on="9.9"><span class="cue in" data-out="10.5">企業の予算検討時期</span><span class="show" data-in="10.5">企業の予算検討時期：2027年6月</span></span><span class="pick cue in" data-click="13" data-on="13.1">ニーズの存在把握</span><span class="pick cue in" data-click="8.6" data-on="8.8">採用担当者名の収集</span></div>
+                            <div class="show" data-in="9.9" data-out="12.7" style="border:1px solid var(--co-200);background:#fff8f7;border-radius:9px;padding:8px 10px;margin-top:8px"><div class="small"><b>検討時期はいつごろ？</b> <span class="tiny muted">月で選ぶ・聞けていなければ選ばないまま記録してよい</span></div><div class="pickset" style="margin:6px 0"><span class="pick">今月・9月</span><span class="pick">来月・10月</span><span class="pick">11月</span><span class="pick">12月</span><span class="pick">27年1月</span><span class="pick">27年2月</span><span class="pick">27年3月</span><span class="pick">27年4月</span><span class="pick">27年5月</span><span class="pick cue in" data-click="10.4" data-on="10.5">27年6月</span><span class="pick">27年7月</span><span class="pick">27年8月</span></div><div class="tiny muted"><span class="show" data-in="0" data-out="10.5">月を選ぶと、架電リストの「🗓 検討時期」で絞り込めるようになります</span><span class="show" data-in="10.5">検討時期: 2027年6月（架電結果を記録すると保存されます）</span></div></div>
+                            <div class="show" data-in="13.1" data-out="17" style="border:1px solid var(--co-200);background:#fff8f7;border-radius:9px;padding:8px 10px;margin-top:8px"><div class="small"><b>どんな採用課題？</b> <span class="tiny muted">複数可・押すとすぐ保存</span></div><div class="pickset" style="margin:6px 0"><span class="pick cue in" data-click="16.2" data-on="16.3">母集団</span><span class="pick">歩留まり</span><span class="pick">内定辞退</span><span class="pick">工数</span><span class="pick">単価</span><span class="pick">質・ミスマッチ</span><span class="pick">担当者不在</span></div><div class="tiny muted">中途（2026年度） の課題として保存します</div></div>
+                            <div class="seclab">担当者接続有無</div><div class="pickset"><span class="pick cue in" data-click="24.9" data-on="25">接続あり</span><span class="pick">接続なし</span><span class="pick on show" data-in="0" data-out="25">自動</span><span class="pick show" data-in="25">自動</span></div>
                             <div class="seclab">手ごたえ <span>（任意）</span></div><div class="pickset"><span class="pick">👍 よかった</span><span class="pick">👎 悪かった</span><span class="pick on">未選択</span></div>
-                            <div class="in-foot"><div class="seclab" style="margin-top:0">架電結果</div><div class="results" data-fx="25.0:26.9:架電結果から「アポ獲得」">
+                            <div class="in-foot"><div class="seclab" style="margin-top:0">架電結果</div><div class="results" data-fx="25.1:27:架電結果から「アポ獲得」">
                               <span class="res">担当者不在</span><span class="res">受付ブロック</span><span class="res neg">断り</span>
-                              <span class="res win" data-click="25.8">アポ獲得</span><span class="res">営業フォロー</span><span class="res neg">現在使われていない</span>
+                              <span class="res win" data-click="25.9">アポ獲得</span><span class="res">営業フォロー</span><span class="res neg">現在使われていない</span>
                               <span class="res">コールのみ</span><span class="res">営業時間外</span><span class="res">問い合わせ</span>
                               <span class="res">資料送付</span><span class="res keep">🔁 再架電</span>
                             </div></div>
                           </div>
                         </div>
-                        <div class="show" data-in="26.4">
+                        <div class="show" data-in="26.5">
                           <div class="blk-h"><span class="rail"></span><span style="color:var(--tsuccess)">✅ ヒアリング確定（アポ獲得）</span><span class="sp"><span class="linkbtn">← メモに戻る</span></span></div>
                           <div class="blk-b">
                             <div class="note" style="margin-bottom:8px">この企業の架電履歴（メモ・文字起こし）から自動入力済み。値の下の 🤖 が根拠です。<b>必須（*）</b>を確認・修正して確定してください。</div>
-                            <div class="hear-sec" data-fx="31.3:34.5:「日程は後で調整」にチェック" data-fxz="1.34"><div class="hh">初回商談の日程<span class="rq">*</span> <span class="fhint">確定すると 会議URL発行 → Googleカレンダー登録 → 確定メール送信 まで行います</span></div>
+                            <div class="hear-sec" data-fx="31.4:34.6:「日程は後で調整」にチェック" data-fxz="1.34"><div class="hh">初回商談の日程<span class="rq">*</span> <span class="fhint">確定すると 会議URL発行 → Googleカレンダー登録 → 確定メール送信 まで行います</span></div>
                               <div class="row" style="gap:6px"><div class="hf" style="flex:1"><label>日時（日本時間・30分刻み）</label><div class="v"><span class="ph">—</span></div></div><div class="hf" style="width:70px"><label>所要</label><div class="v">60分</div></div><div class="hf" style="width:90px"><label>実施方法</label><div class="v">Zoom</div></div></div>
                               <div class="fhint">空いている候補（高橋 美咲 さんのカレンダー） <span class="linkbtn">↻ 再取得</span> ✅ カレンダー確認済み（予定と重なる 3 枠を除外）</div>
                               <div class="pickset" style="margin:4px 0"><span class="pick" style="opacity:.6">9月16日(水) 14:00</span><span class="pick" style="opacity:.6">9月17日(木) 10:00</span><span class="pick" style="opacity:.6">9月18日(金) 11:00</span></div>
                               <div class="hf"><label>確定メール</label><div class="v">文面を確認してから送る</div></div>
-                              <div class="small"><span class="chk show" data-in="0.0" data-click="31.8" data-out="31.9"></span><span class="chk on show" data-in="31.9"></span>日程は後で調整（日程調整タブへ）</div>
+                              <div class="small"><span class="chk show" data-in="0" data-click="31.9" data-out="32"></span><span class="chk on show" data-in="32"></span>日程は後で調整（日程調整タブへ）</div>
                             </div>
                             <div class="hear-sec"><div class="hh">■ 基本情報</div><div class="hs">アポ化に必須（商談日程は上の欄）</div>
-                              <div class="hf"><label>担当者氏名<span class="rq">*</span></label><div class="v cue" data-in="27.2">高橋 誠</div><div class="fhint">名字のみでも可。ただし漢字で入力する。 🤖 架電メモ「高橋課長ご本人」</div></div>
-                              <div class="hf"><label>担当者メール<span class="rq">*</span></label><div class="v cue" data-in="27.6">takahashi@logitech-buturyu.example.jp</div></div>
+                              <div class="hf"><label>担当者氏名<span class="rq">*</span></label><div class="v cue" data-in="27.3">高橋 誠</div><div class="fhint">名字のみでも可。ただし漢字で入力する。 🤖 架電メモ「高橋課長ご本人」</div></div>
+                              <div class="hf"><label>担当者メール<span class="rq">*</span></label><div class="v cue" data-in="27.7">takahashi@logitech-buturyu.example.jp</div></div>
                               
                             </div>
-                            <div class="hear-sec" data-fx="26.9:30.4:ヒアリングは自動で埋まる"><div class="hh">■ 必須ヒアリング</div><div class="hs">ここが埋まらないとアポ獲得として記録できません</div>
-                              <div class="hf"><label>接触人数<span class="rq">*</span></label><div class="v cue" data-in="28.0">45</div><div class="fhint">30人以上が条件（100人が理想）。母集団のうち実際に接触できている人数。</div></div>
-                              <div class="hf"><label>27卒の採用目標人数<span class="rq">*</span></label><div class="v cue" data-in="28.4">10</div><div class="fhint">🤖 架電メモ「来期4月に10名増員予定」</div></div>
-                              <div class="hf"><label>28卒の選考開始予定時期<span class="rq">*</span></label><div class="v cue" data-in="28.9">27年3月ごろ</div></div>
-                              <div class="hf"><label>3カ月以内の導入予算<span class="rq">*</span></label><div class="v cue" data-in="29.3">3カ月以内に検討できる予算がある</div><div class="fhint">🤖 架電メモ「予算は来年6月に確定で年600万ほど」</div></div>
-                              <div class="hf"><label>採用対象<span class="rq">*</span></label><div class="v cue" data-in="29.7">トラックドライバー</div></div>
-                              <div class="hf"><label>課題感<span class="rq">*</span></label><div class="v cue" data-in="30.2">ドライバーの高齢化と若手の応募不足</div></div>
+                            <div class="hear-sec" data-fx="27:30.5:ヒアリングは自動で埋まる"><div class="hh">■ 必須ヒアリング</div><div class="hs">ここが埋まらないとアポ獲得として記録できません</div>
+                              <div class="hf"><label>接触人数<span class="rq">*</span></label><div class="v cue" data-in="28.1">45</div><div class="fhint">30人以上が条件（100人が理想）。母集団のうち実際に接触できている人数。</div></div>
+                              <div class="hf"><label>27卒の採用目標人数<span class="rq">*</span></label><div class="v cue" data-in="28.5">10</div><div class="fhint">🤖 架電メモ「来期4月に10名増員予定」</div></div>
+                              <div class="hf"><label>28卒の選考開始予定時期<span class="rq">*</span></label><div class="v cue" data-in="29">27年3月ごろ</div></div>
+                              <div class="hf"><label>3カ月以内の導入予算<span class="rq">*</span></label><div class="v cue" data-in="29.4">3カ月以内に検討できる予算がある</div><div class="fhint">🤖 架電メモ「予算は来年6月に確定で年600万ほど」</div></div>
+                              <div class="hf"><label>採用対象<span class="rq">*</span></label><div class="v cue" data-in="29.8">トラックドライバー</div></div>
+                              <div class="hf"><label>課題感<span class="rq">*</span></label><div class="v cue" data-in="30.3">ドライバーの高齢化と若手の応募不足</div></div>
                             </div>
                             <div class="hear-sec"><div class="hh">■ 追加ヒアリング</div><div class="hs">聞けた分だけ残す（未入力でもアポ化できます）</div>
                               <div class="hf"><label>27卒の採用実績人数</label><div class="v">3</div></div><div class="hf"><label>想定年間採用予算</label><div class="v">600万</div></div><div class="hf"><label>役職名</label><div class="v">採用課長</div></div>
                             </div>
-                            <div class="savebar" data-fx="34.5:36.7:アポ獲得を確定 → 商談を登録"><span class="btn success sm show" data-in="0.0" data-out="31.9">✅ アポ獲得を確定 → 商談を登録</span><span class="btn success sm show" data-in="31.9" data-click="33.4">✅ アポ獲得を確定 → 日程調整へ</span><span class="btn secondary sm">🤖 再反映</span><span class="btn secondary sm">← 戻る</span><span class="btn secondary sm">💾 保存</span></div>
+                            <div class="savebar" data-fx="34.6:36.8:アポ獲得を確定 → 商談を登録"><span class="btn success sm show" data-in="0" data-out="32">✅ アポ獲得を確定 → 商談を登録</span><span class="btn success sm show" data-in="32" data-click="33.5">✅ アポ獲得を確定 → 日程調整へ</span><span class="btn secondary sm">🤖 再反映</span><span class="btn secondary sm">← 戻る</span><span class="btn secondary sm">💾 保存</span></div>
                           </div>
                         </div>
                       </div>
@@ -975,32 +957,33 @@
               </div></div>
               <div class="callcount">コール <span class="v" id="cc-calls">23</span> <span class="muted">|</span> 接続 <span class="v ok" id="cc-conn">7</span> <span class="muted">30%</span> ▲</div>
               <div class="toast cue" data-in="6.7" data-out="9.2"><div class="banner ok">✅ Zoom Phoneで発信します（045-666-7777）。通話が終わると自動で検知して、次の発信ができるようになります。</div></div>
-              <div class="toast cue" data-in="26.1" data-out="28.3"><div class="banner info">ℹ️ アポ獲得：ヒアリングと商談日程を確認して「アポ獲得を確定」を押してください。</div></div>
-              <div class="toast cue" data-in="33.7" data-out="35.8"><div class="banner ok">✅ アポ獲得を記録しました。日程調整（メール送信タブ）で候補日時を送ってください。</div></div>
+              <div class="toast cue" data-in="26.2" data-out="28.4"><div class="banner info">ℹ️ アポ獲得：ヒアリングと商談日程を確認して「アポ獲得を確定」を押してください。</div></div>
+              <div class="toast cue" data-in="33.8" data-out="35.9"><div class="banner ok">✅ アポ獲得を記録しました。日程調整（メール送信タブ）で候補日時を送ってください。</div></div>
             </section>
-            <!-- 日程調整・お客様のスマホ No.24-26 -->
-            <section class="scene" data-start="114.3" data-end="129.1" data-nav="/outreach" data-step="4" data-scroll="0.0:0,0.7:0,1.9:330,3.4:330,4.3:1040,6.2:1040,6.7:1343,7.4:1343">
+
+            <!-- ===== 5. 日程調整 /outreach?tab=schedule → /picker ===== -->
+            <section class="scene" data-start="102" data-end="113" data-nav="/outreach" data-step="4" data-scroll="0:0,0.5:0,1.4:330,2.5:330,3.2:1040,4.6:1040,5:1343,5.5:1343">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>📧 メール送信</h1><div class="meta">asumo があなたのGmailから送るメールはすべてここから。新規接触の一斉DMと、日程が決まらなかったアポの調整・リスケ。届いた返信も同じ画面で把握します。</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>2</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: リスト作成</span><span class="flow-link next">次: フォーム送信 →</span></span></div></div>
                 <div class="tabs"><span class="tab">📧 一斉DM</span><span class="tab active">📅 日程調整・リスケ</span><span class="tab">📥 受信（返信）</span></div>
                 <p class="small muted" style="margin:-6px 0 12px">その場で日時が決まらなかったアポへ候補日時を送る／確定済みの商談日程を変更する（通常はテレアポ画面でそのまま確定します）</p>
                 <div class="panel"><h2>確定済みの商談日程を直す</h2><p class="tiny muted">アポ獲得のときに提示した日時が違っていたら、ここで直します。会議URLとパスコードはそのままに、カレンダーの予定（と Zoom 会議）の時刻だけを差し替えるので、相手が受け取ったURLはそのまま使えます。</p><div class="row"><span class="btn secondary sm">再取得</span><span class="small muted">0 件（これから行う商談）</span></div><p class="small muted" style="margin:8px 0 0">これから行う商談はありません（日程が確定した商談だけがここに出ます）。</p></div>
-                <div class="panel" data-fx="0.4:3.4:日時がまだ決まっていない企業"><h2>調整待ち企業</h2><p class="tiny muted">アポは獲得したが<b>日時がまだ決まっていない</b>企業（工程4:テレアポが未完了）です。通常はテレアポ画面でアポ獲得と同時に日時まで確定するので、ここに並ぶのは「その場で決まらなかった」ぶんだけになります。カレンダーの空き枠から候補日時を作り、顧客が自分で枠を選べる調整URLをメールで送ります。</p>
+                <div class="panel" data-fx="0.3:2.5:日時がまだ決まっていない企業"><h2>調整待ち企業</h2><p class="tiny muted">アポは獲得したが<b>日時がまだ決まっていない</b>企業（工程4:テレアポが未完了）です。通常はテレアポ画面でアポ獲得と同時に日時まで確定するので、ここに並ぶのは「その場で決まらなかった」ぶんだけになります。カレンダーの空き枠から候補日時を作り、顧客が自分で枠を選べる調整URLをメールで送ります。</p>
                   <div class="row" style="margin-bottom:8px"><span class="btn secondary">再取得</span><span class="scope"><span class="radio on"></span>自分の担当 <span class="radio"></span>チーム全体</span><span class="small muted">1 件</span></div>
-                  <table class="tbl"><thead><tr><th>会社名</th><th>カテゴリ</th><th>担当者氏名</th><th>担当者メール</th><th>自社担当</th></tr></thead><tbody><tr class="cue in" data-sel="0.7" data-click="0.7"><td>ロジテック物流株式会社</td><td>MY10_運輸交通物流倉庫</td><td>高橋 誠</td><td class="mono">takahashi@logitech-buturyu.example.jp</td><td class="mono">misaki.takahashi@neo-career.co.jp</td></tr></tbody></table></div>
-                <div class="panel cue" data-in="0.8"><h2>選択中: ロジテック物流株式会社</h2><div class="row"><span class="pill skip">MY10_運輸交通物流倉庫</span><span class="pill in_progress">進行中</span></div>
+                  <table class="tbl"><thead><tr><th>会社名</th><th>カテゴリ</th><th>担当者氏名</th><th>担当者メール</th><th>自社担当</th></tr></thead><tbody><tr class="cue in" data-sel="0.5" data-click="0.5"><td>ロジテック物流株式会社</td><td>MY10_運輸交通物流倉庫</td><td>高橋 誠</td><td class="mono">takahashi@logitech-buturyu.example.jp</td><td class="mono">misaki.takahashi@neo-career.co.jp</td></tr></tbody></table></div>
+                <div class="panel cue" data-in="0.6"><h2>選択中: ロジテック物流株式会社</h2><div class="row"><span class="pill skip">MY10_運輸交通物流倉庫</span><span class="pill in_progress">進行中</span></div>
                   <table class="tbl" style="margin-top:8px"><tbody><tr><th>担当者氏名</th><td>高橋 誠</td><th>自社担当</th><td class="mono">misaki.takahashi@neo-career.co.jp</td></tr><tr><th>従業員数</th><td>80</td><th>資本金</th><td>—</td></tr><tr><th>URL</th><td colspan="3"><a>https://logitech-buturyu.example.jp</a></td></tr></tbody></table></div>
-                <div class="panel cue" data-in="0.8"><h2>STEP1｜空き枠を取得</h2>
-                  <div class="row" style="align-items:flex-end"><div class="field" style="width:120px;margin:0"><label>候補件数</label><div class="sel">4</div></div><div class="field" style="width:120px;margin:0"><label>期間</label><div class="sel">14日</div></div><span class="btn" data-click="1.9">🔍 空き枠を取得</span></div>
-                  <div class="cue" data-in="2.4" data-fx="3.4:6.2:予定と重なる枠は自動で除外"><p class="small" style="margin:10px 0 6px">✅ 高橋 美咲 さんのカレンダーで空きを確認済み（予定と重なる 3 枠を除外しました）</p>
+                <div class="panel cue" data-in="0.6"><h2>STEP1｜空き枠を取得</h2>
+                  <div class="row" style="align-items:flex-end"><div class="field" style="width:120px;margin:0"><label>候補件数</label><div class="sel">4</div></div><div class="field" style="width:120px;margin:0"><label>期間</label><div class="sel">14日</div></div><span class="btn" data-click="1.4">🔍 空き枠を取得</span></div>
+                  <div class="cue" data-in="1.8" data-fx="2.5:4.6:予定と重なる枠は自動で除外"><p class="small" style="margin:10px 0 6px">✅ 高橋 美咲 さんのカレンダーで空きを確認済み（予定と重なる 3 枠を除外しました）</p>
                     <table class="tbl"><thead><tr><th style="width:50px">#</th><th>候補日時</th><th style="width:70px">区分</th><th style="width:90px"></th></tr></thead><tbody>
                       <tr><td>1</td><td>9月16日(水) 14:00</td><td><span class="pill pm">午後</span></td><td><span class="btn danger sm">✕ 除外</span></td></tr>
                       <tr><td>2</td><td>9月17日(木) 10:00</td><td><span class="pill am">午前</span></td><td><span class="btn danger sm">✕ 除外</span></td></tr>
                       <tr><td>3</td><td>9月17日(木) 16:00</td><td><span class="pill pm">午後</span></td><td><span class="btn danger sm">✕ 除外</span></td></tr>
                       <tr><td>4</td><td>9月18日(金) 11:00</td><td><span class="pill am">午前</span></td><td><span class="btn danger sm">✕ 除外</span></td></tr>
                     </tbody></table></div></div>
-                <div class="panel cue" data-in="2.4"><h2>STEP2｜メール作成・送信</h2>
+                <div class="panel cue" data-in="1.8"><h2>STEP2｜メール作成・送信</h2>
                   <div class="field"><label class="small muted">宛先</label><div class="inp">takahashi@logitech-buturyu.example.jp</div></div>
                   <div class="field"><label class="small muted">件名</label><div class="inp">【ネオキャリア】ロジテック物流株式会社 高橋 誠様｜採用に関するご提案</div></div>
                   <div class="field"><label class="small muted">本文</label><div class="ta" style="min-height:120px;font-size:12.5px">ロジテック物流株式会社
@@ -1009,88 +992,89 @@
 お世話になっております。ネオキャリアの高橋 美咲です。
 本日はお電話でお時間をいただきありがとうございました。下記URLよりご都合のよい日時をお選びください。</div></div>
                   <div class="field"><label class="small muted">顧客向け調整URL（顧客がこのURLで枠を選択します）</label><a style="color:var(--em-700);font-size:12.5px" class="mono">https://asumo.example/picker?token=a91f…</a></div>
-                  <div class="row"><span class="btn secondary">📝 Gmail下書き作成</span><span class="btn success" data-click="5.5" data-fx="6.2:7.7:調整URL入りのメールを送信">🚀 直接送信</span></div>
+                  <div class="row"><span class="btn secondary">📝 Gmail下書き作成</span><span class="btn success" data-click="4.1" data-fx="4.6:5.7:調整URL入りのメールを送信">🚀 直接送信</span></div>
                 </div>
                 <div class="panel" style="padding:14px 22px;font-weight:600;font-size:13px">▶ 詳細設定 / 検証</div>
               </div></div>
               <!-- 顧客側 /picker（別ページ・社内ログイン不要） -->
-              <div class="picker-wrap show" data-in="7.4"><div class="picker-card show" data-in="0.0" data-out="11.4" data-fx="7.7:11.2:お客様の画面（ログイン不要）"><h1>日程調整</h1><p class="picker-lead">ロジテック物流株式会社 高橋 誠 様<br>ご都合の良い日時をお選びください。</p>
-                <div class="picker-slots"><span class="picker-slot">9月16日(水) 14:00</span><span class="picker-slot cue in" data-click="9.3" data-on="9.4">9月17日(木) 10:00</span><span class="picker-slot">9月17日(木) 16:00</span><span class="picker-slot">9月18日(金) 11:00</span></div>
-                <div class="picker-confirm cue in" data-on="9.4" data-click="10.5">この日時で確定する</div><div class="picker-foot">担当: 高橋 美咲</div></div>
-                <div class="picker-card show" data-in="11.4" data-fx="11.4:14.8:確定すると担当に通知"><div class="picker-check">✓</div><h1>日程が確定しました</h1><p class="picker-lead">9月17日(木) 10:00 でお打ち合わせを承りました。<br>担当より改めてご連絡いたします。</p><div class="picker-foot">担当: 高橋 美咲</div></div>
+              <div class="picker-wrap show" data-in="5.5"><div class="picker-card show" data-in="0" data-out="8.5" data-fx="5.7:8.3:お客様の画面（ログイン不要）"><h1>日程調整</h1><p class="picker-lead">ロジテック物流株式会社 高橋 誠 様<br>ご都合の良い日時をお選びください。</p>
+                <div class="picker-slots"><span class="picker-slot">9月16日(水) 14:00</span><span class="picker-slot cue in" data-click="6.9" data-on="7">9月17日(木) 10:00</span><span class="picker-slot">9月17日(木) 16:00</span><span class="picker-slot">9月18日(金) 11:00</span></div>
+                <div class="picker-confirm cue in" data-on="7" data-click="7.8">この日時で確定する</div><div class="picker-foot">担当: 高橋 美咲</div></div>
+                <div class="picker-card show" data-in="8.5" data-fx="8.5:11:確定すると担当に通知"><div class="picker-check">✓</div><h1>日程が確定しました</h1><p class="picker-lead">9月17日(木) 10:00 でお打ち合わせを承りました。<br>担当より改めてご連絡いたします。</p><div class="picker-foot">担当: 高橋 美咲</div></div>
               </div>
             </section>
-            <!-- 初回商談資料 No.28,29 -->
-            <section class="scene" data-start="131.5" data-end="143.5" data-nav="/proposal" data-step="5" data-scroll="0.0:0,1.0:0,1.8:382,4.0:382,4.7:865,9.8:865,10.3:1082,12.0:1082">
+            <!-- ===== 6. 初回商談資料作成 /proposal ===== -->
+            <section class="scene" data-start="113" data-end="130" data-nav="/proposal" data-step="5" data-scroll="0:0,1.4:0,2.5:382,5.7:382,6.7:865,13.9:865,14.6:1082,17:1082">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>初回商談資料作成</h1><div class="meta">課題仮説をAI生成し、媒体プランから初回商談の資料を生成</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>5</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: テレアポ</span><span class="flow-link next">次: 商談議事録 →</span></span></div></div>
-                <div class="panel" data-fx="0.3:1.5:アポ獲得済みの企業を選ぶ"><div class="h2row"><h2>顧客選択（1件）</h2><span class="btn secondary">再取得</span></div><p class="small muted" style="margin:-6px 0 8px">アポ獲得済み（工程4:テレアポが完了）で、初回商談資料がまだの企業だけを表示しています。</p>
-                  <table class="tbl"><thead><tr><th>会社名</th><th>カテゴリ</th><th>自社担当</th><th>工程4状態</th></tr></thead><tbody><tr class="cue in" data-click="0.5" data-sel="0.6"><td>ロジテック物流株式会社</td><td>MY10_運輸交通物流倉庫</td><td class="mono">misaki.takahashi@neo-career.co.jp</td><td><span class="pill done">完了</span></td></tr></tbody></table></div>
-                <div class="panel"><h2>選択中</h2><div class="row"><label style="margin:0">会社名</label><b class="cue" data-in="0.7">ロジテック物流株式会社</b><label style="margin:0 0 0 12px">カテゴリ</label><span class="pill skip cue" data-in="0.7">MY10_運輸交通物流倉庫</span></div></div>
-                <div class="panel"><h2>初回ヒアリングの議事録</h2><p class="small muted">初回ヒアリングで聞いた内容を貼り付けてください。ここから<b>課題仮説</b>と提案書の<b>「貴社情報のご確認」</b>（採用対象・現状の採用手法・課題感・想定規模）を組み立てます。任意入力で、貼らなくても従来どおり蓄積データから作成します。<b>保存すると商談に残る</b>ので、次にこの画面を開いたときも同じ議事録から仮説を作ります。</p>
-                  <div class="ta" style="min-height:110px;font-size:12.5px"><span class="type" data-type="採用対象: 中型ドライバー 10名（来期4月）&#10;現状の採用手法: 自社採用ページ・ハローワーク・紹介&#10;課題:&#10;・ドライバーの高齢化、若手の応募が集まらない&#10;・繁忙期の増車に人員が追いつかない&#10;目標人数: 10名（今年の実績3名）" data-in="2.0" data-dur="2.3"></span></div>
-                  <div class="row" style="margin-top:8px"><span class="btn" data-click="4.4">議事録を保存</span><span class="btn secondary">この議事録から仮説を作り直す</span><span class="small muted">128文字</span><span class="small cue" data-in="4.6" style="color:var(--em-700)">✓ 保存済み（2026-09-16 17:02）</span></div>
+                <div class="panel" data-fx="0.4:2.1:アポ獲得済みの企業を選ぶ"><div class="h2row"><h2>顧客選択（1件）</h2><span class="btn secondary">再取得</span></div><p class="small muted" style="margin:-6px 0 8px">アポ獲得済み（工程4:テレアポが完了）で、初回商談資料がまだの企業だけを表示しています。</p>
+                  <table class="tbl"><thead><tr><th>会社名</th><th>カテゴリ</th><th>自社担当</th><th>工程4状態</th></tr></thead><tbody><tr class="cue in" data-click="0.7" data-sel="0.9"><td>ロジテック物流株式会社</td><td>MY10_運輸交通物流倉庫</td><td class="mono">misaki.takahashi@neo-career.co.jp</td><td><span class="pill done">完了</span></td></tr></tbody></table></div>
+                <div class="panel"><h2>選択中</h2><div class="row"><label style="margin:0">会社名</label><b class="cue" data-in="1">ロジテック物流株式会社</b><label style="margin:0 0 0 12px">カテゴリ</label><span class="pill skip cue" data-in="1">MY10_運輸交通物流倉庫</span></div></div>
+                <div class="panel" data-fx="2.1:5.7:ヒアリングの議事録を貼る"><h2>初回ヒアリングの議事録</h2><p class="small muted">初回ヒアリングで聞いた内容を貼り付けてください。ここから<b>課題仮説</b>と提案書の<b>「貴社情報のご確認」</b>（採用対象・現状の採用手法・課題感・想定規模）を組み立てます。任意入力で、貼らなくても従来どおり蓄積データから作成します。<b>保存すると商談に残る</b>ので、次にこの画面を開いたときも同じ議事録から仮説を作ります。</p>
+                  <div class="ta" style="min-height:110px;font-size:12.5px"><span class="type" data-type="採用対象: 中型ドライバー 10名（来期4月）&#10;現状の採用手法: 自社採用ページ・ハローワーク・紹介&#10;課題:&#10;・ドライバーの高齢化、若手の応募が集まらない&#10;・繁忙期の増車に人員が追いつかない&#10;目標人数: 10名（今年の実績3名）" data-in="2.8" data-dur="3.2"></span></div>
+                  <div class="row" style="margin-top:8px"><span class="btn" data-click="6.2">議事録を保存</span><span class="btn secondary">この議事録から仮説を作り直す</span><span class="small muted">128文字</span><span class="small cue" data-in="6.5" style="color:var(--em-700)">✓ 保存済み（2026-09-16 17:02）</span></div>
                   <div style="border-top:1px solid #e5e7eb;padding-top:12px;margin-top:12px"><div class="row"><h3 style="background:none;border:0;padding:0;margin:0;font-size:14px;color:var(--n-900);flex:1">議事録から読み取った顧客項目</h3><span class="btn secondary sm">議事録から読み取る</span></div><p class="small muted" style="margin:6px 0 4px">ここで反映した値が<b>顧客データ</b>に入り、提案書の「貴社情報のご確認」と課題仮説の材料になります。項目はテレアポのヒアリングシートと同じもので、<b>反映するまで顧客データは変わりません</b>。値は手直しできます。</p><p class="small muted" style="margin:0">まだ読み取っていません。議事録を貼って「議事録から読み取る」を押してください。</p></div></div>
-                <div class="panel"><div class="h2row"><h2>課題仮説（3つ）</h2><span class="btn secondary" data-click="4.9">仮説を再生成</span></div>
-                  <p class="small muted cue" data-in="5.1" data-out="5.8" style="margin:-6px 0 8px">この企業の顧客DB・企業調査・過去架電・架電メモを分析して仮説を作成中…</p>
-                  <p class="small muted show" data-in="5.8" style="margin:-6px 0 8px">🤖 Gemini生成 / 分析した情報: 顧客DB・企業調査・架電メモ1件・初回ヒアリングの議事録</p>
-                  <div class="field" data-fx="6.0:7.8:根拠は架電メモと企業調査" data-fxz="1.4"><label>仮説1</label><div class="inp"><span class="type" data-type="来期4月に10名の増員に対し今年の実績が3名。母集団の量で差が埋まっていない。" data-in="5.9" data-dur="1.2"><span class="ph">採用課題の仮説（40〜80字目安）</span></span></div><div class="small muted cue" data-in="7.1">根拠: 架電メモ「来期4月に10名増員予定、今年は3名しか採れていない」</div></div>
-                  <div class="field"><label>仮説2</label><div class="inp"><span class="type" data-type="若手の応募不足は「未経験可」の設計と、営業所の通勤圏での露出不足が主因と推定。" data-in="7.2" data-dur="1.2"><span class="ph">採用課題の仮説（40〜80字目安）</span></span></div><div class="small muted cue" data-in="8.4">根拠: 企業調査「若手離れ」／採用ページ（中型ドライバー通年募集）</div></div>
-                  <div class="field" data-fx="8.4:9.9:仮説には必ず根拠が付く"><label>仮説3</label><div class="inp"><span class="type" data-type="予算は来年6月確定。10〜12月で実績を作り、来期の年間契約へつなげる。" data-in="8.5" data-dur="1.1"><span class="ph">採用課題の仮説（40〜80字目安）</span></span></div><div class="small muted cue" data-in="9.6">根拠: 架電メモ「予算は来年6月に確定で年600万ほど」</div></div></div>
-                <div class="panel" data-fx="10.0:12.0:提案書をGoogleスライドに"><div class="h2row"><h2>提案書の生成</h2><span class="btn success" data-click="10.2">提案書を生成</span></div>
+                <div class="panel" data-fx="5.7:8.5:AIが課題仮説を3つ"><div class="h2row"><h2>課題仮説（3つ）</h2><span class="btn secondary" data-click="6.9">仮説を再生成</span></div>
+                  <p class="small muted cue" data-in="7.2" data-out="8.2" style="margin:-6px 0 8px">この企業の顧客DB・企業調査・過去架電・架電メモを分析して仮説を作成中…</p>
+                  <p class="small muted show" data-in="8.2" style="margin:-6px 0 8px">🤖 Gemini生成 / 分析した情報: 顧客DB・企業調査・架電メモ1件・初回ヒアリングの議事録</p>
+                  <div class="field" data-fx="8.5:11:根拠は架電メモと企業調査" data-fxz="1.4"><label>仮説1</label><div class="inp"><span class="type" data-type="来期4月に10名の増員に対し今年の実績が3名。母集団の量で差が埋まっていない。" data-in="8.4" data-dur="1.7"><span class="ph">採用課題の仮説（40〜80字目安）</span></span></div><div class="small muted cue" data-in="10.1">根拠: 架電メモ「来期4月に10名増員予定、今年は3名しか採れていない」</div></div>
+                  <div class="field"><label>仮説2</label><div class="inp"><span class="type" data-type="若手の応募不足は「未経験可」の設計と、営業所の通勤圏での露出不足が主因と推定。" data-in="10.2" data-dur="1.7"><span class="ph">採用課題の仮説（40〜80字目安）</span></span></div><div class="small muted cue" data-in="11.9">根拠: 企業調査「若手離れ」／採用ページ（中型ドライバー通年募集）</div></div>
+                  <div class="field" data-fx="11.9:14:仮説には必ず根拠が付く"><label>仮説3</label><div class="inp"><span class="type" data-type="予算は来年6月確定。10〜12月で実績を作り、来期の年間契約へつなげる。" data-in="12" data-dur="1.6"><span class="ph">採用課題の仮説（40〜80字目安）</span></span></div><div class="small muted cue" data-in="13.6">根拠: 架電メモ「予算は来年6月に確定で年600万ほど」</div></div></div>
+                <div class="panel" data-fx="14.2:17:提案書をGoogleスライドに"><div class="h2row"><h2>提案書の生成</h2><span class="btn success" data-click="14.5">提案書を生成</span></div>
                   <p class="small" style="margin:-4px 0 8px">このまま生成すると、表紙・貴社情報のご確認・課題仮説・課題と解決策の対応・スケジュール・次のアクションの構成になります。<b>初回は媒体・金額を出しません</b>（商談で聞いた内容をもとに、2回目の資料で提案します）。 主題は「ドライバー採用の母集団を、通勤圏で作り直す」です。</p>
                   <table class="tbl"><thead><tr><th style="width:48px">P</th><th>スライド</th><th>内容</th></tr></thead><tbody><tr><td>1</td><td>表紙</td><td>ロジテック物流株式会社 御中／ドライバー採用強化のご提案</td></tr><tr><td>2</td><td>貴社情報のご確認</td><td>採用対象: 中型ドライバー 10名／現状: 自社ページ・ハローワーク・紹介</td></tr><tr><td>3</td><td>課題仮説</td><td>仮説1〜3</td></tr><tr><td>4</td><td>課題と解決策の対応</td><td>仮説ごとに、打ち手と想定される効果</td></tr><tr><td>6</td><td>次のアクション</td><td>次回までに確認すること／お持ちする資料</td></tr></tbody></table>
-                  <div class="cue" data-in="10.7" style="margin-top:10px"><span class="btn secondary">📊 Google スライドを開く</span> <span class="small muted">Google ドライブに作成しました。共同編集や共有リンクが使えます。</span></div></div>
+                  <div class="cue" data-in="15.2" style="margin-top:10px"><span class="btn secondary">📊 Google スライドを開く</span> <span class="small muted">Google ドライブに作成しました。共同編集や共有リンクが使えます。</span></div></div>
               </div></div>
-              <div class="toast cue" data-in="10.6" data-out="12.0"><div class="banner ok">✅ 提案書を生成しました 🟢 Google Slides</div></div>
+              <div class="toast cue" data-in="15" data-out="17"><div class="banner ok">✅ 提案書を生成しました 🟢 Google Slides</div></div>
             </section>
-            <!-- 商談議事録 No.31,32 -->
-            <section class="scene" data-start="151.9" data-end="162.7" data-nav="/minutes2" data-step="6" data-scroll="0.0:0,3.4:0,4.1:560,6.1:560,6.7:880,10.5:880">
+
+            <!-- ===== 7. 議事録 /minutes2 ===== -->
+            <section class="scene" data-start="130" data-end="143" data-nav="/minutes2" data-step="6" data-scroll="0:0,4.1:0,4.9:560,7.3:560,8.1:880,12.6:880">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>商談議事録</h1><div class="meta">商談を録る → 確認して確定 → 企業DBへ</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>6</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: 初回商談資料作成</span><span class="flow-link next">次: 2回目商談資料作成 →</span></span></div></div>
-                <div class="panel m2-live show" data-in="0.0" data-out="0.7" data-fx="0.2:0.7:商談が始まっています"><div class="m2-live-head"><h2 class="m2-live-title" style="background:none;border:0;padding:0;margin:0;color:var(--n-900)">商談が始まっています</h2><span class="pill pending">録音は自動では始まりません</span></div>
+                <div class="panel m2-live show" data-in="0" data-out="0.8" data-fx="0.2:0.8:商談が始まっています"><div class="m2-live-head"><h2 class="m2-live-title" style="background:none;border:0;padding:0;margin:0;color:var(--n-900)">商談が始まっています</h2><span class="pill pending">録音は自動では始まりません</span></div>
                   <div class="small muted" style="margin:6px 0">ロジテック物流株式会社 ・ 予定の時間帯です（10:00〜） ・ Zoom のクラウド録画が動いています（録音の操作は要りません）</div>
-                  <div class="row"><span class="btn">会議を開く</span><span class="btn secondary sm" data-click="0.5">自動が動いていない → 手動で録音</span></div></div>
-                <div class="panel m2-live on show" data-in="0.7"><div class="m2-live-head"><span class="m2-dot"></span><h2 class="m2-live-title" style="background:none;border:0;padding:0;margin:0;color:var(--n-900)">録音中 — ロジテック物流株式会社</h2><span class="m2-elapsed" id="rec-elapsed">0:00</span><span class="small muted">送信 <span id="rec-sent">0</span>本 / 文字起こし <span id="rec-seg">0</span>発話</span><span class="pill pending">マイクのみ</span></div>
+                  <div class="row"><span class="btn">会議を開く</span><span class="btn secondary sm" data-click="0.6">自動が動いていない → 手動で録音</span></div></div>
+                <div class="panel m2-live on show" data-in="0.8" data-fx="0.8:3.7:収録とリアルタイム文字起こし"><div class="m2-live-head"><span class="m2-dot"></span><h2 class="m2-live-title" style="background:none;border:0;padding:0;margin:0;color:var(--n-900)">録音中 — ロジテック物流株式会社</h2><span class="m2-elapsed" id="rec-elapsed">0:00</span><span class="small muted">送信 <span id="rec-sent">0</span>本 / 文字起こし <span id="rec-seg">0</span>発話</span><span class="pill pending">マイクのみ</span></div>
                   <div class="m2-meters"><span>自分</span><span class="m2-meter"><i id="mt-us"></i></span><span>相手</span><span class="m2-meter"><i id="mt-them"></i></span></div>
-                  <div class="row"><span class="btn secondary cue in" data-click="0.9">会議タブの音声を足す</span><span class="btn success" data-click="3.1">収録を終了して議事録を作る</span><span class="btn secondary">破棄する</span></div>
-                  <div class="m2-tx"><div class="m2-line cue" data-in="1.2"><span class="m2-who us">自社</span><span>本日はお時間をいただきありがとうございます。まず、前回お電話で伺った10名の増員の件から。</span></div><div class="m2-line cue" data-in="1.7"><span class="m2-who them">相手</span><span>ええ、4月までに10名。今年は3名しか採れていないので、正直焦っています。</span></div><div class="m2-line cue" data-in="2.2"><span class="m2-who us">自社</span><span>通勤圏での露出を作り直す案を持ってきました。ドライバーズワークの拡大プランで…</span></div><div class="m2-line cue" data-in="2.7"><span class="m2-who them">相手</span><span>未経験の方の定着が心配で。研修の事例があれば見たいです。</span></div></div></div>
-                <div class="m2-stats"><div class="m2-stat"><div class="m2-stat-num">0</div><div class="m2-stat-name">議事録が無い商談</div></div><div class="m2-stat todo"><div class="m2-stat-num" data-count="0,1" data-in="3.6" data-dur="0.2">0</div><div class="m2-stat-name">あなたの確認待ち</div></div><div class="m2-stat"><div class="m2-stat-num">0</div><div class="m2-stat-name">これからの商談</div></div><div class="m2-stat done"><div class="m2-stat-num" data-count="0,1" data-in="8.8" data-dur="0.2">0</div><div class="m2-stat-name">確定済み</div></div></div>
+                  <div class="row"><span class="btn secondary cue in" data-click="1.1">会議タブの音声を足す</span><span class="btn success" data-click="3.7">収録を終了して議事録を作る</span><span class="btn secondary">破棄する</span></div>
+                  <div class="m2-tx"><div class="m2-line cue" data-in="1.4"><span class="m2-who us">自社</span><span>本日はお時間をいただきありがとうございます。まず、前回お電話で伺った10名の増員の件から。</span></div><div class="m2-line cue" data-in="2"><span class="m2-who them">相手</span><span>ええ、4月までに10名。今年は3名しか採れていないので、正直焦っています。</span></div><div class="m2-line cue" data-in="2.6"><span class="m2-who us">自社</span><span>通勤圏での露出を作り直す案を持ってきました。ドライバーズワークの拡大プランで…</span></div><div class="m2-line cue" data-in="3.3"><span class="m2-who them">相手</span><span>未経験の方の定着が心配で。研修の事例があれば見たいです。</span></div></div></div>
+                <div class="m2-stats"><div class="m2-stat"><div class="m2-stat-num">0</div><div class="m2-stat-name">議事録が無い商談</div></div><div class="m2-stat todo"><div class="m2-stat-num" data-count="0,1" data-in="4.3" data-dur="0.2">0</div><div class="m2-stat-name">あなたの確認待ち</div></div><div class="m2-stat"><div class="m2-stat-num">0</div><div class="m2-stat-name">これからの商談</div></div><div class="m2-stat done"><div class="m2-stat-num" data-count="0,1" data-in="10.6" data-dur="0.2">0</div><div class="m2-stat-name">確定済み</div></div></div>
                 <div class="m2-split">
                   <div class="panel"><div class="m2-group-head"><span>確認待ち</span><span class="badge">1</span></div><p class="tiny muted" style="margin:0 0 6px">議事録はできています。中身を確認して確定すると完了です。</p>
-                    <div class="m2-item sel cue" data-in="3.6"><span class="tnum muted">9/17 10:00</span><span><span class="m2-item-co">ロジテック物流株式会社</span><br><span class="m2-item-sub">初回商談（Zoom）</span></span><span><span class="pill in_progress">下書き</span></span></div>
+                    <div class="m2-item sel cue" data-in="4.3"><span class="tnum muted">9/17 10:00</span><span><span class="m2-item-co">ロジテック物流株式会社</span><br><span class="m2-item-sub">初回商談（Zoom）</span></span><span><span class="pill in_progress">下書き</span></span></div>
                     <div class="m2-group-head" style="margin-top:12px"><span>これからの商談</span><span class="badge" style="background:var(--n-100);color:var(--n-400)">0</span></div><p class="tiny muted" style="margin:0">経路は「誰が主催か」で自動的に決まります。</p>
                     <div style="margin-top:12px;border-top:1px solid var(--hairline);padding-top:10px"><span class="btn secondary sm">＋ 社内ミーティングを作る</span></div>
                     <div class="row" style="margin-top:10px;border-top:1px solid var(--hairline);padding-top:10px"><span class="btn secondary sm">予定と照合し直す</span><span class="btn secondary sm">旧データを取り込む</span></div><div class="row small muted" style="margin-top:6px">画面を開いた時点でも自動で照合しています<span style="margin-left:auto;color:var(--em-700)">旧の議事録画面</span></div></div>
                   <div>
-                    <div class="panel cue" data-in="3.7"><div class="m2-detail-head"><h2 class="m2-detail-co" style="background:none;border:0;padding:0;margin:0;color:var(--n-900)">ロジテック物流株式会社</h2><span class="pill in_progress">社外（商談）</span><span class="pill in_progress cue in" data-out="8.8">下書き</span><span class="pill done show" data-in="8.8">確定</span><span class="btn secondary sm" style="margin-left:auto">閉じる</span></div>
+                    <div class="panel cue" data-in="4.5" data-fx="4.5:6.5:確認待ちの議事録"><div class="m2-detail-head"><h2 class="m2-detail-co" style="background:none;border:0;padding:0;margin:0;color:var(--n-900)">ロジテック物流株式会社</h2><span class="pill in_progress">社外（商談）</span><span class="pill in_progress cue in" data-out="10.6">下書き</span><span class="pill done show" data-in="10.6">確定</span><span class="btn secondary sm" style="margin-left:auto">閉じる</span></div>
                       <div class="m2-meta">初回商談 ・ 2026-09-17 ・ 経路: Zoom クラウド録画 ・ 収録: 38分12秒 ・ 企業は自動判定（参加者のドメイン・確度0.94）</div>
-                      <div class="row"><span class="btn secondary sm">議事録を作り直す</span><span class="btn success sm" data-click="8.5">確認した・確定する</span><span class="btn secondary sm">この商談は録らない</span><span class="btn secondary sm">文字起こしを取り込む</span></div>
-                      <p class="small muted show" data-in="8.8" style="margin:8px 0 0">高橋 美咲 が確認して確定しました（2026-09-17 11:02）</p>
-                      <div class="m2-sec"><h3>要約</h3><p style="font-size:13px;margin:0"><span class="type" data-type="来期4月までに中型ドライバー10名の増員。今年の実績3名との差を、通勤圏での露出と未経験可の設計で埋める提案に前向き。未経験者の定着が懸念で、研修設計の事例を次回提示することで合意。" data-in="3.9" data-dur="1.7"></span></p></div>
-                      <div class="m2-sec cue" data-in="5.6" data-fx="5.6:6.7:課題・懸念・決定事項・宿題"><h3>採用課題・要望</h3><ul><li>ドライバーの高齢化と若手の応募不足<span class="m2-ev">s0004</span></li><li>繁忙期の増車に人員が追いつかない<span class="m2-ev">s0011</span></li></ul></div>
-                      <div class="m2-sec cue" data-in="6.0"><h3>懸念・反論</h3><ul><li>未経験者の定着が心配。研修の事例を見たい<span class="m2-ev">s0019</span></li></ul></div>
-                      <div class="m2-sec cue" data-in="6.2" data-fx="6.7:8.1:一行ごとに発言の根拠（s0001…）" data-fxz="1.45"><h3>決定事項</h3><ul><li>次回9/25に見積提示。掲載開始は10/1希望<span class="m2-ev">s0031</span></li><li>金額は月30万以内なら課長決裁<span class="m2-ev">s0027</span></li></ul></div>
-                      <div class="m2-sec cue" data-in="6.5"><h3>宿題</h3><ul><li>[自社] 未経験者の研修設計を含む事例を用意 / 担当: 高橋 美咲 / 期限: 9/24<span class="m2-ev">s0020</span></li><li>[相手] 営業所ごとの必要人数を確認 / 担当: 高橋 誠<span class="m2-ev">s0033</span></li></ul></div>
-                      <div class="m2-sec cue" data-in="6.7"><h3>受注確度</h3><ul><li>高い — 予算時期と決裁経路が確認できている<span class="m2-ev">s0027</span></li></ul></div>
-                      <div class="m2-sec cue" data-in="6.9"><h3>次回</h3><ul><li>9/25 15:00 / 見積提示・研修事例</li></ul></div></div>
-                    <div class="panel cue" data-in="7.1" id="thanks" data-fx="8.1:10.8:サンクスメールは議事録から下書き"><div class="h2row"><h3 style="background:none;border:0;padding:0;margin:0;font-size:14px;color:var(--n-900);flex:1">💌 サンクスメール</h3><span class="btn secondary sm">下書きを作り直す</span></div><p class="small muted" style="margin:4px 0 8px">議事録から下書きを自動で作ります。<b>送信前に必ず内容をご確認ください</b>（議事録はAIが作成したものです）。</p>
+                      <div class="row"><span class="btn secondary sm">議事録を作り直す</span><span class="btn success sm" data-click="10.2">確認した・確定する</span><span class="btn secondary sm">この商談は録らない</span><span class="btn secondary sm">文字起こしを取り込む</span></div>
+                      <p class="small muted show" data-in="10.6" style="margin:8px 0 0">高橋 美咲 が確認して確定しました（2026-09-17 11:02）</p>
+                      <div class="m2-sec"><h3>要約</h3><p style="font-size:13px;margin:0"><span class="type" data-type="来期4月までに中型ドライバー10名の増員。今年の実績3名との差を、通勤圏での露出と未経験可の設計で埋める提案に前向き。未経験者の定着が懸念で、研修設計の事例を次回提示することで合意。" data-in="4.7" data-dur="2"></span></p></div>
+                      <div class="m2-sec cue" data-in="6.8" data-fx="6.7:8.1:課題・懸念・決定事項・宿題"><h3>採用課題・要望</h3><ul><li>ドライバーの高齢化と若手の応募不足<span class="m2-ev">s0004</span></li><li>繁忙期の増車に人員が追いつかない<span class="m2-ev">s0011</span></li></ul></div>
+                      <div class="m2-sec cue" data-in="7.2"><h3>懸念・反論</h3><ul><li>未経験者の定着が心配。研修の事例を見たい<span class="m2-ev">s0019</span></li></ul></div>
+                      <div class="m2-sec cue" data-in="7.5" data-fx="8.1:9.8:一行ごとに発言の根拠（s0001…）" data-fxz="1.45"><h3>決定事項</h3><ul><li>次回9/25に見積提示。掲載開始は10/1希望<span class="m2-ev">s0031</span></li><li>金額は月30万以内なら課長決裁<span class="m2-ev">s0027</span></li></ul></div>
+                      <div class="m2-sec cue" data-in="7.8"><h3>宿題</h3><ul><li>[自社] 未経験者の研修設計を含む事例を用意 / 担当: 高橋 美咲 / 期限: 9/24<span class="m2-ev">s0020</span></li><li>[相手] 営業所ごとの必要人数を確認 / 担当: 高橋 誠<span class="m2-ev">s0033</span></li></ul></div>
+                      <div class="m2-sec cue" data-in="8.1"><h3>受注確度</h3><ul><li>高い — 予算時期と決裁経路が確認できている<span class="m2-ev">s0027</span></li></ul></div>
+                      <div class="m2-sec cue" data-in="8.3"><h3>次回</h3><ul><li>9/25 15:00 / 見積提示・研修事例</li></ul></div></div>
+                    <div class="panel cue" data-in="8.5" id="thanks" data-fx="9.8:13:サンクスメールは議事録から下書き"><div class="h2row"><h3 style="background:none;border:0;padding:0;margin:0;font-size:14px;color:var(--n-900);flex:1">💌 サンクスメール</h3><span class="btn secondary sm">下書きを作り直す</span></div><p class="small muted" style="margin:4px 0 8px">議事録から下書きを自動で作ります。<b>送信前に必ず内容をご確認ください</b>（議事録はAIが作成したものです）。</p>
                       <div class="row small" style="margin-bottom:8px"><span><span class="chk on"></span>AIで文面を整える</span><span><span class="chk on"></span>開封・クリックを記録する</span><span class="btn secondary sm">提案書リンクを本文へ</span></div>
                       <div class="field"><label>宛先</label><div class="inp">takahashi@logitech-buturyu.example.jp</div></div>
                       <div class="field"><label>件名</label><div class="inp">【ネオキャリア】本日はありがとうございました｜ロジテック物流株式会社</div></div>
-                      <div class="field"><label>本文</label><div class="ta" style="min-height:120px;font-size:12.5px"><span class="type" data-type="ロジテック物流株式会社&#10;高橋 誠様&#10;&#10;本日は貴重なお時間をいただきありがとうございました。&#10;未経験ドライバーの定着についてご懸念をいただきましたので、研修設計を含む事例を9/25にお持ちします。掲載開始10/1に間に合う形で、見積をご用意いたします。" data-in="7.2" data-dur="1.8"></span></div><div class="small muted">312文字</div></div>
-                      <div class="row"><span class="btn success" data-click="9.5">自分のGmailから送信</span><span class="btn">Gmailに下書きを作る</span><span class="btn secondary">📧 メールソフトで開く</span></div>
+                      <div class="field"><label>本文</label><div class="ta" style="min-height:120px;font-size:12.5px"><span class="type" data-type="ロジテック物流株式会社&#10;高橋 誠様&#10;&#10;本日は貴重なお時間をいただきありがとうございました。&#10;未経験ドライバーの定着についてご懸念をいただきましたので、研修設計を含む事例を9/25にお持ちします。掲載開始10/1に間に合う形で、見積をご用意いたします。" data-in="8.7" data-dur="2.2"></span></div><div class="small muted">312文字</div></div>
+                      <div class="row"><span class="btn success" data-click="11.4">自分のGmailから送信</span><span class="btn">Gmailに下書きを作る</span><span class="btn secondary">📧 メールソフトで開く</span></div>
                     </div>
                   </div>
                 </div>
               </div></div>
-              <div class="toast cue" data-in="0.7" data-out="1.8"><div class="banner ok">✅ ロジテック物流株式会社 の録音を開始しました。先方の声も録るには「会議タブの音声を足す」を押してください。</div></div>
-              <div class="toast cue" data-in="3.2" data-out="3.9"><div class="banner info">ℹ️ 収録を終了しています（最後の区間を送信中）…</div></div>
+              <div class="toast cue" data-in="0.9" data-out="2.2"><div class="banner ok">✅ ロジテック物流株式会社 の録音を開始しました。先方の声も録るには「会議タブの音声を足す」を押してください。</div></div>
+              <div class="toast cue" data-in="3.8" data-out="4.7"><div class="banner info">ℹ️ 収録を終了しています（最後の区間を送信中）…</div></div>
             </section>
-            <!-- 2回目商談資料 No.33 -->
-            <section class="scene" data-start="162.7" data-end="166.6" data-nav="/proposal2" data-step="7" data-scroll="0.0:0,0.4:0,1.0:130,1.6:130,2.1:430,3.5:430">
+            <!-- ===== 8a. 2回目商談資料作成 /proposal2 ===== -->
+            <section class="scene" data-start="143" data-end="147" data-nav="/proposal2" data-step="7" data-scroll="0:0,0.4:0,1:130,1.6:130,2.2:430,3.6:430">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>📑 2回目商談資料作成</h1><div class="meta">議事録と会社データから資料の型を決めて生成（工程7）</div>
                   <div class="flow-strip"><span class="flow-pos">営業工程 <b>7</b><span class="flow-tot"> / 11</span></span><span class="flow-links"><span class="flow-link">← 前: 商談議事録</span><span class="flow-link next">次: 見積 →</span></span></div></div>
@@ -1098,32 +1082,33 @@
                 <div class="panel" data-fx="0.2:1.6:型は議事録から自動判定"><div class="h2row"><h2>資料テンプレート: 2回目商談</h2><span class="sel" style="width:220px">自動判定（議事録から）</span></div><p class="small" style="margin:-4px 0 4px">判断: 議事録に決定事項と宿題があり、懸念への回答が主題になるため</p><p class="small muted" style="margin:0">読んだ材料: 議事録（9/17）/ 初回商談資料（12枚）/ 会社データ</p></div>
                 <div class="panel"><h2>議事録から起こした中身</h2><p class="small muted" style="margin:-6px 0 8px">先方が実際に語った課題を優先して並べています。文言はそのまま直せます（直した内容で生成されます）。</p>
                   <div class="field"><label>課題仮説1</label><div class="inp">未経験者の定着が心配。研修設計の事例を見たい</div><div class="small muted">根拠: 議事録 s0019</div></div>
-                  <div class="field" data-fx="1.6:3.9:主題は懸念への回答" data-fxz="1.34"><label>ご懸念と対策（議事録の懸念から自動作成）</label><table class="tbl"><thead><tr><th>ご懸念</th><th>影響</th><th>対策</th></tr></thead><tbody><tr><td>未経験者の定着</td><td>採用後3ヶ月の離職</td><td>同業事例：入社後研修の設計で定着率82%</td></tr></tbody></table></div></div>
+                  <div class="field" data-fx="1.6:4:主題は懸念への回答" data-fxz="1.34"><label>ご懸念と対策（議事録の懸念から自動作成）</label><table class="tbl"><thead><tr><th>ご懸念</th><th>影響</th><th>対策</th></tr></thead><tbody><tr><td>未経験者の定着</td><td>採用後3ヶ月の離職</td><td>同業事例：入社後研修の設計で定着率82%</td></tr></tbody></table></div></div>
                 <div class="panel"><div class="h2row"><h2>媒体プラン（1枠）</h2><span class="btn secondary sm">＋ 媒体を追加</span></div><p class="small muted" style="margin:-6px 0 8px">初回商談資料の媒体を引き継ぎ、懸念への回答（研修設計）を足しています。</p><div class="grid3"><div><label style="display:flex;justify-content:space-between">媒体1 <span class="muted">✕</span></label><div class="sel">ドライバーズワーク</div><div class="small muted">月額 150,000 / 応募課金</div></div></div><div class="row" style="margin-top:8px"><label style="margin:0">掲載月数</label><div class="inp" style="width:90px">3</div><label style="margin:0 0 0 12px">合計金額（税抜）</label><b>¥450,000</b></div></div>
-                <div class="panel"><h2>構成の下見と生成</h2><p class="small" style="margin:-4px 0 8px">このまま生成すると <b>10枚</b>（2回目提案の型）。主題は「未経験ドライバーの定着まで含めた採用設計」です。</p><span class="btn success" data-click="2.3">📑 2回目商談資料を生成</span></div>
-                <div class="panel p0"><h2 style="margin:22px 22px 12px">2回目以降の商談資料 履歴</h2><table class="tbl"><thead><tr><th>ID</th><th>会社</th><th>種別</th><th>作成日</th><th></th></tr></thead><tbody><tr class="show" data-in="2.5"><td class="mono small">PR20260925-001</td><td>ロジテック物流株式会社</td><td class="small">2回目</td><td>2026-09-25</td><td><a>Slidesを開く</a></td></tr><tr><td class="mono small">PR20260513-001</td><td>ホワイト商事株式会社</td><td class="small">2回目</td><td>2026-09-06</td><td class="muted small">未生成</td></tr></tbody></table></div>
+                <div class="panel"><h2>構成の下見と生成</h2><p class="small" style="margin:-4px 0 8px">このまま生成すると <b>10枚</b>（2回目提案の型）。主題は「未経験ドライバーの定着まで含めた採用設計」です。</p><span class="btn success" data-click="2.4">📑 2回目商談資料を生成</span></div>
+                <div class="panel p0"><h2 style="margin:22px 22px 12px">2回目以降の商談資料 履歴</h2><table class="tbl"><thead><tr><th>ID</th><th>会社</th><th>種別</th><th>作成日</th><th></th></tr></thead><tbody><tr class="show" data-in="2.6"><td class="mono small">PR20260925-001</td><td>ロジテック物流株式会社</td><td class="small">2回目</td><td>2026-09-25</td><td><a>Slidesを開く</a></td></tr><tr><td class="mono small">PR20260513-001</td><td>ホワイト商事株式会社</td><td class="small">2回目</td><td>2026-09-06</td><td class="muted small">未生成</td></tr></tbody></table></div>
               </div></div>
-              <div class="toast cue" data-in="2.5" data-out="3.8"><div class="banner ok">✅ 2回目提案書を10枚で生成しました（PR20260925-001）。工程7完了。 🟢実Slides</div></div>
+              <div class="toast cue" data-in="2.6" data-out="3.9"><div class="banner ok">✅ 2回目提案書を10枚で生成しました（PR20260925-001）。工程7完了。 🟢実Slides</div></div>
             </section>
-            <!-- 見積 No.35,36 -->
-            <section class="scene" data-start="169.0" data-end="178.4" data-nav="/estimate" data-step="8">
+
+            <!-- ===== 8b. 見積 /estimate ===== -->
+            <section class="scene" data-start="147" data-end="157" data-nav="/estimate" data-step="8">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>🧾 見積</h1><div class="meta">一覧・発行（工程8）</div></div>
-                <div class="panel" data-fx="0.6:3.6:企業と品目を選ぶ。割引は閾値以上で承認へ"><h2>見積を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel"><span class="type" data-type="ロジテック物流株式会社（K000004）" data-in="0.7" data-dur="0.8"></span></div></div><div class="field" style="min-width:230px;margin:0"><label>プラン</label><div class="sel">ドライバーズワーク 掲載（¥29,800/月）</div></div><div class="field" style="min-width:200px;margin:0"><label>宛名（ご担当者）</label><div class="sel cue in" data-out="1.9"><span class="ph">— 会社宛のみ —</span></div><div class="sel show" data-in="1.9">高橋 誠 様（採用担当）</div></div><div class="field" style="width:100px;margin:0"><label>割引率（%）</label><div class="inp">0</div></div><span class="btn success" data-click="3.1">👀 内容を確認して見積を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。有効期限は発行日から30日。割引は 10% 以上で本人以外の承認が要ります（上限 30%）。</p></div>
+                <div class="panel" data-fx="0.6:3.8:企業と品目を選ぶ。割引は閾値以上で承認へ"><h2>見積を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel"><span class="type" data-type="ロジテック物流株式会社（K000004）" data-in="0.7" data-dur="0.9"></span></div></div><div class="field" style="min-width:230px;margin:0"><label>プラン</label><div class="sel">ドライバーズワーク 掲載（¥29,800/月）</div></div><div class="field" style="min-width:200px;margin:0"><label>宛名（ご担当者）</label><div class="sel cue in" data-out="2.0"><span class="ph">— 会社宛のみ —</span></div><div class="sel show" data-in="2.0">高橋 誠 様（採用担当）</div></div><div class="field" style="width:100px;margin:0"><label>割引率（%）</label><div class="inp">0</div></div><span class="btn success" data-click="3.3">👀 内容を確認して見積を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。有効期限は発行日から30日。割引は 10% 以上で本人以外の承認が要ります（上限 30%）。</p></div>
                 <div class="panel p0"><table class="tbl"><thead><tr><th>見積ID</th><th>会社</th><th>品目</th><th class="r">金額(税込)</th><th>割引 / 承認</th><th>状態</th><th>発行日</th><th>有効期限</th><th>帳票</th><th></th></tr></thead><tbody>
-                  <tr class="show" data-in="5.6" data-fx="5.6:6.3:番号は Q＋日付＋連番"><td class="mono small">Q20260925-001</td><td><a>ロジテック物流株式会社</a></td><td class="small">ドライバーズワーク 掲載</td><td class="r tnum">¥32,780</td><td class="small muted">—</td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-09-25</td><td class="small mono">2026-10-25</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary">PDF化</span></td><td><span class="btn sm success">✍️ 申込を起こす</span> <span class="btn sm secondary">失注</span></td></tr>
+                  <tr class="show" data-in="6.0" data-fx="6.0:6.7:番号は Q＋日付＋連番"><td class="mono small">Q20260925-001</td><td><a>ロジテック物流株式会社</a></td><td class="small">ドライバーズワーク 掲載</td><td class="r tnum">¥32,780</td><td class="small muted">—</td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-09-25</td><td class="small mono">2026-10-25</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary">PDF化</span></td><td><span class="btn sm success">✍️ 申込を起こす</span> <span class="btn sm secondary">失注</span></td></tr>
                   <tr><td class="mono small">Q20260827-002</td><td><a>グルメダイニング株式会社</a></td><td class="small">飲食ジョブ 掲載</td><td class="r tnum">¥495,000</td><td class="small">10%（¥50,000）<span class="pill pending" style="margin-left:4px">承認待ち</span></td><td><span class="pill in_progress">発行済</span></td><td class="small">2026-08-27</td><td class="small mono">2026-09-26</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm success">✔ 承認</span> <span class="btn sm secondary">差戻し</span></td></tr>
                   <tr><td class="mono small">Q20260601-001</td><td><a>プレミアム建設株式会社</a></td><td class="small">建設ジョブ 掲載（3枠）</td><td class="r tnum">¥1,650,000</td><td class="small muted">—</td><td><span class="pill done">受注済</span></td><td class="small">2026-08-24</td><td class="small mono">2026-09-23</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="small">申込 C20260603-001 →</span></td></tr>
                 </tbody></table></div>
               </div></div>
               <!-- DocPreviewModal -->
-              <div class="show" data-in="3.4" data-out="5.5" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="3.8:5.8:内容を確認してから発行" style="width:640px;margin:0"><div class="h2row"><div style="flex:1"><h3 style="background:none;border:0;padding:0;margin:0;font-size:15px;color:var(--n-900)">この内容で発行します</h3><div class="small muted">見積書_ロジテック物流株式会社_Q20260925-001</div></div><span class="btn secondary sm">✕ 閉じる</span></div>
+              <div class="show" data-in="3.6" data-out="5.9" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="4:6.2:内容を確認してから発行" style="width:640px;margin:0"><div class="h2row"><div style="flex:1"><h3 style="background:none;border:0;padding:0;margin:0;font-size:15px;color:var(--n-900)">この内容で発行します</h3><div class="small muted">見積書_ロジテック物流株式会社_Q20260925-001</div></div><span class="btn secondary sm">✕ 閉じる</span></div>
                 <table class="tbl" style="margin-top:8px"><tbody><tr><td><b>御見積書</b></td><td></td><td></td><td></td></tr><tr><td>御社名</td><td>ロジテック物流株式会社</td><td>見積ID</td><td class="mono">Q20260925-001</td></tr><tr><td>発行日</td><td>2026-09-25</td><td>有効期限</td><td>2026-10-25</td></tr><tr><td>品目</td><td>数量</td><td>単価</td><td class="r">金額</td></tr><tr><td>プロ</td><td class="r">1</td><td class="r">29,800</td><td class="r">29,800</td></tr><tr><td>小計(税抜)</td><td></td><td></td><td class="r">29,800</td></tr><tr><td>消費税(10%)</td><td></td><td></td><td class="r">2,980</td></tr><tr><td><b>合計(税込)</b></td><td></td><td></td><td class="r"><b>32,780</b></td></tr></tbody></table>
                 <p class="small muted" style="margin:8px 0 2px">📎 発行すると、この企業のファイル管理に「見積」が追加されます。</p><p class="small muted" style="margin:0 0 8px">Google 連携が無い環境では書類の実体は作られません（リンクは付かず「未生成」と表示されます）。</p>
-                <div class="row" style="justify-content:flex-end"><b class="small">合計（税込）: ¥32,780</b><span class="btn secondary">やめる</span><span class="btn success" data-click="5.0">🚀 見積を発行</span></div></div></div>
-              <div class="toast cue" data-in="5.7" data-out="6.4"><div class="banner ok">✅ 見積を発行しました（Q20260925-001）。🟢 実Googleドキュメント生成 進行ボード 工程8:見積 を更新。</div></div>
+                <div class="row" style="justify-content:flex-end"><b class="small">合計（税込）: ¥32,780</b><span class="btn secondary">やめる</span><span class="btn success" data-click="5.3">🚀 見積を発行</span></div></div></div>
+              <div class="toast cue" data-in="6.1" data-out="6.8"><div class="banner ok">✅ 見積を発行しました（Q20260925-001）。🟢 実Googleドキュメント生成 進行ボード 工程8:見積 を更新。</div></div>
               <!-- Excel 出力した見積書（映像構成「Excelで見積書の作成」） -->
-              <div class="fullcard show" data-in="6.5" data-out="9.3"><div class="fc">
+              <div class="fullcard show" data-in="6.9" data-out="9.9"><div class="fc">
                 <p class="fc-h">見積書は Excel でも書き出せる</p>
                 <p class="fc-sub">見積書_ロジテック物流株式会社_Q20260925-001.xlsx</p>
                 <div class="xls">
@@ -1143,20 +1128,21 @@
                 <p class="fc-note">金額はそのまま申込書・請求へ引き継がれます。人が打ち直す場所はありません。</p>
               </div></div>
             </section>
-            <!-- 申し込み No.37,38 -->
-            <section class="scene" data-start="178.4" data-end="185.7" data-nav="/contract" data-step="9">
+
+            <!-- ===== 8c. 申し込み /contract ===== -->
+            <section class="scene" data-start="157" data-end="168" data-nav="/contract" data-step="9">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>✍️ 申し込み</h1><div class="meta">一覧・発行（工程9）</div></div>
-                <div class="panel" data-fx="0.3:1.7:根拠の見積を選ぶだけ"><h2>申込書を発行</h2><div class="row" style="align-items:flex-end;margin-bottom:10px"><div class="field" style="min-width:560px;margin:0"><label>根拠にする見積（発行済）</label><div class="sel"><span class="type" data-type="Q20260925-001｜ロジテック物流株式会社｜ドライバーズワーク 掲載｜¥32,780/月（〜2026-10-25）" data-in="0.4" data-dur="0.7"></span></div></div></div><div class="row show" data-in="1.1" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel">ロジテック物流株式会社（K000004）</div></div><div class="field" style="margin:0"><label>品目・月額（見積どおり）</label><div class="small" style="padding:6px 0">ドライバーズワーク 掲載 ／ <b>¥32,780</b>（税込）／月</div></div><div class="field" style="width:100px;margin:0"><label>契約月数</label><div class="inp">12</div></div><span class="btn success" data-click="1.5">👀 内容を確認して申込書を発行</span></div><p class="small muted" style="margin:8px 0 0">見積の金額と品目をそのまま契約に写します。発行すると見積は「受注済」になります。契約総額＝月額×契約月数（確定受注金額）。</p></div>
+                <div class="panel" data-fx="0.5:2.6:根拠の見積を選ぶだけ"><h2>申込書を発行</h2><div class="row" style="align-items:flex-end;margin-bottom:10px"><div class="field" style="min-width:560px;margin:0"><label>根拠にする見積（発行済）</label><div class="sel"><span class="type" data-type="Q20260925-001｜ロジテック物流株式会社｜ドライバーズワーク 掲載｜¥32,780/月（〜2026-10-25）" data-in="0.6" data-dur="1.0"></span></div></div></div><div class="row show" data-in="1.7" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel">ロジテック物流株式会社（K000004）</div></div><div class="field" style="margin:0"><label>品目・月額（見積どおり）</label><div class="small" style="padding:6px 0">ドライバーズワーク 掲載 ／ <b>¥32,780</b>（税込）／月</div></div><div class="field" style="width:100px;margin:0"><label>契約月数</label><div class="inp">12</div></div><span class="btn success" data-click="2.3">👀 内容を確認して申込書を発行</span></div><p class="small muted" style="margin:8px 0 0">見積の金額と品目をそのまま契約に写します。発行すると見積は「受注済」になります。契約総額＝月額×契約月数（確定受注金額）。</p></div>
                 <div class="panel p0"><table class="tbl"><thead><tr><th>申込ID</th><th>会社</th><th>根拠見積</th><th class="r">契約総額</th><th>期間</th><th>状態</th><th>締結日</th><th>帳票</th><th></th></tr></thead><tbody>
-                  <tr class="show" data-in="5.2" data-fx="5.2:7.3:発行済みの申込書が積み上がる"><td class="mono small">C20260930-001</td><td><a>ロジテック物流株式会社</a></td><td class="mono small">Q20260925-001</td><td class="r tnum">¥393,360</td><td class="small mono">2026-09-30 〜 2027-09-29</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-09-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary">PDF化</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
+                  <tr class="show" data-in="7.9" data-fx="7.9:11:発行済みの申込書が積み上がる"><td class="mono small">C20260930-001</td><td><a>ロジテック物流株式会社</a></td><td class="mono small">Q20260925-001</td><td class="r tnum">¥393,360</td><td class="small mono">2026-09-30 〜 2027-09-29</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-09-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary">PDF化</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                   <tr><td class="mono small">C20260901-003</td><td><a>東和デリバリー株式会社</a></td><td class="mono small">Q20260828-004</td><td class="r tnum">¥633,600</td><td class="small mono">2026-09-01 〜 2027-08-31</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-08-29</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                   <tr><td class="mono small">C20260603-001</td><td><a>プレミアム建設株式会社</a></td><td class="mono small">Q20260601-001</td><td class="r tnum">¥1,650,000</td><td class="small mono">2026-08-26 〜 2027-08-25</td><td><span class="pill in_progress">進行中</span></td><td class="small">2026-08-26</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">📰 掲載を登録</span> <span class="btn sm secondary">↻ 更新</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                 </tbody></table></div>
               </div></div>
-              <div class="toast cue" data-in="5.1" data-out="5.9"><div class="banner ok">✅ 申込書を発行しました（C20260930-001）。見積 Q20260925-001 は受注済に。🟢 実Googleドキュメント生成 進行ボード 工程9:申し込み を更新。</div></div>
+              <div class="toast cue" data-in="7.7" data-out="8.9"><div class="banner ok">✅ 申込書を発行しました（C20260930-001）。見積 Q20260925-001 は受注済に。🟢 実Googleドキュメント生成 進行ボード 工程9:申し込み を更新。</div></div>
               <!-- 「申込書を発行」で実際に作られる書面（lib/actions/issue.impl.ts の本文と同じ） -->
-              <div class="fullcard show" data-in="1.7" data-out="5.0"><div class="fc">
+              <div class="fullcard show" data-in="2.6" data-out="7.6"><div class="fc">
                 <p class="fc-h">「申込書を発行」を押すと、この書面が Google ドキュメントに作られる</p>
                 <p class="fc-sub">契約書_ロジテック物流株式会社_C20260930-001 ／ 企業のファイル管理に「契約」として残ります</p>
                 <div class="gdoc">
@@ -1176,87 +1162,104 @@
                 <p class="fc-note">プラン・契約期間・金額は、画面で選んだ内容と見積の計算からそのまま入ります（月額税込 × 契約月数 ＝ 契約総額）。人が打ち直す場所はありません。</p>
               </div></div>
             </section>
-            <!-- 掲載 No.39,40 -->
-            <section class="scene" data-start="185.7" data-end="200.2" data-nav="/publication" data-step="10">
+
+            <!-- ===== 9a. 掲載 /publication ===== -->
+            <section class="scene" data-start="168" data-end="181" data-nav="/publication" data-step="10">
               <div class="page"><div class="container">
                 <div class="page-head"><h1>📰 掲載</h1><div class="meta">掲載案件・原稿制作・掲載開始／終了（工程10）。請求は掲載中・終了の掲載から起こします。</div></div>
-                <div class="panel" data-fx="1.1:4.9:申込を選ぶと、企業と期間はそこから決まる"><h2>掲載を登録</h2>
-                  <div class="row" style="align-items:flex-end"><div class="field" style="min-width:240px;margin:0"><label>企業</label><div class="sel cue in" data-out="2.5"><span class="ph">— 選択 —</span></div><div class="sel show" data-in="2.5">ロジテック物流株式会社（K000004）</div></div><div class="field" style="min-width:430px;margin:0"><label>申込（進行中）</label><div class="sel"><span class="type" data-type="C20260930-001｜ロジテック物流株式会社｜¥393,360｜〜2027-09-29" data-in="1.2" data-dur="1.1"></span></div></div></div>
-                  <div class="row" style="align-items:flex-end;margin-top:10px"><div class="field" style="min-width:220px;margin:0"><label>媒体</label><div class="sel cue in" data-out="3.2"><span class="ph">— 選択 —</span></div><div class="sel show" data-in="3.2">ドライバーズワーク</div></div><div class="field" style="margin:0"><label>掲載開始日</label><div class="inp">2026-10-01</div></div><div class="field" style="margin:0"><label>掲載終了日（空＝継続中）</label><div class="inp cue in" data-out="2.5"><span class="ph">yyyy-mm-dd</span></div><div class="inp show" data-in="2.5">2027-09-29</div></div><span class="btn success" data-click="4.5">📰 掲載を登録（原稿を制作）</span></div>
+                <div class="panel" data-fx="1:4.4:申込を選ぶと、企業と期間はそこから決まる"><h2>掲載を登録</h2>
+                  <div class="row" style="align-items:flex-end"><div class="field" style="min-width:240px;margin:0"><label>企業</label><div class="sel cue in" data-out="2.2"><span class="ph">— 選択 —</span></div><div class="sel show" data-in="2.2">ロジテック物流株式会社（K000004）</div></div><div class="field" style="min-width:430px;margin:0"><label>申込（進行中）</label><div class="sel"><span class="type" data-type="C20260930-001｜ロジテック物流株式会社｜¥393,360｜〜2027-09-29" data-in="1.1" data-dur="1.0"></span></div></div></div>
+                  <div class="row" style="align-items:flex-end;margin-top:10px"><div class="field" style="min-width:220px;margin:0"><label>媒体</label><div class="sel cue in" data-out="2.9"><span class="ph">— 選択 —</span></div><div class="sel show" data-in="2.9">ドライバーズワーク</div></div><div class="field" style="margin:0"><label>掲載開始日</label><div class="inp">2026-10-01</div></div><div class="field" style="margin:0"><label>掲載終了日（空＝継続中）</label><div class="inp cue in" data-out="2.2"><span class="ph">yyyy-mm-dd</span></div><div class="inp show" data-in="2.2">2027-09-29</div></div><span class="btn success" data-click="4.0">📰 掲載を登録（原稿を制作）</span></div>
                   <p class="small muted" style="margin:8px 0 0">登録直後は「入稿待ち」です。原稿が入稿できたら一覧の「掲載開始」を押してください。請求は<b>掲載中・終了</b>の掲載から、掲載月ごとに起こします。</p></div>
                 <div class="panel p0"><table class="tbl"><thead><tr><th>掲載ID</th><th>会社</th><th>申込</th><th>媒体</th><th>期間</th><th>状態</th><th class="r">応募数</th><th></th></tr></thead><tbody>
-                  <tr class="show" data-in="5.4" data-fx="9.1:11.6:原稿が入ったら、人が「掲載開始」を押す"><td class="mono small">P20261001-001</td><td><a>ロジテック物流株式会社</a></td><td class="mono small">C20260930-001</td><td>ドライバーズワーク</td><td class="small mono">2026-10-01 〜 2027-09-29</td><td><span class="pill in_progress cue in" data-out="10.3">入稿待ち</span><span class="pill done show" data-in="10.3">掲載中</span></td><td class="r">0</td><td><span class="btn sm success cue in" data-click="9.6" data-out="10.3">▶ 掲載開始</span><span class="show" data-in="10.3" data-fx="11.8:14.5:掲載中になった月から、請求の対象に並ぶ"><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></span></td></tr>
+                  <tr class="show" data-in="4.8" data-fx="8.2:10.4:原稿が入ったら、人が「掲載開始」を押す"><td class="mono small">P20261001-001</td><td><a>ロジテック物流株式会社</a></td><td class="mono small">C20260930-001</td><td>ドライバーズワーク</td><td class="small mono">2026-10-01 〜 2027-09-29</td><td><span class="pill in_progress cue in" data-out="9.2">入稿待ち</span><span class="pill done show" data-in="9.2">掲載中</span></td><td class="r">0</td><td><span class="btn sm success cue in" data-click="8.6" data-out="9.2">▶ 掲載開始</span><span class="show" data-in="9.2" data-fx="10.6:13:掲載中になった月から、請求の対象に並ぶ"><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></span></td></tr>
                   <tr><td class="mono small">P20260901-002</td><td><a>東和デリバリー株式会社</a></td><td class="mono small">C20260901-003</td><td>建設ジョブ</td><td class="small mono">2026-09-01 〜 継続中</td><td><span class="pill done">掲載中</span></td><td class="r">12</td><td><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                   <tr><td class="mono small">P20260605-001</td><td><a>プレミアム建設株式会社</a></td><td class="mono small">C20260603-001</td><td>建設ジョブ</td><td class="small mono">2026-06-05 〜 継続中</td><td><span class="pill done">掲載中</span></td><td class="r">38</td><td><span class="btn sm">💴 請求へ</span> <span class="btn sm secondary">■ 終了</span></td></tr>
                 </tbody></table></div>
               </div></div>
-              <div class="toast cue" data-in="5.0" data-out="8.8"><div class="banner ok">✅ 掲載を登録しました（P20261001-001）。申込 C20260930-001 に紐づけました。工程10を進行中に。原稿が入稿できたら「掲載開始」を押してください。</div></div>
-              <div class="toast cue" data-in="10.4" data-out="14.1"><div class="banner ok">✅ P20261001-001 を掲載中にしました。工程10を完了。今月分から請求対象に並びます。</div></div>
+              <div class="toast cue" data-in="4.5" data-out="7.9"><div class="banner ok">✅ 掲載を登録しました（P20261001-001）。申込 C20260930-001 に紐づけました。工程10を進行中に。原稿が入稿できたら「掲載開始」を押してください。</div></div>
+              <div class="toast cue" data-in="9.3" data-out="12.6"><div class="banner ok">✅ P20261001-001 を掲載中にしました。工程10を完了。今月分から請求対象に並びます。</div></div>
             </section>
-            <!-- 入金・督促 No.45,46 -->
-            <section class="scene" data-start="205.2" data-end="220.1" data-nav="/issuance" data-step="11">
+
+            <!-- ===== 9b. 請求 /invoice ===== -->
+            <section class="scene" data-start="181" data-end="195" data-nav="/invoice" data-step="11" data-scroll="0:0,6.4:0,7.4:170,14:170">
               <div class="page"><div class="container">
-                <div class="page-head"><h1>🗂️ 発行状況</h1><div class="meta">いま止まっている書類を片付ける画面です。未入金の判定は期間に関わらず出します。</div></div>
-                <div class="panel p0"><div style="padding:10px 14px;font-size:13px;font-weight:700">未入金（期限内を含む）</div>
-                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:110px">金額(税込)</th><th class="r" style="width:100px">入金済</th><th class="r" style="width:100px">残額</th><th style="width:105px">支払期限</th><th style="width:90px">超過</th><th style="width:110px">状態</th><th style="width:130px">督促</th><th style="width:210px"></th></tr></thead><tbody>
-                    <tr data-fx="0.6:4.5:残額と支払期限で追う"><td class="mono small">I20261031-002</td><td><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum cue in" data-out="6.6">¥0</td><td class="r tnum"><b class="cue in" data-out="6.6">¥52,800</b><b class="show" data-in="6.6">¥12,800</b></td><td class="small mono">2026-11-30</td><td class="small muted">—</td><td><span class="pill in_progress cue in" data-out="6.6">発行済</span><span class="pill pending show" data-in="6.6">一部入金</span></td><td class="small muted">なし</td><td><span class="btn sm" data-click="2.5">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
-                    <tr data-fx="8.3:12.8:督促は履歴に残る。二度掛けを防ぐ"><td class="mono small">I20260905-001</td><td><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum">¥0</td><td class="r tnum"><b>¥64,300</b></td><td class="small mono">2026-10-05</td><td class="small" style="color:var(--danger)">36日</td><td><span class="pill error">期限超過</span></td><td class="small cue in" data-out="11.3">なし</td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary" data-click="9.2">📣 督促を記録</span></td></tr>
+                <div class="page-head"><h1>💴 請求</h1><div class="meta">一覧・発行（工程11）</div></div>
+                <div class="panel" data-fx="0.4:2.6:掲載から請求対象が積み上がる"><div class="h2row"><h2>今月の請求対象（掲載から自動抽出）</h2><div class="field" style="width:150px;margin:0"><label>請求月</label><div class="inp">2026年10月</div></div><span class="small"><span class="chk"></span>発行済みも見る</span><span class="btn success sm cue in" data-out="2.9" style="opacity:.45">🚀 選択した 0件をまとめて発行</span><span class="btn success sm show" data-in="2.9" data-click="3.4">🚀 選択した 2件をまとめて発行</span></div>
+                  <p class="small muted" style="margin:-4px 0 6px">請求は掲載と1対1です。掲載月の<b>月末締め・翌月末払い</b>で対象を出しています。金額は申込書・受注済み見積からの参考値なので、送る前に必ず確認してください。</p>
+                  <p class="small" style="margin:0 0 8px">未発行 <b>3</b>件 / 発行済み 0件 ・ 参考合計 <b>¥85,580</b> <span class="pill error" style="margin-left:8px">金額の根拠なし 1件</span></p>
+                  <table class="tbl"><thead><tr><th style="width:28px"><span class="chk cue in" data-out="2.75"></span><span class="chk on show" data-in="2.75"></span></th><th>企業</th><th>商談 / 掲載</th><th style="width:150px">掲載期間</th><th style="width:100px">支払期限</th><th style="width:140px">請求金額（税込）</th><th style="width:150px"></th></tr></thead><tbody>
+                    <tr data-fx="2.7:3.9:未発行をまとめて選ぶ"><td><span class="chk cue in" data-out="2.8"></span><span class="chk on show" data-in="2.8"></span></td><td><a>ロジテック物流株式会社</a></td><td>商談1<br><span class="small muted">ドライバーズワーク（P20261001-001・掲載中）</span></td><td class="small">2026-10-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px">32780</div><div class="tiny muted">申込書 C20260930-001</div></td><td><span class="btn success sm">👀 内容を確認して発行</span></td></tr>
+                    <tr><td><span class="chk cue in" data-out="2.9"></span><span class="chk on show" data-in="2.9"></span></td><td><a>東和デリバリー株式会社</a></td><td>商談1<br><span class="small muted">建設ジョブ（P20260901-002・掲載中）</span></td><td class="small">2026-09-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px">52800</div><div class="tiny muted">受注済み見積 Q20260828-004</div></td><td><span class="btn success sm">👀 内容を確認して発行</span></td></tr>
+                    <tr><td></td><td><a>丸高運送株式会社</a></td><td>商談未特定<br><span class="small muted">ドライバーズワーク（P20261001-003・掲載中）</span></td><td class="small">2026-10-01 〜 継続中</td><td class="small">2026-11-30</td><td><div class="inp" style="min-height:30px;padding:4px 8px"><span class="ph">金額を入力</span></div><div class="tiny" style="color:var(--danger)">根拠なし（申込書・見積とも無し）</div></td><td><span class="btn success sm" style="opacity:.45">👀 内容を確認して発行</span></td></tr>
+                  </tbody></table></div>
+                <div class="panel"><h2>請求を発行</h2><div class="row" style="align-items:flex-end"><div class="field" style="min-width:250px;margin:0"><label>企業</label><div class="sel"><span class="ph">— 選択 —</span></div></div><div class="field" style="min-width:230px;margin:0"><label>プラン</label><div class="sel">ドライバーズワーク 掲載（¥29,800/月）</div></div><div class="field" style="min-width:200px;margin:0"><label>宛名（ご担当者）</label><div class="sel"><span class="ph">— 会社宛のみ —</span></div></div><span class="btn success">👀 内容を確認して請求を発行</span></div><p class="small muted" style="margin:8px 0 0">税は税抜×10%（四捨五入）。支払期限は発行日から30日（掲載から起こす請求は翌月末）。</p></div>
+                <div class="panel p0"><div style="padding:10px 14px;font-size:13px;font-weight:700">発行済みの一覧</div>
+                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:110px">金額(税込)</th><th class="r" style="width:100px">残額</th><th style="width:110px">状態</th><th style="width:105px">支払期限</th><th style="width:150px">帳票</th><th style="width:185px"></th></tr></thead><tbody>
+                    <tr class="show" data-in="6.6" data-fx="6.6:8.8:2件ぶんの請求書ができる"><td class="mono small">I20261031-001</td><td><a>ロジテック物流株式会社</a></td><td class="r tnum">¥32,780</td><td class="r tnum">¥0</td><td><span class="pill done">入金済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary cue in" data-click="9.4" data-out="9.7">PDF化</span><span class="small show" data-in="9.7">PDF</span></td><td></td></tr>
+                    <tr class="show" data-in="6.75"><td class="mono small">I20261031-002</td><td><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum"><b>¥52,800</b></td><td><span class="pill in_progress">発行済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="btn sm secondary cue in" data-click="9.5" data-out="9.8">PDF化</span><span class="small show" data-in="9.8">PDF</span></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr><td class="mono small">I20260905-001</td><td><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum"><b>¥64,300</b></td><td><span class="pill error">期限超過</span></td><td class="small mono">2026-10-05</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr data-fx="11.4:13.8:取消は赤伝。元の番号が残る"><td class="mono small">I20260703-002<div class="tiny muted">再発行 ← I20260703-001</div></td><td><a>港南ロジスティクス株式会社</a></td><td class="r tnum">¥90,000</td><td class="r tnum"><b>¥90,000</b></td><td><span class="pill in_progress">発行済</span></td><td class="small mono">2026-11-30</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr><td class="mono small">I20260703-001</td><td><a>港南ロジスティクス株式会社</a></td><td class="r tnum">¥90,000</td><td class="r tnum">—</td><td><span class="pill skip">取消</span><div class="tiny muted">金額誤り（媒体プラン変更前の単価）</div></td><td class="small mono">2026-10-31</td><td><span class="small">📄 帳票</span> <span class="small">PDF</span></td><td><span class="btn sm secondary" style="opacity:.45">↻ 再発行</span></td></tr>
                   </tbody></table></div>
               </div></div>
-              <div class="show" data-in="3.0" data-out="6.4" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="3.0:6.4:日付と金額で入れる（一部入金も追える）" style="width:560px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0 0 8px;font-size:15px;color:var(--n-900)">入金を登録</h3>
-                <table class="tbl"><tbody><tr><td>請求額（税込）</td><td class="r tnum">¥52,800</td><td>支払期限</td><td class="mono small">2026-11-30</td></tr><tr><td>入金済</td><td class="r tnum">¥0</td><td>残額</td><td class="r tnum"><b>¥52,800</b></td></tr></tbody></table>
-                <div class="row" style="align-items:flex-end;margin-top:10px"><div class="field" style="margin:0"><label>入金日</label><div class="inp">2026-11-28</div></div><div class="field" style="width:150px;margin:0"><label>入金額（円）</label><div class="inp"><span class="type" data-type="40000" data-in="3.6" data-dur="0.8"></span></div></div><span class="small"><span class="chk on"></span>一部入金</span><span class="btn success" data-click="5.7">💴 入金を登録</span></div>
-                <p class="small muted" style="margin:8px 0 0">登録した入金は取り消せません。金額と日付を確かめてから押してください。</p></div></div>
-              <div class="toast cue" data-in="6.6" data-out="8.3"><div class="banner ok">✅ I20261031-002 に ¥40,000 の一部入金を記録しました。残額 ¥12,800 は引き続きここで追います。</div></div>
-              <div class="show" data-in="9.5" data-out="12.5" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" style="width:600px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0 0 8px;font-size:15px;color:var(--n-900)">督促を記録</h3>
-                <div class="row" style="align-items:flex-end"><div class="field" style="width:130px;margin:0"><label>手段</label><div class="sel">電話</div></div><div class="field" style="margin:0"><label>督促日</label><div class="inp">2026-11-10</div></div><div class="field" style="flex:1;margin:0"><label>ひとこと（相手の反応・次の約束）</label><div class="inp"><span class="type" data-type="経理の田中様。今月末に振込予定とのこと" data-in="10.1" data-dur="1.4"></span></div></div><span class="btn success" data-click="11.8">記録する</span></div>
-                <p class="small muted" style="margin:8px 0 0">記録は消せません（誰がいつ連絡したかの証跡）。</p></div></div>
-              <div class="toast cue" data-in="12.7" data-out="14.8"><div class="banner ok">✅ I20260905-001 に督促を記録しました。次の督促は7日後から「今日の行動」に出ます。</div></div>
+              <div class="show" data-in="4.1" data-out="6.5" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="4.1:6.4:出す前に中身を確認" style="width:700px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0;font-size:15px;color:var(--n-900)">この内容で 2件を発行します</h3><div class="small muted" style="margin-bottom:8px">請求月 2026-10 ・ 月末締め / 翌月末払い（支払期限 2026-11-30）</div>
+                <table class="tbl"><thead><tr><th>企業</th><th>掲載</th><th class="r" style="width:130px">金額（税込）</th></tr></thead><tbody>
+                  <tr><td>ロジテック物流株式会社</td><td class="small">ドライバーズワーク（P20261001-001）<div class="tiny muted">根拠: 申込書 C20260930-001</div></td><td class="r tnum">¥32,780</td></tr>
+                  <tr><td>東和デリバリー株式会社</td><td class="small">建設ジョブ（P20260901-002）<div class="tiny muted">根拠: 受注済み見積 Q20260828-004</div></td><td class="r tnum">¥52,800</td></tr>
+                </tbody></table>
+                <div class="row" style="justify-content:flex-end;margin-top:8px"><b class="small">合計（税込）: ¥85,580</b><span class="btn secondary">やめる</span><span class="btn success" data-click="5.9">🚀 2件を発行する</span></div></div></div>
+              <div class="toast cue" data-in="6.6" data-out="10.4"><div class="banner ok">✅ 2件の請求を発行しました（I20261031-001・I20261031-002）。🟢 実Googleドキュメント 2件。進行ボード 工程11:請求 を更新。</div></div>
+              <div class="toast cue" data-in="9.9" data-out="12.4" data-fx="9:11.2:PDFにしてファイル管理へ"><div class="banner ok">✅ 2件を PDF にしてファイル管理へ置きました。</div></div>
             </section>
-            </div><!-- /app-main -->
+
+            <!-- ===== 9c. 月次レポート /monthly ===== -->
+            <section class="scene" data-start="195" data-end="205" data-nav="/monthly" data-step="11">
+              <div class="page"><div class="container">
+                <div class="page-head"><h1>📈 月次レポート</h1><div class="meta">月ごとに締めた受注・請求・入金の実績です。いま止まっている請求を追うのは発行状況の画面です。</div></div>
+                <div class="panel" data-fx="0.5:2.8:この月を集計する"><h2>月を締める</h2><p class="small muted" style="margin:-6px 0 8px">対象月の申込（受注）・請求・入金を数え直して1行にします。<b>何度実行しても同じ月は上書き</b>されるので、月の途中で回して構いません。本番では毎月1日 朝8時に前月分を自動集計します。</p>
+                  <div class="row" style="align-items:flex-end"><div class="field" style="width:160px;margin:0"><label>対象月</label><div class="inp">2026年11月</div></div><span class="btn success" data-click="1.8">📊 この月を集計する</span><span class="btn secondary">🗂️ 発行状況（未入金を追う）へ</span></div></div>
+                <div class="grid" data-fx="2.8:5.6:受注・請求・入金"><div class="iss-card"><div class="iss-title">受注社数（2026-11）</div><div class="iss-num" data-count="0,1" data-in="2.8" data-dur="0.8">0<span> 社</span></div><div class="small muted">受注額(税抜) ¥325,091</div></div><div class="iss-card"><div class="iss-title">請求発行(税込)</div><div class="iss-num" style="font-size:22px">¥<span data-count="0,85580" data-in="2.8" data-dur="1.5">0</span></div><div class="small muted">2026-11に発行したぶん</div></div><div class="iss-card" style="border-left-color:var(--accent)"><div class="iss-title">入金済</div><div class="iss-num" style="font-size:22px;color:var(--accent)">¥<span data-count="0,32780" data-in="3" data-dur="1.5">0</span></div><div class="small muted">2026-11に入金されたぶん</div></div><div class="iss-card" data-fx="7.6:10:未入金は発行状況の画面で追う"><div class="iss-title">未入金</div><div class="iss-num" style="font-size:22px;color:var(--danger)">¥52,800</div><div class="small muted">東和デリバリー 1件（期限内）</div></div></div>
+                <div class="panel p0 show" data-in="0" data-fx="5.6:7.4:ひと月が1行に積み上がる"><div style="padding:10px 14px;font-size:13px;font-weight:700">月次の推移（新しい順） <span class="small muted" style="font-weight:400;margin-left:8px">行をクリックすると担当者別の内訳が開きます</span></div>
+                  <table class="tbl"><thead><tr><th>月度</th><th class="r">受注社数</th><th class="r">受注額(税抜)</th><th class="r">請求発行(税込)</th><th style="width:130px"></th><th class="r">入金済</th><th style="width:130px"></th><th class="r">未入金</th></tr></thead><tbody>
+                    <tr class="show" data-in="2.8"><td><b>2026-11</b> <span class="tiny muted">▸</span></td><td class="r">1</td><td class="r">¥325,091</td><td class="r">¥85,580</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:4%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥32,780</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:2%;background:var(--accent);border-radius:999px"></i></span></td><td class="r" style="color:var(--danger)">¥52,800</td></tr>
+                    <tr><td><b>2026-09</b> <span class="tiny muted">▸</span></td><td class="r">1</td><td class="r">¥1,090,909</td><td class="r">¥1,200,000</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:50%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥393,800</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:45%;background:var(--accent);border-radius:999px"></i></span></td><td class="r" style="color:var(--danger)">¥806,200</td></tr>
+                    <tr><td><b>2026-08</b> <span class="tiny muted">▸</span></td><td class="r">2</td><td class="r">¥2,181,818</td><td class="r">¥2,400,000</td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:100%;background:var(--navy);border-radius:999px"></i></span></td><td class="r"><b>¥880,000</b></td><td><span style="display:inline-block;width:120px;height:8px;background:#eef1f6;border-radius:999px"><i style="display:block;height:100%;width:100%;background:var(--accent);border-radius:999px"></i></span></td><td class="r" style="color:var(--danger)">¥1,520,000</td></tr>
+                  </tbody></table></div>
+                <!-- 未入金の追いかけ（実画面の「発行状況（未入金を追う）」に出るもの） -->
+                              </div></div>
+              <div class="toast cue" data-in="2.5" data-out="6.9"><div class="banner ok">✅ 2026-11 を集計しました（受注1社 / 入金 ¥32,780）。</div></div>
+            </section>
+
+            <!-- ===== 10. 企業360 /company/K000004 ===== -->
+            
+
+                      </div><!-- /app-main -->
         </div><!-- /app -->
 
-            <!-- タイトルカード No.1 -->
-            <section class="scene full tcard" data-cinema="1" data-start="0.0" data-end="9.7" data-step="0"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">ASUMO</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">求人広告の営業プロセスをAIアシスタント「ASUMO」がバックアップ</h2><p class="tc-sub cue" data-in="4.1">対話に集中し、少人数で売上を拡大</p></div></div></section>
-
-            <!-- タイトルカード No.2 -->
-            <section class="scene full tcard" data-cinema="1" data-start="9.7" data-end="12.7" data-step="0"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15"></div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">人が集中するのは、対話だけ。</h2></div></div></section>
-
-            <!-- 11工程の俯瞰 No.3 -->
-            <section class="scene full tcard" data-cinema="1" data-start="12.7" data-end="17.0" data-step="0"><div class="tc"><div class="tc-eyebrow cue" data-in="0.1">営業工程 1 〜 11</div><div class="s11wrap"><span class="s11 cue" data-in="0.5"><b>1</b>リスト作成・取込</span><span class="s11 cue" data-in="0.72"><b>2</b>メール送信</span><span class="s11 cue" data-in="0.94"><b>3</b>フォーム送信</span><span class="s11 cue" data-in="1.16"><b>4</b>テレアポ</span><span class="s11 cue" data-in="1.38"><b>5</b>初回商談資料</span><span class="s11 cue" data-in="1.6"><b>6</b>商談・議事録</span><span class="s11 cue" data-in="1.82"><b>7</b>2回目商談資料</span><span class="s11 cue" data-in="2.04"><b>8</b>見積</span><span class="s11 cue" data-in="2.26"><b>9</b>申し込み</span><span class="s11 cue" data-in="2.48"><b>10</b>掲載</span><span class="s11 cue" data-in="2.7"><b>11</b>請求</span></div><p class="tc-note cue" data-in="2.7">リスト作成から請求まで、ひとつのシステムで</p></div></section>
-
-            <!-- タイトルカード No.4 -->
-            <section class="scene full tcard" data-cinema="1" data-start="17.0" data-end="19.3" data-step="1"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程1</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">リード作成 〜 テレアポ準備</h2></div></div></section>
-
-            <!-- タイトルカード No.14 -->
-            <section class="scene full tcard" data-cinema="1" data-start="69.7" data-end="72.1" data-step="4"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程4</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">テレアポ</h2></div></div></section>
-
-            <!-- タイトルカード No.23 -->
-            <section class="scene full tcard" data-cinema="1" data-start="112.0" data-end="114.3" data-step="4"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程4</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">アポ獲得後の日程調整</h2></div></div></section>
-
-            <!-- タイトルカード No.27 -->
-            <section class="scene full tcard" data-cinema="1" data-start="129.1" data-end="131.5" data-step="5"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程5</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">商談の提案資料は、AIが作成</h2></div></div></section>
-
-            <!-- 提案書の実物 No.30 -->
-            <section class="scene full deckshot" data-cinema="1" data-start="143.5" data-end="151.9" data-step="5"><div class="dk-wrap"><div class="dk-stage"><img class="dk cue" src="deck/p01.jpg" alt="表紙" data-in="0.0" data-out="1.7"><img class="dk cue" src="deck/p06.jpg" alt="お客様の課題仮説" data-in="1.7" data-out="3.4"><img class="dk cue" src="deck/p08.jpg" alt="課題と解決策の対応" data-in="3.4" data-out="5.0"><img class="dk cue" src="deck/p12.jpg" alt="ご提案プラン（松・竹・梅）" data-in="5.0" data-out="6.7"><img class="dk cue" src="deck/p13.jpg" alt="お見積り" data-in="6.7"></div><div class="dk-bar"><span class="dk-title">初回商談資料 — ロジテック物流株式会社 御中</span><span class="dk-cap cue" data-in="0.0" data-out="1.7">表紙</span><span class="dk-cap cue" data-in="1.7" data-out="3.4">お客様の課題仮説</span><span class="dk-cap cue" data-in="3.4" data-out="5.0">課題と解決策の対応</span><span class="dk-cap cue" data-in="5.0" data-out="6.7">ご提案プラン（松・竹・梅）</span><span class="dk-cap cue" data-in="6.7">お見積り</span></div></div></section>
-
-            <!-- タイトルカード No.34 -->
-            <section class="scene full tcard" data-cinema="1" data-start="166.6" data-end="169.0" data-step="8"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程8〜10</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">受注から掲載、請求まで、ワンストップ</h2></div></div></section>
-
-            <!-- タイトルカード No.44 -->
-            <section class="scene full tcard" data-cinema="1" data-start="200.2" data-end="205.2" data-step="11"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程11</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">請求後の入金までフォロー</h2></div></div></section>
-
-            <!-- エンディング No.49,50 -->
-            <section class="scene full" data-start="220.1" data-end="232.2" data-cinema="1" data-step="12">
+        <!-- ===== 0. オープニング ===== -->
+        <section class="scene full" data-start="0" data-end="7" data-cinema="1" data-step="0">
+          <div class="cinema-bg op-bg"></div>
+          <div class="op-title">
+            <div class="ot-aurora" aria-hidden="true"></div>
+            <div class="ot-seam" aria-hidden="true"></div>
+            <div class="ot-flash" aria-hidden="true"></div>
+            <div class="ot-word" role="img" aria-label="ASUMO"><span style="--i:0" aria-hidden="true">A</span><span style="--i:1" aria-hidden="true">S</span><span style="--i:2" aria-hidden="true">U</span><span style="--i:3" aria-hidden="true">M</span><span style="--i:4" aria-hidden="true">O</span><b class="ot-shine" aria-hidden="true">ASUMO</b></div>
+            <div class="ot-rule" aria-hidden="true"></div>
+            <div class="ot-steps"><span style="--j:0">リスト作成</span><span style="--j:1">メール</span><span style="--j:2">フォーム</span><span style="--j:3">テレアポ</span><span style="--j:4">日程調整</span><span style="--j:5">商談</span><span style="--j:6">議事録</span><span style="--j:7">見積</span><span style="--j:8">申込</span><span style="--j:9">掲載</span><span style="--j:10">請求</span></div>
+          </div>
+        </section>
+        <!-- ===== エンディング ===== -->
+        <section class="scene full" data-start="205" data-end="213" data-cinema="1" data-step="12">
           <div class="cinema-bg end-bg"></div>
-          <div class="end-board cue" data-in="0.2" data-out="5.9">
+          <div class="end-board cue" data-in="0.15" data-out="3.9">
             <div class="eb-h">求人広告営業の11工程</div>
-            <div class="eb-grid"><span class="eb cue" data-in="0.5"><i>1</i>リスト作成</span><span class="eb cue" data-in="0.7"><i>2</i>メール送信</span><span class="eb cue" data-in="0.8"><i>3</i>フォーム送信</span><span class="eb talk cue" data-in="0.9"><i>4</i>テレアポ</span><span class="eb cue" data-in="1.0"><i>5</i>日程調整</span><span class="eb talk cue" data-in="1.2"><i>6</i>商談</span><span class="eb cue" data-in="1.3"><i>7</i>2回目商談資料</span><span class="eb cue" data-in="1.4"><i>8</i>見積</span><span class="eb cue" data-in="1.6"><i>9</i>申込</span><span class="eb cue" data-in="1.7"><i>10</i>掲載</span><span class="eb cue" data-in="1.8"><i>11</i>請求</span></div>
-            <div class="eb-note cue" data-in="3.3">色が付いている <b>テレアポ</b> と <b>商談</b> 以外は、ASUMOが用意する。</div>
+            <div class="eb-grid"><span class="eb cue" data-in="0.35"><i>1</i>リスト作成</span><span class="eb cue" data-in="0.43"><i>2</i>メール送信</span><span class="eb cue" data-in="0.52"><i>3</i>フォーム送信</span><span class="eb talk cue" data-in="0.60"><i>4</i>テレアポ</span><span class="eb cue" data-in="0.69"><i>5</i>日程調整</span><span class="eb talk cue" data-in="0.78"><i>6</i>商談</span><span class="eb cue" data-in="0.86"><i>7</i>2回目商談資料</span><span class="eb cue" data-in="0.95"><i>8</i>見積</span><span class="eb cue" data-in="1.03"><i>9</i>申込</span><span class="eb cue" data-in="1.11"><i>10</i>掲載</span><span class="eb cue" data-in="1.20"><i>11</i>請求</span></div>
+            <div class="eb-note cue" data-in="2.2">色が付いている <b>テレアポ</b> と <b>商談</b> 以外は、ASUMOが用意する。</div>
           </div>
           <!-- 最後の板。テロップが「求人広告営業のすべてを、ひとつに。ASUMO」を出すので、
                ここで同じ文を重ねない。出すのはロゴと、動画が通ってきた範囲だけ。 -->
-          <div class="end-title cue" data-in="6.2">
+          <div class="end-title cue" data-in="4.1">
             <div class="et-halo" aria-hidden="true"></div>
             <div class="et-flash" aria-hidden="true"></div>
             <div class="et-word" role="img" aria-label="ASUMO"><span style="--i:0" aria-hidden="true">A</span><span style="--i:1" aria-hidden="true">S</span><span style="--i:2" aria-hidden="true">U</span><span style="--i:3" aria-hidden="true">M</span><span style="--i:4" aria-hidden="true">O</span><b class="et-shine" aria-hidden="true">ASUMO</b></div>
@@ -1264,10 +1267,6 @@
             <div class="et-sub">リスト作成・メール・フォーム・テレアポ・商談・見積・申込・掲載・請求——11工程</div>
           </div>
         </section>
-
-
-        
-        
        </div><!-- /frame -->
 
        <!-- ここから下は 1440×810 の外側。ステージ実幅 --sw を基準に拡縮するので
@@ -1288,7 +1287,7 @@
 
       <div class="controls">
         <div class="scrub" id="scrub" role="slider" aria-label="再生位置" aria-valuemin="0" aria-valuemax="213" aria-valuenow="0" tabindex="0"><div class="track"></div><div class="fill" id="fill"></div><div id="marks"></div><div class="knob" id="knob"></div></div>
-        <div class="ctl-row"><button class="cb" id="play" aria-label="再生 / 一時停止">▶</button><button class="cb sec" id="prev" aria-label="前の章">‹</button><button class="cb sec" id="next" aria-label="次の章">›</button><span class="time"><span id="tcur">0:00</span> <span>/ <span id="ttot">3:52</span></span></span><button class="speed" data-speed="1" title="ナレーションも同じ倍率で速くなります">1×</button><button class="speed" data-speed="1.25" title="ナレーションも同じ倍率で速くなります">1.25×</button><button class="speed" data-speed="1.5" title="ナレーションも同じ倍率で速くなります">1.5×</button><button class="speed" data-speed="2" title="ナレーションも同じ倍率で速くなります">2×</button><button class="cb aud" id="audio" type="button" aria-label="ナレーション音声の入切" title="ナレーション音声の入切（M）" style="width:auto;padding:0 10px;font-size:12px">🔊 音声</button><span class="noaudio">ナレーションを読み込めませんでした（字幕のみで再生します）</span><button class="cb sec" id="fs" aria-label="全画面" title="全画面（F）" style="width:auto;padding:0 10px;font-size:12px">⛶ 全画面</button><div class="now"><span id="now-eyebrow">オープニング</span><b id="now-title">ASUMO 営業ジャーニー</b></div></div>
+        <div class="ctl-row"><button class="cb" id="play" aria-label="再生 / 一時停止">▶</button><button class="cb sec" id="prev" aria-label="前の章">‹</button><button class="cb sec" id="next" aria-label="次の章">›</button><span class="time"><span id="tcur">0:00</span> <span>/ <span id="ttot">3:33</span></span></span><button class="speed" data-speed="1" title="ナレーションも同じ倍率で速くなります">1×</button><button class="speed" data-speed="1.25" title="ナレーションも同じ倍率で速くなります">1.25×</button><button class="speed" data-speed="1.5" title="ナレーションも同じ倍率で速くなります">1.5×</button><button class="speed" data-speed="2" title="ナレーションも同じ倍率で速くなります">2×</button><button class="cb aud" id="audio" type="button" aria-label="ナレーション音声の入切" title="ナレーション音声の入切（M）" style="width:auto;padding:0 10px;font-size:12px">🔊 音声</button><span class="noaudio">ナレーションを読み込めませんでした（字幕のみで再生します）</span><button class="cb sec" id="fs" aria-label="全画面" title="全画面（F）" style="width:auto;padding:0 10px;font-size:12px">⛶ 全画面</button><div class="now"><span id="now-eyebrow">オープニング</span><b id="now-title">ASUMO 営業ジャーニー</b></div></div>
         <div class="keys"><span><kbd>Space</kbd>再生/停止</span><span><kbd>←</kbd><kbd>→</kbd>5秒</span><span><kbd>[</kbd><kbd>]</kbd>章の移動</span><span><kbd>R</kbd>最初から</span><span><kbd>F</kbd>全画面</span><span><kbd>M</kbd>音声</span><span><kbd>C</kbd>チャプター</span></div>
       </div>
       <aside class="index" id="index"><div class="h">工程の一覧　<button class="ghostbtn" id="idxclose" type="button" style="float:right;padding:2px 10px">✕</button></div><div class="note">ボタン・文字・数字・スクロールはすべて時刻から描画しているので、<b>シークしても同じ画が出ます</b>。画面の文言・並び・色は本体コード（各 page.tsx / globals.css）から取り、実機スクショと照合しています。<br><br><b>ショートカット</b><br>Space 再生/停止　← → 5秒　[ ] 章移動<br>R 最初から　F 全画面　M 音声の入切</div></aside>
@@ -1299,7 +1298,7 @@
 <script>
 (function(){
   'use strict';
-  const TOTAL = 232.2;
+  const TOTAL = 213;
   const $ = s => document.querySelector(s);
   const $$ = s => Array.from(document.querySelectorAll(s));
 
@@ -1367,81 +1366,84 @@
   // [動画の秒, 工程, 章名, 劇中の時刻]
   // 第4要素は「営業の一日」の時計。曜日で割らず、9:00 出社 → 18:00 台帳を見る、で通す。
   const CH = [
-    [   0.0, 'オープニング', 'ASUMO', ''],
-    [  12.7, '概要', '11工程をひとつに', ''],
-    [  17.0, '工程1〜3', 'リード作成 〜 テレアポ準備', ''],
-    [  69.7, '工程4', 'テレアポ', ''],
-    [ 112.0, '工程4', 'アポ獲得後の日程調整', ''],
-    [ 129.1, '工程5〜7', '提案資料はAIが作成', ''],
-    [ 166.6, '工程8〜10', '受注から掲載まで', ''],
-    [ 200.2, '工程11', '請求後の入金までフォロー', ''],
-    [ 220.1, 'エンディング', 'ASUMO', ''],
+    [  0, 'オープニング', 'ASUMO', ''],
+    [  7, '工程1', 'アプローチリスト作成', ''],
+    [ 33, '番外編', 'リスト取込', ''],
+    [ 41, '工程2', 'メール送信', ''],
+    [ 54, '工程3', 'フォーム送信', ''],
+    [ 62, '工程4', 'テレアポ', ''],
+    [102, '工程4', '日程調整', ''],
+    [113, '工程5〜7', '初回商談資料 → 商談 → 2回目', ''],
+    [147, '工程8・9', '見積・申込・契約', ''],
+    [168, '工程10', '掲載', ''],
+    [181, '工程11', '請求・入金', ''],
+    [195, 'レポート', '月次・入金の追いかけ', ''],
+    [205, 'エンディング', 'ASUMO', ''],
   ];
 
   // ---- テロップ（映像構成 v3）----
   // [開始秒, 終了秒, テロップ]。改行は \n（バックスラッシュ + n の2文字）で書くと <br> になる。
   // 読み上げは既定オフなので、長さの制約は「読めるか」だけ。目安は 1 行 22 字・1 秒 6 字。
   // 章の頭（工程名）はチャプターカードが出すので、テロップに同じ文字を重ねない。
-  /* 字幕。[開始, 終了, 画面に出す字幕, 読み上げ文]。台本は _audio/timeline_v2.json（スプレッドシート由来）。
-     タイトルカードの行はここに入れない——カードが画面センターに文字を出すため。 */
+  /* 字幕。[開始, 終了, 画面に出す字幕, 読み上げ文]。第4要素は narration.mp3 を焼いた文で、
+     記号や英字をそのまま読ませると誤読するところだけ書き換えてある（省略時は字幕そのもの）。 */
   const CAPS = [
-    [  12.7,   16.6, 'リスト作成から請求まで、ひとつのシステムで', 'リスト作成から請求まで、ひとつのシステムで進みます'],
+    [   0.4,    3.0, '求人広告営業に必要なものは、', '求人広告営業に必要なもの'],
+    [   3.2,    7.0, 'すべて、ASUMOひとつで。', 'すべて、アスモひとつで！'],
+    [   7.4,   11.0, '営業先のアプローチリストを作ります'],
+    [  11.4,   16.0, '作り方は2つ。外から探すか、いまある企業から選ぶか', '外から探すか、いまある企業から選ぶか'],
+    [  16.4,   20.8, '地域や業種、ICP適合で当たり先を絞ります', '地域や業種で、当たり先を絞ります'],
+    [  21.2,   27.0, '条件に合致した企業が、こう表示されます'],
+    [  27.2,   33.0, '1社ごとに、会社の切り口が付きます', 'いっしゃごとに、会社の切り口が付きます'],
+    [  33.4,   36.8, '手元のリストも取り込めます'],
+    [  37.2,   41.0, 'CSVを貼るだけ。列の対応は自動で推定します', 'シーエスブイを貼るだけ。列は自動で推定します'],
+    [  41.4,   46.0, '作成したリストに、メールでアプローチします'],
+    [  46.2,   50.0, '1社ずつ、AIが書き分けます', 'いっしゃずつ、エーアイが書き分けます'],
+    [  50.2,   54.0, '送信は、あなたのGmailから', '送信は、あなたのジーメールから'],
+    [  54.4,   57.8, '投稿するのは担当者。asumo は手前まで', '投稿は人が。アスモは手前まで'],
+    [  58.2,   62.0, '問い合わせフォームからも、アプローチできます'],
 
-    [  19.3,   22.1, 'リードの作成からテレアポ準備まで', 'リードの作成から、テレアポの準備まで'],
+    [  62.6,   68.0, 'メール・フォーム送信後の企業に、テレアポでアプローチできます', 'メールやフォームを送った企業に、テレアポでアプローチできます'],
+    [  68.2,   72.0, '左：企業情報　中央：企業ごとの切り口　右：架電メモ', '左から順に企業、切り口、メモ'],
+    [  72.2,   76.0, '発信はワンクリック。終話も自動です'],
+    [  76.2,   80.4, '会話の内容は、自動判定でフラグが立っていきます'],
+    [  80.6,   83.8, '予算の時期やニーズも拾います'],
+    [  84.2,   89.0, '通話中に人がやるのは、架電メモだけ'],
+    [  89.2,   94.0, '録音と文字起こしは、自動でASUMOの中に溜まります', '録音と文字起こしは、自動でアスモの中に溜まります'],
+    [  94.2,   98.0, '通話が終了したら、最後に架電結果を選択', '通話が終わったら、最後に架電結果を選びます'],
+    [  98.2,  102.0, 'ヒアリングは、自動で埋まります'],
 
-    [  24.0,   27.5, '情報の取得と整理は、すべて自動', '情報の取得と整理を、自動で行います'],
+    [ 102.6,  106.0, 'メールでアポを取る際は、このように日程調整できます', 'アポの日程は、こう調整します'],
+    [ 106.2,  110.0, 'カレンダーから候補日を送信', 'カレンダーから候補日を送ります'],
+    [ 110.2,  113.0, 'お客様はスマホで選ぶだけ。ログイン不要', 'お客様はスマホで選ぶだけ。ログインは要りません'],
 
-    [  28.8,   32.7, 'リードは外から探すか、いまある企業から選ぶか', '外部サイトから探すか、いまある企業から選ぶか'],
-    [  33.4,   39.6, '地域や業種、採用情報などからICP適合し、当たり先を絞ります', '地域や業種、採用情報などからアイシーピー適合し、当たり先を絞ります'],
-    [  40.0,   45.2, '条件に合致した企業が表示されリスト化されます'],
+    [ 113.6,  118.0, '初回商談準備は、このようにします', '初回商談の準備は、こうします'],
+    [ 118.2,  124.0, '材料は、テレアポヒアリングと議事録'],
+    [ 124.2,  130.0, '初回商談は、ヒアリングと会社概要\n企業の採用情報の収集をもとに作成されます', '初回商談の資料は、ヒアリングと会社概要、採用情報から作られます'],
 
-    [  47.6,   52.4, '1社ごとに、会社の訴求ポイントをAIが判断します', 'いっしゃごとに、会社の訴求ポイントをエーアイが判断します'],
+    [ 131.6,  134.8, '商談は録るだけです'],
+    [ 135.2,  139.0, '議事録を、瞬時に作成します'],
+    [ 139.2,  143.0, 'サンクスメールも作成します', 'お礼のメールも作ります'],
+    [ 143.2,  147.0, '議事録をもとに、2回目以降の資料も作成されます', '議事録をもとに、二回目以降の資料も作られます'],
+    [ 147.4,  152.0, '商談を繰り返して、受注。\n見積書は、提案の時点で作成されています', '受注。見積書は提案の時点でできています'],
+    [ 152.2,  157.0, 'Excelで見積書の作成', 'エクセルでも見積書を作れます'],
+    [ 157.4,  161.2, '合意した見積書の内容が、そのまま申込書になります', '合意した見積書が、そのまま申込書になります'],
+    [ 161.4,  165.4, '金額を打ち直す場所はありません'],
+    [ 165.6,  168.0, '発行すると、進行ボードの工程9が完了します', '発行すると、工程きゅうが完了します'],
 
-    [  54.2,   57.5, '手元にあるリストは、貼るだけでリスト化されます'],
-    [  57.9,   63.1, 'メールは1社ずつAIが訴求を書き分け、あなたのGmailから送信', 'いっしゃずつエーアイが書き分けて、あなたのジーメールから送ります'],
-    [  63.4,   69.4, 'といあわせフォームも、文面とURLはAIが用意。投稿は担当者', 'といあわせフォームも、文面はエーアイが。投稿は人が行います'],
+    [ 168.6,  172.0, '受注した申込から、掲載を起こします', '申込から、掲載を起こします'],
+    [ 172.2,  177.0, '入稿待ち　→　掲載開始　→　掲載中（人が押して進める）', '入稿待ちから、掲載開始を押して掲載中へ'],
+    [ 177.2,  181.0, '掲載中になった月から、請求の対象に並びます', '掲載中の分が、請求に並びます'],
 
-    [  72.1,   76.5, 'メール・フォームの後は、テレアポへ', 'メールやフォームを送った企業に、テレアポでアプローチします'],
-    [  76.8,   80.2, '発信はワンクリック。終話も自動', '発信はワンクリック。終話も自動です'],
+    [ 181.6,  186.0, '請求は掲載と一対一。月末締めで積み上がります', '掲載したぶんが月末締めで積み上がります'],
+    [ 186.2,  190.4, '中身を確かめて、まとめて発行します'],
+    [ 190.6,  195.0, '取り消して出し直しても、元の番号は残ります'],
 
-    [  83.1,   86.5, '会話は自動で文字起こし・要約', '会話は自動で文字起こしされ、要約されます'],
+    [ 195.6,  201.0, '当月のアポ／商談実施／受注／発生／今月入金予定額', '今月のアポと商談と受注、そして入金'],
+    [ 201.2,  205.0, '未入金の追いかけは、発行状況の画面へ'],
 
-    [  88.8,   92.4, '会話の内容から、自動でフラグが立つ', '会話の内容から、自動でフラグが立っていきます'],
-
-    [  94.8,   97.5, '予算の時期やニーズも拾います'],
-    [  97.9,  102.0, '通話中に人がやるのは、対話に集中すること'],
-    [ 102.4,  106.4, '架電結果はワンタップ。そのまま集計', '架電結果はワンタップ。そのまま集計されます'],
-
-    [ 109.2,  111.6, 'ヒアリングは、自動で埋まる', 'ヒアリングは、自動で埋まります'],
-
-    [ 114.3,  118.2, 'アポ獲得後の調整も、カレンダー連携で', 'アポ獲得後の調整も、カレンダー連携でおこないます。'],
-    [ 118.6,  121.0, '候補日をそのまま送信', '候補日を、そのまま送ります'],
-
-    [ 123.4,  127.3, 'お客様はスマホで選ぶだけ。ログイン不要', 'お客様はスマホで選ぶだけ。ログインは要りません'],
-
-    [ 131.5,  136.4, '提案資料は、テレアポヒアリングと議事録から', '商談で使う提案資料は、テレアポのヒアリングや議事録から'],
-    [ 136.9,  141.7, 'クライアントに最適な、オリジナルの提案資料をAIが作成', 'そのクライアントに最適な提案資料を、エーアイが作ります'],
-
-    [ 143.5,  145.9, 'できあがった提案書（実物）', 'できあがった資料が、こちらです'],
-
-    [ 151.9,  156.7, '商談は録るだけ。議事録は瞬時に', '商談は録るだけ。議事録は瞬時にできます'],
-
-    [ 158.6,  162.3, 'お礼のメールも、自動で', 'おれいのメールの叩き台も作ります'],
-    [ 162.7,  166.3, '2回目以降の資料も、議事録から', '二回目以降の資料も、議事録から作られます'],
-
-    [ 169.0,  174.5, '見積書は、提案の時点でできている', '受注。みつもりしょは提案の時点でできています'],
-    [ 174.8,  178.0, '大きな割引は、本人以外の承認へ', '大きな割引は、承認へ回ります'],
-    [ 178.4,  182.2, '合意した見積が、そのまま申込書に', '合意したみつもりが、そのまま申込書になります'],
-    [ 182.5,  185.3, '金額を打ち直す場所はありません'],
-    [ 185.7,  191.7, '掲載原稿はAIが作成、やりとりも校了までステータス管理します。', '掲載原稿はエーアイが作成、やりとりも校了までステータス管理します。'],
-
-    [ 194.0,  197.2, '掲載中になった月から、請求の対象に', '掲載中の分が、請求に並びます'],
-
-    [ 205.2,  210.4, '入金は日付と金額で。一部入金も追える', '入金は日付と金額で。一部入金も追えます'],
-
-    [ 214.9,  217.1, '督促した相手には、二度掛けない', 'さいそくの履歴も残ります'],
-
-    [ 220.1,  224.9, '裏側はすべて、AIとシステムが。', '裏側はすべて、エーアイとシステムが'],
+    [ 205.6,  209.0, '人が集中するのは、話す工程だけ。', '人が集中するのは話す工程だけ'],
+    [ 209.2,  213.0, '求人広告営業のすべてを、ひとつに。ASUMO', '営業のすべてを、ひとつに。アスモ！'],
   ];
 
   // ---- 索引・目盛 ----
