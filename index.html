@@ -581,18 +581,17 @@
   .tc-eyebrow{font-size:15px;letter-spacing:.22em;color:var(--em-400);font-weight:700;margin-bottom:18px;min-height:20px}
   .tc-title{font-size:52px;line-height:1.28;font-weight:800;color:#fff;margin:0;letter-spacing:.01em}
   .tc-sub{font-size:26px;line-height:1.5;color:var(--em-200);margin:18px 0 0;font-weight:500}
-  .tc-note{font-size:22px;color:var(--em-200);margin:26px 0 0;font-weight:500}
-  .s11wrap{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:1000px;margin:6px auto 0}
-  .s11{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
-       color:#fff;border-radius:999px;padding:8px 16px;font-size:16px;font-weight:600;white-space:nowrap}
-  .s11 b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;
-         background:var(--em-500);color:#08201d;font-size:12px;font-weight:800}
-  /* 提案書の実物 */
-  .scene.deckshot{display:flex;align-items:center;justify-content:center;background:var(--theater);padding:34px 60px}
-  .dk-wrap{width:100%;max-width:1180px}
+  .s11wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:1040px;margin:6px auto 0}
+  .s11{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
+       color:#fff;border-radius:999px;padding:10px 18px;font-size:18px;font-weight:600;white-space:nowrap}
+  .s11 b{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;
+         background:var(--em-500);color:#08201d;font-size:13px;font-weight:800}
+  /* 提案書の実物。下の帯は字幕に隠れないよう、下に余白を取る */
+  .scene.deckshot{display:flex;align-items:flex-start;justify-content:center;background:var(--theater);padding:28px 60px 150px}
+  .dk-wrap{width:100%;max-width:1000px}
   .dk-stage{position:relative;width:100%;aspect-ratio:16/9;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
   .dk{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
-  .dk-bar{display:flex;align-items:center;gap:14px;margin-top:14px;color:#fff;flex-wrap:wrap}
+  .dk-bar{display:flex;align-items:center;gap:14px;margin-top:12px;color:#fff;flex-wrap:wrap}
   .dk-title{font-size:15px;font-weight:700}
   .dk-cap{font-size:14px;color:var(--em-200);background:rgba(255,255,255,.10);border-radius:999px;padding:5px 14px}
 
@@ -601,7 +600,7 @@
 <div class="wrap">
   <header class="masthead">
     <div class="brand"><span class="logo">ASUMO</span><h1>求人広告営業のすべてを、ひとつに</h1></div>
-    <div class="meta">リスト作成から入金まで、<b>11工程</b>を通しで見る疑似動画（3分33秒）　<button class="ghostbtn" id="idxbtn" type="button">☰ 工程の一覧</button></div>
+    <div class="meta">リスト作成から入金まで、<b>11工程</b>を通しで見る疑似動画（3分52秒）　<button class="ghostbtn" id="idxbtn" type="button">☰ 工程の一覧</button></div>
   </header>
   <div class="player">
     <div class="stage-wrap">
@@ -1198,9 +1197,9 @@
               <div class="page"><div class="container">
                 <div class="page-head"><h1>🗂️ 発行状況</h1><div class="meta">いま止まっている書類を片付ける画面です。未入金の判定は期間に関わらず出します。</div></div>
                 <div class="panel p0"><div style="padding:10px 14px;font-size:13px;font-weight:700">未入金（期限内を含む）</div>
-                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:110px">金額(税込)</th><th class="r" style="width:100px">入金済</th><th class="r" style="width:100px">残額</th><th style="width:105px">支払期限</th><th style="width:90px">超過</th><th style="width:110px">状態</th><th style="width:130px">督促</th><th style="width:210px"></th></tr></thead><tbody>
-                    <tr data-fx="0.6:4.5:残額と支払期限で追う"><td class="mono small">I20261031-002</td><td><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum cue in" data-out="6.6">¥0</td><td class="r tnum"><b class="cue in" data-out="6.6">¥52,800</b><b class="show" data-in="6.6">¥12,800</b></td><td class="small mono">2026-11-30</td><td class="small muted">—</td><td><span class="pill in_progress cue in" data-out="6.6">発行済</span><span class="pill pending show" data-in="6.6">一部入金</span></td><td class="small muted">なし</td><td><span class="btn sm" data-click="2.5">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
-                    <tr data-fx="8.3:12.8:督促は履歴に残る。二度掛けを防ぐ"><td class="mono small">I20260905-001</td><td><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum">¥0</td><td class="r tnum"><b>¥64,300</b></td><td class="small mono">2026-10-05</td><td class="small" style="color:var(--danger)">36日</td><td><span class="pill error">期限超過</span></td><td class="small cue in" data-out="11.3">なし</td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary" data-click="9.2">📣 督促を記録</span></td></tr>
+                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:120px">金額(税込)</th><th class="r" style="width:120px">残額</th><th style="width:140px">支払期限</th><th style="width:110px">状態</th><th style="width:250px"></th></tr></thead><tbody>
+                    <tr data-fx="0.6:4.5:残額と支払期限で追う"><td class="mono small">I20261031-002</td><td style="white-space:nowrap"><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum"><b class="cue in" data-out="6.6">¥52,800</b><b class="show" data-in="6.6">¥12,800</b></td><td class="small mono">2026-11-30</td><td><span class="pill in_progress cue in" data-out="6.6">発行済</span><span class="pill pending show" data-in="6.6">一部入金</span></td><td><span class="btn sm" data-click="2.5">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr data-fx="8.3:12.8:督促は履歴に残る。二度掛けを防ぐ"><td class="mono small">I20260905-001</td><td style="white-space:nowrap"><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum"><b>¥64,300</b></td><td class="small mono">2026-10-05<div class="tiny" style="color:var(--danger)">36日超過</div></td><td><span class="pill error">期限超過</span><div class="tiny muted cue in" data-out="11.3">督促なし</div><div class="tiny show" data-in="12.7">督促 1回（電話）</div></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary" data-click="9.2">📣 督促を記録</span></td></tr>
                   </tbody></table></div>
               </div></div>
               <div class="show" data-in="3.0" data-out="6.4" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="3.0:6.4:日付と金額で入れる（一部入金も追える）" style="width:560px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0 0 8px;font-size:15px;color:var(--n-900)">入金を登録</h3>
@@ -1223,7 +1222,7 @@
             <section class="scene full tcard" data-cinema="1" data-start="9.7" data-end="12.7" data-step="0"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15"></div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">人が集中するのは、対話だけ。</h2></div></div></section>
 
             <!-- 11工程の俯瞰 No.3 -->
-            <section class="scene full tcard" data-cinema="1" data-start="12.7" data-end="17.0" data-step="0"><div class="tc"><div class="tc-eyebrow cue" data-in="0.1">営業工程 1 〜 11</div><div class="s11wrap"><span class="s11 cue" data-in="0.5"><b>1</b>リスト作成・取込</span><span class="s11 cue" data-in="0.72"><b>2</b>メール送信</span><span class="s11 cue" data-in="0.94"><b>3</b>フォーム送信</span><span class="s11 cue" data-in="1.16"><b>4</b>テレアポ</span><span class="s11 cue" data-in="1.38"><b>5</b>初回商談資料</span><span class="s11 cue" data-in="1.6"><b>6</b>商談・議事録</span><span class="s11 cue" data-in="1.82"><b>7</b>2回目商談資料</span><span class="s11 cue" data-in="2.04"><b>8</b>見積</span><span class="s11 cue" data-in="2.26"><b>9</b>申し込み</span><span class="s11 cue" data-in="2.48"><b>10</b>掲載</span><span class="s11 cue" data-in="2.7"><b>11</b>請求</span></div><p class="tc-note cue" data-in="2.7">リスト作成から請求まで、ひとつのシステムで</p></div></section>
+            <section class="scene full tcard" data-cinema="1" data-start="12.7" data-end="17.0" data-step="0"><div class="tc"><div class="tc-eyebrow cue" data-in="0.1">営業工程 1 〜 11</div><div class="s11wrap"><span class="s11 cue" data-in="0.5"><b>1</b>リスト作成・取込</span><span class="s11 cue" data-in="0.72"><b>2</b>メール送信</span><span class="s11 cue" data-in="0.94"><b>3</b>フォーム送信</span><span class="s11 cue" data-in="1.16"><b>4</b>テレアポ</span><span class="s11 cue" data-in="1.38"><b>5</b>初回商談資料</span><span class="s11 cue" data-in="1.6"><b>6</b>商談・議事録</span><span class="s11 cue" data-in="1.82"><b>7</b>2回目商談資料</span><span class="s11 cue" data-in="2.04"><b>8</b>見積</span><span class="s11 cue" data-in="2.26"><b>9</b>申し込み</span><span class="s11 cue" data-in="2.48"><b>10</b>掲載</span><span class="s11 cue" data-in="2.7"><b>11</b>請求</span></div></div></section>
 
             <!-- タイトルカード No.4 -->
             <section class="scene full tcard" data-cinema="1" data-start="17.0" data-end="19.3" data-step="1"><div class="tc"><div class="tc-eyebrow cue" data-in="0.15">工程1</div><div class="tc-body cue" data-in="0.3"><h2 class="tc-title">リード作成 〜 テレアポ準備</h2></div></div></section>
@@ -1252,7 +1251,7 @@
           <div class="end-board cue" data-in="0.2" data-out="5.9">
             <div class="eb-h">求人広告営業の11工程</div>
             <div class="eb-grid"><span class="eb cue" data-in="0.5"><i>1</i>リスト作成</span><span class="eb cue" data-in="0.7"><i>2</i>メール送信</span><span class="eb cue" data-in="0.8"><i>3</i>フォーム送信</span><span class="eb talk cue" data-in="0.9"><i>4</i>テレアポ</span><span class="eb cue" data-in="1.0"><i>5</i>日程調整</span><span class="eb talk cue" data-in="1.2"><i>6</i>商談</span><span class="eb cue" data-in="1.3"><i>7</i>2回目商談資料</span><span class="eb cue" data-in="1.4"><i>8</i>見積</span><span class="eb cue" data-in="1.6"><i>9</i>申込</span><span class="eb cue" data-in="1.7"><i>10</i>掲載</span><span class="eb cue" data-in="1.8"><i>11</i>請求</span></div>
-            <div class="eb-note cue" data-in="3.3">色が付いている <b>テレアポ</b> と <b>商談</b> 以外は、ASUMOが用意する。</div>
+            <div class="eb-note cue" data-in="3.3"><b>テレアポ</b> と <b>商談</b> 以外の裏側は、すべて AI とシステムが。</div>
           </div>
           <!-- 最後の板。テロップが「求人広告営業のすべてを、ひとつに。ASUMO」を出すので、
                ここで同じ文を重ねない。出すのはロゴと、動画が通ってきた範囲だけ。 -->
@@ -1261,7 +1260,7 @@
             <div class="et-flash" aria-hidden="true"></div>
             <div class="et-word" role="img" aria-label="ASUMO"><span style="--i:0" aria-hidden="true">A</span><span style="--i:1" aria-hidden="true">S</span><span style="--i:2" aria-hidden="true">U</span><span style="--i:3" aria-hidden="true">M</span><span style="--i:4" aria-hidden="true">O</span><b class="et-shine" aria-hidden="true">ASUMO</b></div>
             <div class="et-rule" aria-hidden="true"></div>
-            <div class="et-sub">リスト作成・メール・フォーム・テレアポ・商談・見積・申込・掲載・請求——11工程</div>
+            <div class="et-sub">求人広告の営業プロセスを、AIで変える。</div>
           </div>
         </section>
 
@@ -1280,7 +1279,7 @@
        <button class="poster" id="poster" type="button" aria-label="再生を開始">
          <span class="pl">ASUMO</span>
          <h2>求人広告営業のすべてを、ひとつに<br>リスト作成から入金まで、11工程</h2>
-         <span class="ps">求人広告代理店の営業が触る画面を、リスト作成から請求・入金まで11工程ぶん。すべてデプロイ済みの実機UIの文言・構成に合わせています。3分33秒。</span>
+         <span class="ps">求人広告代理店の営業が触る画面を、リスト作成から請求・入金まで11工程ぶん。すべてデプロイ済みの実機UIの文言・構成に合わせています。3分52秒。</span>
          <span class="pb">▶ 再生する</span>
          <span class="pn"><b>ナレーション付きで再生します</b>（🔇 ボタン、または <b>M</b> キーで消せます）。<br>会場で流すときは <b>F</b> キーで全画面に。</span>
        </button>
@@ -1383,7 +1382,7 @@
   // 読み上げは既定オフなので、長さの制約は「読めるか」だけ。目安は 1 行 22 字・1 秒 6 字。
   // 章の頭（工程名）はチャプターカードが出すので、テロップに同じ文字を重ねない。
   /* 字幕。[開始, 終了, 画面に出す字幕, 読み上げ文]。台本は _audio/timeline_v2.json（スプレッドシート由来）。
-     タイトルカードの行はここに入れない——カードが画面センターに文字を出すため。 */
+     タイトルカードの行はここに入れない——カードが画面センターに文字を出すため。長い行は句読点で2行に割る。 */
   const CAPS = [
     [  12.7,   16.6, 'リスト作成から請求まで、ひとつのシステムで', 'リスト作成から請求まで、ひとつのシステムで進みます'],
 
@@ -1392,14 +1391,14 @@
     [  24.0,   27.5, '情報の取得と整理は、すべて自動', '情報の取得と整理を、自動で行います'],
 
     [  28.8,   32.7, 'リードは外から探すか、いまある企業から選ぶか', '外部サイトから探すか、いまある企業から選ぶか'],
-    [  33.4,   39.6, '地域や業種、採用情報などからICP適合し、当たり先を絞ります', '地域や業種、採用情報などからアイシーピー適合し、当たり先を絞ります'],
+    [  33.4,   39.6, '地域や業種、採用情報などからICP適合し、\n当たり先を絞ります', '地域や業種、採用情報などからアイシーピー適合し、当たり先を絞ります'],
     [  40.0,   45.2, '条件に合致した企業が表示されリスト化されます'],
 
     [  47.6,   52.4, '1社ごとに、会社の訴求ポイントをAIが判断します', 'いっしゃごとに、会社の訴求ポイントをエーアイが判断します'],
 
-    [  54.2,   57.5, '手元にあるリストは、貼るだけでリスト化されます'],
-    [  57.9,   63.1, 'メールは1社ずつAIが訴求を書き分け、あなたのGmailから送信', 'いっしゃずつエーアイが書き分けて、あなたのジーメールから送ります'],
-    [  63.4,   69.4, 'といあわせフォームも、文面とURLはAIが用意。投稿は担当者', 'といあわせフォームも、文面はエーアイが。投稿は人が行います'],
+    [  54.2,   57.5, '手元にあるリストは、\n貼るだけでリスト化されます'],
+    [  57.9,   63.1, 'メールは1社ずつAIが訴求を書き分け、\nあなたのGmailから送信', 'いっしゃずつエーアイが書き分けて、あなたのジーメールから送ります'],
+    [  63.4,   69.4, 'といあわせフォームも、\n文面とURLはAIが用意。投稿は担当者', 'といあわせフォームも、文面はエーアイが。投稿は人が行います'],
 
     [  72.1,   76.5, 'メール・フォームの後は、テレアポへ', 'メールやフォームを送った企業に、テレアポでアプローチします'],
     [  76.8,   80.2, '発信はワンクリック。終話も自動', '発信はワンクリック。終話も自動です'],
@@ -1420,7 +1419,7 @@
     [ 123.4,  127.3, 'お客様はスマホで選ぶだけ。ログイン不要', 'お客様はスマホで選ぶだけ。ログインは要りません'],
 
     [ 131.5,  136.4, '提案資料は、テレアポヒアリングと議事録から', '商談で使う提案資料は、テレアポのヒアリングや議事録から'],
-    [ 136.9,  141.7, 'クライアントに最適な、オリジナルの提案資料をAIが作成', 'そのクライアントに最適な提案資料を、エーアイが作ります'],
+    [ 136.9,  141.7, 'クライアントに最適な、\nオリジナルの提案資料をAIが作成', 'そのクライアントに最適な提案資料を、エーアイが作ります'],
 
     [ 143.5,  145.9, 'できあがった提案書（実物）', 'できあがった資料が、こちらです'],
 
@@ -1433,7 +1432,7 @@
     [ 174.8,  178.0, '大きな割引は、本人以外の承認へ', '大きな割引は、承認へ回ります'],
     [ 178.4,  182.2, '合意した見積が、そのまま申込書に', '合意したみつもりが、そのまま申込書になります'],
     [ 182.5,  185.3, '金額を打ち直す場所はありません'],
-    [ 185.7,  191.7, '掲載原稿はAIが作成、やりとりも校了までステータス管理します。', '掲載原稿はエーアイが作成、やりとりも校了までステータス管理します。'],
+    [ 185.7,  191.7, '掲載原稿はAIが作成、\nやりとりも校了までステータス管理します。', '掲載原稿はエーアイが作成、やりとりも校了までステータス管理します。'],
 
     [ 194.0,  197.2, '掲載中になった月から、請求の対象に', '掲載中の分が、請求に並びます'],
 

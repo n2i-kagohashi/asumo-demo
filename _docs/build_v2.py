@@ -5,7 +5,8 @@
 import json, re, pathlib, math
 
 HERE = pathlib.Path(__file__).parent.parent
-src = (HERE/'index.html').read_text(encoding='utf-8')
+# 入力は必ず v1 のバックアップ（index.html は出力先。v2 を再度読むと旧シーンが取れない）
+src = (HERE/'_docs/index_v1_backup.html').read_text(encoding='utf-8')
 tl = json.loads((HERE/'_audio/timeline_v2.json').read_text(encoding='utf-8'))
 rows = {r["no"]: r for r in tl["rows"]}
 TOTAL = tl["total"]
@@ -65,8 +66,7 @@ def overview_scene(start, end):
     return (f'\n            <!-- 11工程の俯瞰 No.3 -->\n'
             f'            <section class="scene full tcard" data-cinema="1" data-start="{start}" data-end="{end}" data-step="0">'
             f'<div class="tc"><div class="tc-eyebrow cue" data-in="0.1">営業工程 1 〜 11</div>'
-            f'<div class="s11wrap">{chips}</div>'
-            f'<p class="tc-note cue" data-in="{round((end-start)*0.62,1)}">リスト作成から請求まで、ひとつのシステムで</p></div></section>')
+            f'<div class="s11wrap">{chips}</div></div></section>')   # 一言は字幕（CAPS）が出すので重ねない
 
 DECK = [("p01.jpg","表紙"),("p06.jpg","お客様の課題仮説"),("p08.jpg","課題と解決策の対応"),
         ("p12.jpg","ご提案プラン（松・竹・梅）"),("p13.jpg","お見積り")]
@@ -92,9 +92,9 @@ def issuance_scene(start, end):
               <div class="page"><div class="container">
                 <div class="page-head"><h1>🗂️ 発行状況</h1><div class="meta">いま止まっている書類を片付ける画面です。未入金の判定は期間に関わらず出します。</div></div>
                 <div class="panel p0"><div style="padding:10px 14px;font-size:13px;font-weight:700">未入金（期限内を含む）</div>
-                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:110px">金額(税込)</th><th class="r" style="width:100px">入金済</th><th class="r" style="width:100px">残額</th><th style="width:105px">支払期限</th><th style="width:90px">超過</th><th style="width:110px">状態</th><th style="width:130px">督促</th><th style="width:210px"></th></tr></thead><tbody>
-                    <tr data-fx="0.6:{round(d*0.30,1)}:残額と支払期限で追う"><td class="mono small">I20261031-002</td><td><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum cue in" data-out="{round(d*0.44,1)}">¥0</td><td class="r tnum"><b class="cue in" data-out="{round(d*0.44,1)}">¥52,800</b><b class="show" data-in="{round(d*0.44,1)}">¥12,800</b></td><td class="small mono">2026-11-30</td><td class="small muted">—</td><td><span class="pill in_progress cue in" data-out="{round(d*0.44,1)}">発行済</span><span class="pill pending show" data-in="{round(d*0.44,1)}">一部入金</span></td><td class="small muted">なし</td><td><span class="btn sm" data-click="{round(d*0.17,1)}">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
-                    <tr data-fx="{round(d*0.56,1)}:{round(d*0.86,1)}:督促は履歴に残る。二度掛けを防ぐ"><td class="mono small">I20260905-001</td><td><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum">¥0</td><td class="r tnum"><b>¥64,300</b></td><td class="small mono">2026-10-05</td><td class="small" style="color:var(--danger)">36日</td><td><span class="pill error">期限超過</span></td><td class="small cue in" data-out="{round(d*0.76,1)}">なし</td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary" data-click="{round(d*0.62,1)}">📣 督促を記録</span></td></tr>
+                  <table class="tbl"><thead><tr><th style="width:150px">請求ID</th><th>会社</th><th class="r" style="width:120px">金額(税込)</th><th class="r" style="width:120px">残額</th><th style="width:140px">支払期限</th><th style="width:110px">状態</th><th style="width:250px"></th></tr></thead><tbody>
+                    <tr data-fx="0.6:{round(d*0.30,1)}:残額と支払期限で追う"><td class="mono small">I20261031-002</td><td style="white-space:nowrap"><a>東和デリバリー株式会社</a></td><td class="r tnum">¥52,800</td><td class="r tnum"><b class="cue in" data-out="{round(d*0.44,1)}">¥52,800</b><b class="show" data-in="{round(d*0.44,1)}">¥12,800</b></td><td class="small mono">2026-11-30</td><td><span class="pill in_progress cue in" data-out="{round(d*0.44,1)}">発行済</span><span class="pill pending show" data-in="{round(d*0.44,1)}">一部入金</span></td><td><span class="btn sm" data-click="{round(d*0.17,1)}">💴 入金を登録</span> <span class="btn sm secondary">✕ 取消</span></td></tr>
+                    <tr data-fx="{round(d*0.56,1)}:{round(d*0.86,1)}:督促は履歴に残る。二度掛けを防ぐ"><td class="mono small">I20260905-001</td><td style="white-space:nowrap"><a>ベイサイド倉庫サービス株式会社</a></td><td class="r tnum">¥64,300</td><td class="r tnum"><b>¥64,300</b></td><td class="small mono">2026-10-05<div class="tiny" style="color:var(--danger)">36日超過</div></td><td><span class="pill error">期限超過</span><div class="tiny muted cue in" data-out="{round(d*0.76,1)}">督促なし</div><div class="tiny show" data-in="{round(d*0.85,1)}">督促 1回（電話）</div></td><td><span class="btn sm">💴 入金を登録</span> <span class="btn sm secondary" data-click="{round(d*0.62,1)}">📣 督促を記録</span></td></tr>
                   </tbody></table></div>
               </div></div>
               <div class="show" data-in="{round(d*0.20,1)}" data-out="{round(d*0.43,1)}" style="position:absolute;inset:0;background:rgba(27,39,38,.45);display:flex;align-items:center;justify-content:center;z-index:10"><div class="panel" data-fx="{round(d*0.20,1)}:{round(d*0.43,1)}:日付と金額で入れる（一部入金も追える）" style="width:560px;margin:0"><h3 style="background:none;border:0;padding:0;margin:0 0 8px;font-size:15px;color:var(--n-900)">入金を登録</h3>
