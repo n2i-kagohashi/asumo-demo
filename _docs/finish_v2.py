@@ -53,6 +53,35 @@ CSS = '''
        color:#fff;border-radius:999px;padding:10px 18px;font-size:18px;font-weight:600;white-space:nowrap}
   .s11 b{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;
          background:var(--em-500);color:#08201d;font-size:13px;font-weight:800}
+  /* ── オープニング: エンディングのロゴ演出 ＋ 2文 ── */
+  .end-title.op .op-line{font-size:32px;font-weight:700;color:#fff;line-height:1.5;margin:6px 0 0;letter-spacing:.01em}
+  .end-title.op .op-line2{font-size:26px;font-weight:500;color:var(--em-200);margin-top:10px}
+  .end-title.op .et-rule{margin:26px 0 22px}
+  /* ── 11工程のプロセス図（ガント型・画面全体）── */
+  .gt{position:absolute;inset:0;padding:34px 70px 196px;display:flex;flex-direction:column;gap:12px;color:#fff}
+  .gt-h{display:flex;align-items:center;justify-content:space-between}
+  .gt-eyebrow{font-size:14px;letter-spacing:.24em;color:var(--em-300);font-weight:700}
+  .gt-legend{font-size:14px;color:var(--theater-muted);display:flex;align-items:center;gap:6px}
+  .gt-legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:4px}
+  .gt-legend i.ai{background:var(--em-500)} .gt-legend i.hu{background:#FF7A6B}
+  .gt-lanes,.gt-row{display:grid;grid-template-columns:262px 1fr;align-items:center}
+  .gt-lanegrid{display:grid;grid-template-columns:repeat(11,1fr);gap:0 6px}
+  .gt-lane{font-size:12px;color:var(--theater-muted);border-top:1px solid var(--theater-line);padding-top:6px;white-space:nowrap;overflow:hidden;min-width:0;text-overflow:ellipsis}
+  .gt-lane i{font-style:normal;font-weight:800;color:var(--em-300);margin-right:6px;letter-spacing:.08em}
+  .gt-rows{display:flex;flex-direction:column;gap:7px}
+  .gt-row{height:38px}
+  .gt-label{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600;white-space:nowrap}
+  .gt-label b{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;
+              background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:800}
+  .gt-badge{font-size:11px;font-weight:800;color:#2b120e;background:#FF7A6B;border-radius:6px;padding:2px 7px;margin-left:2px}
+  .gt-track{position:relative;height:30px;border-left:1px solid var(--theater-line)}
+  .gt-track::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.06)}
+  .gt-bar{position:absolute;top:2px;bottom:2px;border-radius:7px;background:linear-gradient(90deg,var(--em-500),var(--em-400));
+          box-shadow:0 4px 14px rgba(21,145,120,.35);transform:scaleX(0);transform-origin:left center;
+          transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .3s}
+  .gt-bar.cue{opacity:0;transform:scaleX(0)} .gt-bar.cue.in{opacity:1;transform:scaleX(1)}
+  .gt-bar.human{background:linear-gradient(90deg,#FF7A6B,#FF9A8A);box-shadow:0 4px 16px rgba(255,111,97,.45);display:flex;align-items:center;justify-content:center}
+  .gt-bar.human em{font-style:normal;font-size:12px;font-weight:800;color:#2b120e;white-space:nowrap}
   /* 提案書の実物。下の帯は字幕に隠れないよう、下に余白を取る */
   .scene.deckshot{display:flex;align-items:flex-start;justify-content:center;background:var(--theater);padding:28px 60px 150px}
   .dk-wrap{width:100%;max-width:1000px}

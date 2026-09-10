@@ -59,14 +59,6 @@ def title_card(no, start, end, eyebrow, step=None):
             f'<div class="tc"><div class="tc-eyebrow cue" data-in="0.15">{eyebrow}</div>'
             f'<div class="tc-body cue" data-in="0.3">{inner}</div></div></section>')
 
-STEPS11 = ["リスト作成・取込","メール送信","フォーム送信","テレアポ","初回商談資料","商談・議事録",
-           "2回目商談資料","見積","申し込み","掲載","請求"]
-def overview_scene(start, end):
-    chips = "".join(f'<span class="s11 cue" data-in="{round(0.5 + i*0.22, 2)}"><b>{i+1}</b>{t}</span>' for i, t in enumerate(STEPS11))
-    return (f'\n            <!-- 11工程の俯瞰 No.3 -->\n'
-            f'            <section class="scene full tcard" data-cinema="1" data-start="{start}" data-end="{end}" data-step="0">'
-            f'<div class="tc"><div class="tc-eyebrow cue" data-in="0.1">営業工程 1 〜 11</div>'
-            f'<div class="s11wrap">{chips}</div></div></section>')   # 一言は字幕（CAPS）が出すので重ねない
 
 DECK = [("p01.jpg","表紙"),("p06.jpg","お客様の課題仮説"),("p08.jpg","課題と解決策の対応"),
         ("p12.jpg","ご提案プラン（松・竹・梅）"),("p13.jpg","お見積り")]
@@ -108,9 +100,68 @@ def issuance_scene(start, end):
               <div class="toast cue" data-in="{round(d*0.85,1)}" data-out="{round(d*0.99,1)}"><div class="banner ok">✅ I20260905-001 に督促を記録しました。次の督促は7日後から「今日の行動」に出ます。</div></div>
             </section>'''
 
+
+# ---------- 11工程のプロセス図（画面全体・ガントチャート型・階段状に伸びる）----------
+STEPS = [("リスト作成・取込","MA"),("メール送信","MA"),("フォーム送信","MA"),("テレアポ","IS"),
+         ("初回商談資料","FS"),("商談・議事録","FS"),("2回目商談資料","FS"),("見積","FS"),("申し込み","FS"),
+         ("掲載","CS"),("請求","CS")]
+HUMAN = {4, 6}   # 人が話す工程（テレアポ・商談）
+LANES = [("MA","リード獲得・育成",1,3),("SFA","インサイド → フィールドセールス",4,6),("CS","カスタマーセールス",10,2)]   # 1列幅のレーンは文字が入らないので3本に
+def gantt(mode, stagger, t0=0.3, out=None, human_at=None):
+    """mode: 'overview'（全部同じ色）/ 'ending'（human_at 秒で人の工程を色分けし凡例を出す）"""
+    w = 100 / len(STEPS)
+    lanes = "".join(f'<span class="gt-lane" style="grid-column:{a} / span {n}"><i>{cat}</i>{name}</span>' for cat,name,a,n in LANES)
+    rows = []
+    for i,(name,cat) in enumerate(STEPS, 1):
+        tin = round(t0 + (i-1)*stagger, 2)
+        human = mode == "ending" and i in HUMAN
+        bars = f'<div class="gt-bar cue" data-in="{tin}" style="left:{(i-1)*w:.3f}%;width:{w:.3f}%"></div>'
+        badge = ""
+        if human and human_at is not None:
+            bars += f'<div class="gt-bar human cue" data-in="{human_at}" style="left:{(i-1)*w:.3f}%;width:{w:.3f}%"><em>人が話す</em></div>'
+            badge = f'<span class="gt-badge cue" data-in="{human_at}">人</span>'
+        rows.append(f'<div class="gt-row"><div class="gt-label cue" data-in="{tin}"><b>{i}</b>{name}{badge}</div><div class="gt-track">{bars}</div></div>')
+    head = ('<div class="gt-h cue" data-in="0.1"><span class="gt-eyebrow">営業工程 1 〜 11</span>'
+            + (f'<span class="gt-legend cue" data-in="{human_at}"><i class="ai"></i>AI とシステム　<i class="hu"></i>人が話す</span>' if mode == "ending" and human_at is not None else '')
+            + '</div>')
+    o = f' data-out="{out}"' if out is not None else ''
+    return (f'<div class="gt cue" data-in="0"{o}>{head}'
+            f'<div class="gt-lanes"><span></span><div class="gt-lanegrid">{lanes}</div></div>'
+            f'<div class="gt-rows">{"".join(rows)}</div></div>')
+
+LOGO = ('<div class="et-halo" aria-hidden="true"></div><div class="et-flash" aria-hidden="true"></div>'
+        '<div class="et-word" role="img" aria-label="ASUMO">' + "".join(f'<span style="--i:{i}" aria-hidden="true">{c}</span>' for i,c in enumerate("ASUMO"))
+        + '<b class="et-shine" aria-hidden="true">ASUMO</b></div><div class="et-rule" aria-hidden="true"></div>')
+
+def opening_scene(start, end):
+    """エンディングと同じロゴ演出で始め、台本 No.1 の2文を順に出す。"""
+    r = rows[1]; lines = r["cap"].split("\n")
+    l1 = lines[0]; l2 = lines[1] if len(lines) > 1 else ""
+    return (f'\n            <!-- オープニング No.1（ロゴ演出＋2文） -->\n'
+            f'            <section class="scene full" data-cinema="1" data-start="{start}" data-end="{end}" data-step="0">'
+            f'<div class="cinema-bg end-bg"></div>'
+            f'<div class="end-title op cue" data-in="0.25">{LOGO}'
+            f'<p class="op-line cue" data-in="1.3">{l1}</p>'
+            + (f'<p class="op-line op-line2 cue" data-in="5.4">{l2}</p>' if l2 else '')
+            + '</div></section>')
+
+def overview_scene(start, end):
+    return (f'\n            <!-- 11工程の俯瞰 No.3（プロセス図） -->\n'
+            f'            <section class="scene full gantt-scene" data-cinema="1" data-start="{start}" data-end="{end}" data-step="0">'
+            f'<div class="cinema-bg end-bg"></div>{gantt("overview", stagger=0.22)}</section>')
+
+def ending_scene(start, end):
+    """前半はプロセス図（人が話す2工程を色分け）、後半は v1 のロゴ演出。"""
+    body = old['cinema205']['body']
+    et = re.search(r'<div class="end-title cue"[^>]*>.*?</div>\s*(?=</section>|$)', body, re.S)
+    et_html = re.sub(r'data-in="[\d.]+"', 'data-in="6.2"', et.group(0), count=1) if et else ''
+    return (f'\n            <!-- エンディング No.49,50（プロセス図 → ロゴ） -->\n'
+            f'            <section class="scene full gantt-scene" data-cinema="1" data-start="{start}" data-end="{end}" data-step="12">'
+            f'<div class="cinema-bg end-bg"></div>{gantt("ending", stagger=0.26, out=5.9, human_at=3.7)}{et_html}</section>')
+
 # ---------- シーンを並べる ----------
 S = []
-S.append(title_card(1, 0.0, 9.7, "ASUMO", 0))
+S.append(opening_scene(0.0, 9.7))
 S.append(title_card(2, 9.7, 12.7, "", 0))
 S.append(overview_scene(12.7, 17.0))
 S.append(title_card(4, 17.0, 19.3, "工程1", 1))
@@ -133,7 +184,7 @@ S.append(scene(old['/contract'], 178.4, 185.7, keep_fx=3, note="申し込み No.
 S.append(scene(old['/publication'], 185.7, 200.2, note="掲載 No.39,40"))
 S.append(title_card(44, 200.2, 205.2, "工程11", 11))
 S.append(issuance_scene(205.2, 220.1))
-S.append(scene(old['cinema205'], 220.1, TOTAL, note="エンディング No.49,50"))
+S.append(ending_scene(220.1, TOTAL))
 
 # ---------- 差し替え ----------
 # app-main の中身（画面つきシーン）を入れ替える
