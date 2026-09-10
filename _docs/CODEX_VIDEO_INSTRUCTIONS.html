@@ -1,0 +1,240 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASUMO デモ動画 v2 — 実装指示書（Codex 向け）</title>
+<style>
+ :root{--navy:#1B3A6B;--ink:#1b2726;--mut:#667;--line:#e3e6ec;--bg:#f6f7f9}
+ body{font-family:'Inter','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--bg);color:var(--ink);margin:0;padding:32px 20px 80px;line-height:1.85}
+ .wrap{max-width:1080px;margin:0 auto}
+ h1{font-size:24px;margin:0 0 6px} .sub{color:var(--mut);font-size:13px;margin:0 0 24px}
+ h2{font-size:18px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--navy)}
+ h3{font-size:15px;margin:22px 0 8px}
+ .toc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 20px;font-size:13px}
+ .toc ol{margin:6px 0 0;padding-left:20px} .toc a{color:var(--navy)}
+ table{width:100%;border-collapse:collapse;background:#fff;font-size:12.5px;margin:10px 0;border-radius:8px;overflow:hidden}
+ th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+ th{background:var(--navy);color:#fff;font-weight:600} td.n{white-space:nowrap;font-family:ui-monospace,monospace} td.s{color:#334}
+ tr.tt td{background:#e8f0fe} .m{color:#bbb}
+ code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+ code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:.9em}
+ pre{background:#1b2726;color:#e8eaed;padding:14px 16px;border-radius:8px;overflow-x:auto;font-size:12.5px;line-height:1.7}
+ .callout{border-left:4px solid var(--navy);background:#fff;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13.5px}
+ .callout.warn{border-color:#E8590C;background:#FFF6ED} .callout.ok{border-color:#2F9E44;background:#F1FBF3}
+ .callout.tip{border-color:#1971C2;background:#F0F7FF}
+ ul,ol{padding-left:22px} li{margin:4px 0} .scroll{overflow-x:auto}
+</style></head><body><div class="wrap">
+<h1>ASUMO デモ動画 v2 — 実装指示書</h1>
+<p class="sub">対象: Codex ／ 作成: 2026-09-10 ／ リポジトリ <code>~/work/asumo-demo</code>（ブランチ <code>feat/invoice-bulk-issue</code>）</p>
+
+<div class="toc"><b>目次</b><ol>
+ <li><a href="#goal">ゴール</a></li><li><a href="#policy"><b>作り方の方針（最優先）</b></a></li><li><a href="#input">入力データ（これが正）</a></li>
+ <li><a href="#engine">既存エンジンの仕様</a></li><li><a href="#map">旧シーン → 新タイムラインの対応</a></li>
+ <li><a href="#steps">作業手順</a></li><li><a href="#title">タイトルカードの作り方</a></li>
+ <li><a href="#deck">提案書スクショの入れ方</a></li><li><a href="#verify">検証（必ず通す）</a></li>
+ <li><a href="#ng">やってはいけないこと</a></li><li><a href="#done">完了条件</a></li><li><a href="#timeline">タイムライン全文</a></li>
+</ol></div>
+
+<h2 id="goal">1. ゴール</h2>
+<p><code>index.html</code>（HTML 1枚で完結する疑似動画）を、<b>新しい台本 v2</b> に合わせて作り直す。音声はすでに完成しているので、<b>映像を音に合わせる</b>（逆ではない）。</p>
+<ul>
+ <li>全体の尺: <b>213秒 → 206.7秒</b></li>
+ <li>各章の頭に<b>タイトルカード（画面センターに機能名・約2秒）</b>を8枚入れる</li>
+ <li>字幕（<code>CAPS</code>）を新台本のテロップに差し替える</li>
+ <li>各シーンの開始・終了と、内部の演出秒を新しい尺に合わせて掛け直す</li>
+ <li>No.30 に<b>提案書の実物 PNG</b> を全画面で出す</li>
+</ul>
+
+<div class="callout warn"><b>先に確認が要る点（篭橋さんに確認するまで手を止めないが、報告すること）</b><br>
+シート編集で <b>請求（一括発行）と月次レポートのシーンが台本から丸ごと落ちた</b>（削除された行 No.41〜43・47〜48）。
+v1 の <code>/invoice</code>（181–195秒）と <code>/monthly</code>（195–205秒）のシーンは<b>使い道が無くなる</b>。
+指示どおり素直に作ると、この2画面は動画に出なくなる。<b>いったん落とす前提で作り、完了報告でこの事実を明記すること。</b></div>
+
+<h2 id="policy">2. 作り方の方針（最優先・迷ったらここに戻る）</h2>
+<div class="callout warn" style="font-size:14.5px"><b>画面が動いているところを、できるだけ長く見せる。</b><br>
+見る人は「文字の説明」ではなく「画面が動いて仕事が終わる様子」で理解する。
+1つの操作（クリック → 反応 → 結果が出る）は、<b>目で追える速さ</b>で最後まで見せきる。<br>
+<b>そのぶん、機能の説明は削ってよい。</b>言葉で足りるものは字幕1行に畳むか、丸ごと落とす。
+「全機能を見せる」より「主要な流れが目で分かる」を採る。</div>
+<h3>これが意味すること</h3>
+<ul>
+ <li><b>演出を速める（倍率で圧縮する）のは最後の手段。</b>まず<b>見せる対象を減らす</b>。
+     1シーンに <code>data-fx</code> の寄りが5つあるなら、いちばん効く2つに絞って、そのぶん1つ1つを長く見せる</li>
+ <li><b>1つの動きに最低 2.5〜3 秒。</b>クリックの波紋 → 画面の反応 → トーストまでを、途中で切らない</li>
+ <li><b>尺が足りなければ、足してよい。</b>下の「尺を伸ばす手順」を使う。全体が 206.7 秒より長くなること自体は問題ない</li>
+ <li><b>ナレーションが無い区間を怖がらない。</b>音が無くても画面が動いていれば伝わる。むしろ「見せ場」は黙って見せたほうが良い</li>
+ <li><b>逆に、静止画のまま字幕だけ変わる時間は作らない。</b>そこは削るか、画面を動かす</li>
+</ul>
+<h3>削ってよいもの / 残すもの</h3>
+<table><tr><th></th><th>例</th></tr>
+<tr><td><b>削ってよい</b></td><td>補足の <code>data-fx</code> ラベル、細かい設定項目の紹介、同じことを言い換えた字幕、
+ 一覧の行数（3行あるものは2行でよい）、脇のパネル</td></tr>
+<tr><td><b>残す</b></td><td>クリック → 反応 → 結果（トースト・行の追加・状態の変化）の一連。
+ タイプ演出やカウントアップなど<b>時間で意味が出る</b>もの。画面の遷移そのもの</td></tr>
+</table>
+<h3>尺を伸ばす手順（音声も一緒に伸ばす）</h3>
+<p>あるシーンをもっと長く見せたい場合、<b>そのシーン以降の音声を後ろへずらして</b>間を作る。音声の作り直しは要らない（無音を挟むだけ）。</p>
+<pre># 1. どの行から何秒ずらすかを決める（例: No.15 以降を +4 秒）
+python3 - &lt;&lt;'EOS'
+import json, pathlib
+p = pathlib.Path('_audio/timeline_v2.json'); tl = json.loads(p.read_text(encoding='utf-8'))
+FROM_NO, SHIFT = 15, 4.0
+for r in tl["rows"]:
+    if r["no"] &gt;= FROM_NO: r["start"] += SHIFT; r["end"] += SHIFT
+tl["total"] = round(max(r["end"] for r in tl["rows"]) + 0.5, 1)
+p.write_text(json.dumps(tl, ensure_ascii=False, indent=1), encoding='utf-8')
+# cues_v2.json（合成用）も同じだけずらす
+c = pathlib.Path('_audio/cues_v2.json'); cues = json.loads(c.read_text(encoding='utf-8'))
+byno = {r["no"]: r for r in tl["rows"]}
+for cue in cues:
+    row = next((r for r in tl["rows"] if abs(r["start"] - cue["start"]) &lt; 0.01 or r.get("read") == cue["text"]), None)
+    if row: cue["start"], cue["end"] = row["start"], row["end"]
+c.write_text(json.dumps(cues, ensure_ascii=False, indent=1), encoding='utf-8')
+print("total", tl["total"])
+EOS
+
+# 2. 音声を合成し直す（無音が挟まるだけ。声は録り直さない）
+cd _audio &amp;&amp; CUES=cues_v2.json TOTAL=&lt;新しい total&gt; python3 assemble.py ../narration.mp3
+
+# 3. index.html の TOTAL と、ずらした以降のシーンの data-start/data-end を合わせる</pre>
+<div class="callout tip"><b>伸ばしていい目安</b>: <code>/teleapo</code>（架電コックピット）と <code>/list-build</code>（リストが組み上がる）は
+この動画のいちばんの見せ場なので、<b>v1 の尺（40秒 / 26秒）まで戻してよい</b>。
+逆に <code>/list-import</code>・<code>/contract</code> のような「書面を見せるだけ」の場面は短くてよい。</div>
+<h2 id="input">3. 入力データ（これが正）</h2>
+<table><tr><th>ファイル</th><th>中身</th></tr>
+<tr><td><code>_audio/timeline_v2.json</code></td><td><b>いちばん重要。</b>45行ぶんの <code>no / kind(title|cut) / start / end / screen / cap / read</code>。秒は<b>音声の実測から確定済み</b>で、動かしてはいけない。</td></tr>
+<tr><td><code>_audio/narration_v2.mp3</code></td><td>完成した音声（206.7秒・BGM込み）。これを <code>narration.mp3</code> として置き換える。</td></tr>
+<tr><td><code>_audio/sheet_v2.json</code></td><td>元のスプレッドシートの写し（テロップ・ナレーション原文）。参照用。</td></tr>
+<tr><td><code>_assets/proposal/p01〜p16.png</code></td><td>提案書の実物（1440×810）。No.30 で使う。</td></tr>
+<tr><td><code>index.html</code></td><td>作り直す対象。v1 の全シーンが入っているので<b>中身は再利用する</b>（作り直さない）。</td></tr>
+</table>
+
+<h2 id="engine">4. 既存エンジンの仕様（<code>&lt;script&gt;</code> は原則さわらない）</h2>
+<p>1440×810 の設計フレームに <code>.scene</code> を並べ、時刻 <code>t</code> で表示を切り替える自作エンジン。<b>再生中は映像の時刻を <code>narration.mp3</code> の <code>currentTime</code> に従わせている</b>ので、音とズレない。</p>
+<h3>シーンの単位</h3>
+<pre>&lt;section class="scene" data-start="19.3" data-end="50.4" data-nav="/list-build" data-step="1"
+         data-scroll="0:0,7.3:0,8.6:1020"&gt; … &lt;/section&gt;</pre>
+<ul>
+ <li><code>data-start / data-end</code> … <b>絶対秒</b>（タイムライン上の位置）</li>
+ <li><code>data-nav</code> … サイドバーで光らせるパス、<code>data-step</code> … 進行ボードの工程番号</li>
+ <li><code>data-scroll</code> … <code>相対秒:スクロール量</code> の並び。ページを送る演出</li>
+ <li><code>class="scene full" data-cinema="1"</code> … 全画面（サイドバー・ヘッダを出さない）。<b>タイトルカードはこれ</b></li>
+</ul>
+<h3>シーン内部の演出（すべて<b>そのシーンの開始からの相対秒</b>）</h3>
+<table><tr><th>属性 / クラス</th><th>意味</th></tr>
+<tr><td><code>data-in</code> / <code>data-out</code> + <code>class="cue"</code></td><td>フェードで出す／消す。<code>class="show"</code> は瞬間表示</td></tr>
+<tr><td><code>data-fx="開始:終了:ラベル"</code></td><td>その要素に<b>寄って枠とラベルを出す</b>。<code>data-fxz</code> で倍率</td></tr>
+<tr><td><code>data-click="秒"</code></td><td>クリックの波紋</td></tr>
+<tr><td><code>data-type="文字" data-in data-dur</code></td><td>タイプ演出</td></tr>
+<tr><td><code>data-count="0,32780" data-in data-dur</code></td><td>数字のカウントアップ</td></tr>
+<tr><td><code>data-sel</code> / <code>data-on</code></td><td>行の選択／ピルの点灯</td></tr>
+<tr><td><code>.toast &gt; .banner.ok</code></td><td>画面上部のトースト</td></tr>
+<tr><td><code>.fullcard &gt; .fc</code></td><td>画面全体を覆う白カード（書面・Excel の見せ場で使用中）</td></tr>
+</table>
+<h3>字幕とチャプター</h3>
+<pre>const TOTAL = 213;                    // ← 206.7 に変える
+const CH = [ [秒, '章ラベル', '章タイトル', ''] , … ];   // 章の頭でカードが出る
+const CAPS = [ [開始, 終了, '字幕', '読み(任意)'] , … ]; // 画面下の字幕。読みは記録用</pre>
+
+<h2 id="map">5. 旧シーン → 新タイムラインの対応</h2>
+<p>v1 のシーンは中身が作り込まれているので<b>捨てずに再利用</b>する。やることは「開始・終了の付け替え」と「内部の相対秒を倍率で掛け直す」の2つ。</p>
+<div class="scroll"><table>
+<tr><th>使う画面</th><th>v1 の秒</th><th>v2 の秒</th><th>対象 No.</th><th>内部の相対秒</th></tr><tr><td><b>タイトルカード ×8</b></td><td class=n>—（新規）</td><td class=n>各2.0s（No.1 は 9.3s / No.50 は 3.8s）</td><td class=n>1,2,4,14,23,27,34,44,50</td><td>新規に作る</td></tr><tr><td><b>11工程の俯瞰</b></td><td class=n>—（新規）</td><td class=n>12.7–16.6</td><td class=n>3</td><td>新規。サイドバーの工程1〜11に寄る</td></tr><tr><td><b>/list-build</b></td><td class=n>7.0–33.0 (26.0s)</td><td class=n>19.3–50.4 (31.1s)</td><td class=n>5,6,7,8,9,10</td><td>×1.20</td></tr><tr><td><b>/list-import</b></td><td class=n>33.0–41.0 (8.0s)</td><td class=n>50.7–54.0 (3.3s)</td><td class=n>11</td><td>×0.41</td></tr><tr><td><b>/outreach ①</b></td><td class=n>41.0–54.0 (13.0s)</td><td class=n>54.4–59.6 (5.2s)</td><td class=n>12</td><td>×0.40</td></tr><tr><td><b>/form-outreach</b></td><td class=n>54.0–62.0 (8.0s)</td><td class=n>59.9–65.9 (5.9s)</td><td class=n>13</td><td>×0.74</td></tr><tr><td><b>/teleapo</b></td><td class=n>62.0–102.0 (40.0s)</td><td class=n>68.6–99.1 (30.6s)</td><td class=n>15〜22</td><td>×0.76</td></tr><tr><td><b>/outreach ②（日程調整・スマホ）</b></td><td class=n>102.0–113.0 (11.0s)</td><td class=n>101.8–113.3 (11.5s)</td><td class=n>24,25,26</td><td>×1.05</td></tr><tr><td><b>/proposal</b></td><td class=n>113.0–130.0 (17.0s)</td><td class=n>116.0–126.2 (10.2s)</td><td class=n>28,29</td><td>×0.60</td></tr><tr><td><b>提案書スクショ</b></td><td class=n>—（新規）</td><td class=n>126.5–128.9 (2.4s)</td><td class=n>30</td><td>新規。_assets/proposal/*.png</td></tr><tr><td><b>/minutes2</b></td><td class=n>130.0–143.0 (13.0s)</td><td class=n>131.4–140.3 (8.9s)</td><td class=n>31,32</td><td>×0.69</td></tr><tr><td><b>/proposal2</b></td><td class=n>143.0–147.0 (4.0s)</td><td class=n>140.7–144.3 (3.6s)</td><td class=n>33</td><td>×0.91</td></tr><tr><td><b>/estimate</b></td><td class=n>147.0–157.0 (10.0s)</td><td class=n>147.0–156.0 (9.0s)</td><td class=n>35,36</td><td>×0.90</td></tr><tr><td><b>/contract</b></td><td class=n>157.0–168.0 (11.0s)</td><td class=n>156.4–163.3 (7.0s)</td><td class=n>37,38</td><td>×0.64</td></tr><tr><td><b>/publication</b></td><td class=n>168.0–181.0 (13.0s)</td><td class=n>163.7–173.2 (9.5s)</td><td class=n>39,40</td><td>×0.73</td></tr><tr><td><b>/issuance（入金・督促）</b></td><td class=n>—（v1 に無い）</td><td class=n>181.2–191.6 (10.4s)</td><td class=n>45,46</td><td>新規に作る</td></tr><tr><td><b>エンディング</b></td><td class=n>205.0–213.0 (8.0s)</td><td class=n>194.6–206.2 (11.6s)</td><td class=n>49,50</td><td>×1.45</td></tr>
+</table></div>
+<div class="callout tip"><b>倍率のかけ方</b>: そのシーンの <code>data-in / data-out / data-click / data-sel / data-on / data-dur</code> と
+<code>data-fx</code> の2つの秒、<code>data-scroll</code> の各キーの秒を、いずれも <b>× 倍率</b> して丸める（小数第1位）。
+掛けたあと <b>どれも新しい尺を超えないこと</b>を必ず検算する。超えるものは手前に詰める。</div>
+<div class="callout warn"><b>×0.4〜0.6 に縮むシーンは、掛け直すだけでは速すぎて読めない。</b>
+<code>/list-import</code>（8.0→3.3s）<code>/outreach ①</code>（13.0→5.2s）<code>/contract</code>（11.0→7.0s）<code>/proposal</code>（17.0→10.2s）は、
+<b>速めるのではなく、見せる対象を減らす</b>（途中の <code>data-fx</code> を落とす）。それでも足りなければ<b>尺を伸ばす</b>（第2章）。</div>
+
+<h2 id="steps">6. 作業手順</h2>
+<ol>
+ <li><b>ブランチを切る</b>: <code>git switch -c feat/video-v2</code>（<code>feat/invoice-bulk-issue</code> から）</li>
+ <li><b>音声を差し替える</b>: <code>cp _audio/narration_v2.mp3 narration.mp3</code></li>
+ <li><b><code>TOTAL</code> を 206.7 に</b>。表示の総尺 <code>#ttot</code>（"3:33"）も直す → <b>3:27</b></li>
+ <li><b><code>CAPS</code> を作り直す</b>: <code>timeline_v2.json</code> の各行から <code>[start, end, cap]</code> を作る。<b>タイトルカードの行は CAPS に入れない</b>（カード自身が文字を出すため）。第4要素（読み）は <code>read</code> を入れる</li>
+ <li><b><code>CH</code>（章）を作り直す</b>: タイトルカードの秒に合わせる（下の表の No.1,2,4,14,23,27,34,44,50）</li>
+ <li><b>タイトルカードのシーンを8枚作る</b>（次章）</li>
+ <li><b>既存シーンの秒を付け替える</b>（第4章の表のとおり）</li>
+ <li><b>No.3「11工程の俯瞰」を作る</b>: 新規。サイドバーの工程1〜11に <code>data-fx</code> で寄るだけの短いシーンでよい</li>
+ <li><b>No.30 に提案書を出す</b>（第7章）</li>
+ <li><b>No.45,46「入金・督促」のシーンを作る</b>: v1 に無い。<code>~/work/asumo</code> の <code>app/components/PaymentModal.tsx</code>・<code>DunningModal.tsx</code>・<code>app/(main)/issuance/page.tsx</code> を見て、<b>実装と同じ見出し・ボタン名</b>で作る（作り話をしない）</li>
+ <li><b><code>/invoice</code>・<code>/monthly</code> のシーンを外す</b>（第1章の警告のとおり。消さずにコメントアウトでもよい）</li>
+</ol>
+
+<h2 id="title">7. タイトルカードの作り方</h2>
+<p>「左上に出ている機能名を、いったん画面センターに2秒出してから中身に入る」が要件。既存の <code>.scene.full[data-cinema]</code> と同じ作りにする。</p>
+<pre>&lt;section class="scene full" data-cinema="1" data-start="66.2" data-end="68.2" data-step="4"&gt;
+  &lt;div class="tcard"&gt;
+    &lt;div class="tcard-eyebrow"&gt;工程4&lt;/div&gt;
+    &lt;h2 class="tcard-title"&gt;テレアポ&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+<ul>
+ <li>文字は <code>timeline_v2.json</code> の <code>cap</code>（改行は <code>&lt;br&gt;</code>）</li>
+ <li>CSS は既存のトーンに合わせる（<code>--navy</code> 系・中央寄せ・フェードイン 0.3s 程度）。<b>派手なアニメーションは足さない</b></li>
+ <li><b>No.1（0.0–9.3秒）だけは 9.3 秒</b>と長い。2文あるので、1文目 → 2文目の順に出す（<code>data-in</code> で切り替え）</li>
+ <li>No.50（202.4–206.2）はロゴのカード。v1 のエンディングの作りを流用する</li>
+</ul>
+
+<h2 id="deck">8. 提案書スクショの入れ方（No.30・126.5–128.9 の 2.4秒）</h2>
+<p><code>_assets/proposal/</code> に 16 ページある。<b>2.4秒で16枚は速すぎる</b>ので、次の5枚に絞って 0.5 秒ずつめくる。</p>
+<table><tr><th>順</th><th>ファイル</th><th>内容</th></tr>
+<tr><td>1</td><td><code>p01.png</code></td><td>表紙（ロジテック物流株式会社 御中）</td></tr>
+<tr><td>2</td><td><code>p06.png</code></td><td>お客様の課題仮説</td></tr>
+<tr><td>3</td><td><code>p08.png</code></td><td>課題と解決策の対応</td></tr>
+<tr><td>4</td><td><code>p12.png</code></td><td>ご提案プラン（松・竹・梅）</td></tr>
+<tr><td>5</td><td><code>p13.png</code></td><td>お見積り</td></tr>
+</table>
+<ul>
+ <li><b>画像は縮小して <code>_assets/</code> ではなくリポジトリ直下の <code>deck/</code> に置く</b>（GitHub Pages で配信するため）。1枚 200KB 以下を目安に <code>cwebp</code> か <code>sips</code> で圧縮してよい</li>
+ <li><code>.fullcard</code> の作りを流用し、<code>&lt;img&gt;</code> を <code>.cue</code> で順に切り替える</li>
+ <li>この 2.4 秒が短すぎると感じたら<b>秒は動かさず</b>、3枚に減らす。<b>タイムラインの秒は音に合わせて確定しているので変えない</b></li>
+</ul>
+
+<h2 id="verify">9. 検証（必ず通す）</h2>
+<pre># 1. JS の構文
+python3 -c "
+import re,pathlib,subprocess,tempfile,os
+js=re.search(r'&lt;script&gt;\n(.*)\n&lt;/script&gt;',pathlib.Path('index.html').read_text(encoding='utf-8'),re.S).group(1)
+f=tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8');f.write(js);f.close()
+r=subprocess.run(['node','--check',f.name],capture_output=True,text=True);os.unlink(f.name)
+print('JS', 'OK' if r.returncode==0 else r.stderr[:400])"
+
+# 2. 各シーンのタグ整合と、内部の相対秒が尺を超えていないか
+python3 _docs/check_scenes.py        # ← 無ければ書く。下の観点を必ず見ること
+
+# 3. Range 対応のローカルサーバーで再生確認（python3 -m http.server は音声のシークができない）
+python3 ../serve.py . 4321   # または同等のもの
+open http://localhost:4321/</pre>
+<p><b>2 の観点</b>（自動で検算すること）:</p>
+<ul>
+ <li>各 <code>.scene</code> のタグが閉じている</li>
+ <li>各シーン内の <code>data-in/out/click/sel/on</code> と <code>data-fx</code> の秒が <b>(data-end − data-start) 以内</b></li>
+ <li><code>CAPS</code> の窓どうしが<b>重なっていない</b>（重なると片方の字幕が出ない）</li>
+ <li><code>CAPS</code> の秒が <code>timeline_v2.json</code> と<b>一致</b>している</li>
+ <li>シーンの <code>data-start</code> が昇順で、<b>すき間も重なりも無い</b></li>
+ <li>いちばん最後のシーンの <code>data-end</code> ＝ <code>TOTAL</code> ＝ 206.7</li>
+</ul>
+
+<h2 id="ng">10. やってはいけないこと</h2>
+<div class="callout warn"><ul style="margin:0">
+ <li><b>タイムラインの秒を変えない。</b>音声は確定済み。映像を音に合わせる</li>
+ <li><b>音声を作り直さない。</b><code>_audio/</code> のスクリプトは触らない（台本を直すのは篭橋さんの担当）</li>
+ <li><b>エンジン（<code>&lt;script&gt;</code> の中身）を書き換えない。</b>タイトルカードも既存の <code>.scene.full[data-cinema]</code> の仕組みで作れる</li>
+ <li><b>画面の文言を創作しない。</b>ボタン名・見出し・ステータスは <code>~/work/asumo</code> の実装と一致させる（ブランチ <code>feat/issue-flow</code>）</li>
+ <li><b>デプロイしない。</b>公開は篭橋さんの判断（GitHub Pages は <code>n2i-kagohashi/asumo-demo</code> の <code>feat/invoice-bulk-issue</code> から配信中）</li>
+ <li><b>force push しない。</b>既存の3コミットを消さない</li>
+</ul></div>
+
+<h2 id="done">11. 完了条件</h2>
+<ol>
+ <li>第9章の検証がすべて通る</li>
+ <li>頭から通して再生し、<b>字幕・音声・画面の3つが合っている</b>（特にタイトルカードの前後）</li>
+ <li>コミットして報告。報告には <b>(a) 落とした <code>/invoice</code>・<code>/monthly</code> の扱い (b) 演出を減らしたシーンとその理由 (c) 提案書の枚数 (d) 尺を伸ばしたシーンと最終の全体秒数</b> を書く</li>
+</ol>
+
+<h2 id="timeline">12. タイムライン全文（45行 / 206.7秒）</h2>
+<div class="scroll"><table>
+<tr><th>No</th><th>種別</th><th>開始</th><th>終了</th><th>尺</th><th>画面・カット</th><th>テロップ（字幕に出す）</th><th>読み（音声・記録用）</th></tr><tr class="tt"><td class=n>1</td><td class=n>タイトル</td><td class=n>0.0</td><td class=n>9.3</td><td class=n>9.3</td><td>全画面・センター（タイトルカード）</td><td>求人広告の営業プロセスをAIアシスタント「ASUMO」がバックアップ<br>対話に集中し、少人数で売上を拡大</td><td class=s>きゅうじんこうこくの営業プロセスをエーアイアシスタントアスモがバックアップ。対話に集中し、少人数で売上を拡大</td></tr><tr class="tt"><td class=n>2</td><td class=n>タイトル</td><td class=n>9.7</td><td class=n>12.3</td><td class=n>2.6</td><td>全画面・センター（タイトルカード）</td><td>人が集中するのは、対話だけ。</td><td class=s>人が集中するのは、対話だけ</td></tr><tr class=""><td class=n>3</td><td class=n>カット</td><td class=n>12.7</td><td class=n>16.6</td><td class=n>3.9</td><td>サイドバーの11工程（リスト作成〜請求）にゆっくり寄る</td><td>リスト作成から請求まで、ひとつのシステムで</td><td class=s>リスト作成から請求まで、ひとつのシステムで進みます</td></tr><tr class="tt"><td class=n>4</td><td class=n>タイトル</td><td class=n>17.0</td><td class=n>19.0</td><td class=n>2.0</td><td>全画面・センター</td><td>リード作成 〜 テレアポ準備</td><td class=s><span class=m>—</span></td></tr><tr class=""><td class=n>5</td><td class=n>カット</td><td class=n>19.3</td><td class=n>22.1</td><td class=n>2.8</td><td>リスト作成の画面（作り方を選ぶ）</td><td>リードの作成からテレアポ準備まで</td><td class=s>リードの作成から、テレアポの準備まで</td></tr><tr class=""><td class=n>6</td><td class=n>カット</td><td class=n>24.0</td><td class=n>27.5</td><td class=n>3.5</td><td>同上（条件を足す）</td><td>情報の取得と整理は、すべて自動</td><td class=s>情報の取得と整理を、自動で行います</td></tr><tr class=""><td class=n>7</td><td class=n>カット</td><td class=n>28.8</td><td class=n>32.7</td><td class=n>3.9</td><td>作り方の2択（外から探す／いまある企業から選ぶ）</td><td>リードは外から探すか、いまある企業から選ぶか</td><td class=s>外部サイトから探すか、いまある企業から選ぶか</td></tr><tr class=""><td class=n>8</td><td class=n>カット</td><td class=n>33.4</td><td class=n>39.6</td><td class=n>6.2</td><td>条件（所在地・カテゴリ・ICP優先度）を足す</td><td>地域や業種、採用情報などからICP適合し、当たり先を絞ります</td><td class=s>地域や業種、採用情報などからアイシーピー適合し、当たり先を絞ります</td></tr><tr class=""><td class=n>9</td><td class=n>カット</td><td class=n>40.0</td><td class=n>45.2</td><td class=n>5.3</td><td>「リストを作る」→ 条件に合った企業が並ぶ</td><td>条件に合致した企業が表示されリスト化されます</td><td class=s>条件に合致した企業が表示されリスト化されます</td></tr><tr class=""><td class=n>10</td><td class=n>カット</td><td class=n>45.6</td><td class=n>50.4</td><td class=n>4.8</td><td>1社ごとの「切り口」列に寄る</td><td>1社ごとに、会社の訴求ポイントをAIが判断します</td><td class=s>いっしゃごとに、会社の訴求ポイントをエーアイが判断します</td></tr><tr class=""><td class=n>11</td><td class=n>カット</td><td class=n>50.7</td><td class=n>54.0</td><td class=n>3.3</td><td>リスト取込（CSV貼付→列の対応→投入）</td><td>手元にあるリストは、貼るだけでリスト化されます</td><td class=s>手元にあるリストは、貼るだけでリスト化されます</td></tr><tr class=""><td class=n>12</td><td class=n>カット</td><td class=n>54.4</td><td class=n>59.6</td><td class=n>5.2</td><td>メール送信（AIに書かせる→選択企業に一斉DM）</td><td>メールは1社ずつAIが訴求を書き分け、あなたのGmailから送信</td><td class=s>いっしゃずつエーアイが書き分けて、あなたのジーメールから送ります</td></tr><tr class=""><td class=n>13</td><td class=n>カット</td><td class=n>59.9</td><td class=n>65.9</td><td class=n>5.9</td><td>フォーム送信（下調べ→展開）</td><td>といあわせフォームも、文面とURLはAIが用意。投稿は担当者</td><td class=s>といあわせフォームも、文面はエーアイが。投稿は人が行います</td></tr><tr class="tt"><td class=n>14</td><td class=n>タイトル</td><td class=n>66.2</td><td class=n>68.2</td><td class=n>2.0</td><td>全画面・センター</td><td>テレアポ</td><td class=s><span class=m>—</span></td></tr><tr class=""><td class=n>15</td><td class=n>カット</td><td class=n>68.6</td><td class=n>73.0</td><td class=n>4.4</td><td>今日のコール一覧（ICP適合順）→ 架電コックピット</td><td>メール・フォームの後は、テレアポへ</td><td class=s>メールやフォームを送った企業に、テレアポでアプローチします</td></tr><tr class=""><td class=n>16</td><td class=n>カット</td><td class=n>73.3</td><td class=n>76.8</td><td class=n>3.4</td><td>「Zoom発信」クリック → 通話中</td><td>発信はワンクリック。終話も自動</td><td class=s>発信はワンクリック。終話も自動です</td></tr><tr class=""><td class=n>17</td><td class=n>カット</td><td class=n>77.1</td><td class=n>80.5</td><td class=n>3.4</td><td>録音・文字起こしが溜まっていく欄</td><td>会話は自動で文字起こし・要約</td><td class=s>会話は自動で文字起こしされ、要約されます</td></tr><tr class=""><td class=n>18</td><td class=n>カット</td><td class=n>80.8</td><td class=n>84.4</td><td class=n>3.6</td><td>自動判定のフラグが立つ</td><td>会話の内容から、自動でフラグが立つ</td><td class=s>会話の内容から、自動でフラグが立っていきます</td></tr><tr class=""><td class=n>19</td><td class=n>カット</td><td class=n>84.8</td><td class=n>87.5</td><td class=n>2.8</td><td>リストホット化（予算時期・ニーズ）にチェック</td><td>予算の時期やニーズも拾います</td><td class=s>予算の時期やニーズも拾います</td></tr><tr class=""><td class=n>20</td><td class=n>カット</td><td class=n>87.9</td><td class=n>92.0</td><td class=n>4.1</td><td>右カラム「架電メモ」を打つ</td><td>通話中に人がやるのは、対話に集中すること</td><td class=s>通話中に人がやるのは、対話に集中すること</td></tr><tr class=""><td class=n>21</td><td class=n>カット</td><td class=n>92.4</td><td class=n>96.4</td><td class=n>4.0</td><td>架電結果「アポ獲得」をタップ → 集計へ</td><td>架電結果はワンタップ。そのまま集計</td><td class=s>架電結果はワンタップ。そのまま集計されます</td></tr><tr class=""><td class=n>22</td><td class=n>カット</td><td class=n>96.7</td><td class=n>99.1</td><td class=n>2.4</td><td>自動ヒアリング反映</td><td>ヒアリングは、自動で埋まる</td><td class=s>ヒアリングは、自動で埋まります</td></tr><tr class="tt"><td class=n>23</td><td class=n>タイトル</td><td class=n>99.5</td><td class=n>101.5</td><td class=n>2.0</td><td>全画面・センター</td><td>アポ獲得後の日程調整</td><td class=s><span class=m>—</span></td></tr><tr class=""><td class=n>24</td><td class=n>カット</td><td class=n>101.8</td><td class=n>105.7</td><td class=n>3.9</td><td>メール送信 › 日程調整タブ</td><td>アポ獲得後の調整も、カレンダー連携で</td><td class=s>アポ獲得後の調整も、カレンダー連携でおこないます。</td></tr><tr class=""><td class=n>25</td><td class=n>カット</td><td class=n>106.1</td><td class=n>108.5</td><td class=n>2.4</td><td>カレンダーから候補日を選んで送信</td><td>候補日をそのまま送信</td><td class=s>候補日を、そのまま送ります</td></tr><tr class=""><td class=n>26</td><td class=n>カット</td><td class=n>109.4</td><td class=n>113.3</td><td class=n>3.9</td><td>顧客側のスマホ画面（候補を選ぶ）</td><td>お客様はスマホで選ぶだけ。ログイン不要</td><td class=s>お客様はスマホで選ぶだけ。ログインは要りません</td></tr><tr class="tt"><td class=n>27</td><td class=n>タイトル</td><td class=n>113.6</td><td class=n>115.6</td><td class=n>2.0</td><td>全画面・センター</td><td>商談の提案資料は、AIが作成</td><td class=s><span class=m>—</span></td></tr><tr class=""><td class=n>28</td><td class=n>カット</td><td class=n>116.0</td><td class=n>120.9</td><td class=n>4.9</td><td>初回商談資料作成の画面（材料: ヒアリング・議事録）</td><td>提案資料は、テレアポヒアリングと議事録から</td><td class=s>商談で使う提案資料は、テレアポのヒアリングや議事録から</td></tr><tr class=""><td class=n>29</td><td class=n>カット</td><td class=n>121.4</td><td class=n>126.2</td><td class=n>4.8</td><td>課題仮説→媒体プラン→「生成」</td><td>クライアントに最適な、オリジナルの提案資料をAIが作成</td><td class=s>そのクライアントに最適な提案資料を、エーアイが作ります</td></tr><tr class=""><td class=n>30</td><td class=n>カット</td><td class=n>126.5</td><td class=n>128.9</td><td class=n>2.4</td><td>【提案書のスクショ】できあがった資料を全画面で</td><td>できあがった提案書（実物）</td><td class=s>できあがった資料が、こちらです</td></tr><tr class=""><td class=n>31</td><td class=n>カット</td><td class=n>131.4</td><td class=n>136.2</td><td class=n>4.8</td><td>商談議事録（録る→確定）</td><td>商談は録るだけ。議事録は瞬時に</td><td class=s>商談は録るだけ。議事録は瞬時にできます</td></tr><tr class=""><td class=n>32</td><td class=n>カット</td><td class=n>136.6</td><td class=n>140.3</td><td class=n>3.8</td><td>サンクスメール生成</td><td>お礼のメールも、自動で</td><td class=s>おれいのメールの叩き台も作ります</td></tr><tr class=""><td class=n>33</td><td class=n>カット</td><td class=n>140.7</td><td class=n>144.3</td><td class=n>3.6</td><td>2回目商談資料（型は議事録から自動判定）</td><td>2回目以降の資料も、議事録から</td><td class=s>二回目以降の資料も、議事録から作られます</td></tr><tr class="tt"><td class=n>34</td><td class=n>タイトル</td><td class=n>144.6</td><td class=n>146.6</td><td class=n>2.0</td><td>全画面・センター</td><td>受注から掲載、請求まで、ワンストップ</td><td class=s><span class=m>—</span></td></tr><tr class=""><td class=n>35</td><td class=n>カット</td><td class=n>147.0</td><td class=n>152.5</td><td class=n>5.5</td><td>見積の画面（提案の媒体プランがそのまま見積に）</td><td>見積書は、提案の時点でできている</td><td class=s>受注。みつもりしょは提案の時点でできています</td></tr><tr class=""><td class=n>36</td><td class=n>カット</td><td class=n>152.8</td><td class=n>156.0</td><td class=n>3.2</td><td>割引率の入力 → 承認待ちの行</td><td>大きな割引は、本人以外の承認へ</td><td class=s>大きな割引は、承認へ回ります</td></tr><tr class=""><td class=n>37</td><td class=n>カット</td><td class=n>156.4</td><td class=n>160.2</td><td class=n>3.8</td><td>申し込み（根拠にする見積を選ぶ）</td><td>合意した見積が、そのまま申込書に</td><td class=s>合意したみつもりが、そのまま申込書になります</td></tr><tr class=""><td class=n>38</td><td class=n>カット</td><td class=n>160.5</td><td class=n>163.3</td><td class=n>2.8</td><td>契約書の書面（金額は見積から）</td><td>金額を打ち直す場所はありません</td><td class=s>金額を打ち直す場所はありません</td></tr><tr class=""><td class=n>39</td><td class=n>カット</td><td class=n>163.7</td><td class=n>169.7</td><td class=n>6.0</td><td>掲載（申込を選ぶ→登録→掲載開始）</td><td>掲載原稿はAIが作成、やりとりも校了までステータス管理します。</td><td class=s>掲載原稿はエーアイが作成、やりとりも校了までステータス管理します。</td></tr><tr class=""><td class=n>40</td><td class=n>カット</td><td class=n>170.0</td><td class=n>173.2</td><td class=n>3.1</td><td>掲載中 → 💴請求へ</td><td>掲載中になった月から、請求の対象に</td><td class=s>掲載中の分が、請求に並びます</td></tr><tr class="tt"><td class=n>44</td><td class=n>タイトル</td><td class=n>176.2</td><td class=n>178.2</td><td class=n>2.0</td><td>全画面・センター</td><td>請求後の入金までフォロー</td><td class=s><span class=m>—</span></td></tr><tr class=""><td class=n>45</td><td class=n>カット</td><td class=n>181.2</td><td class=n>186.4</td><td class=n>5.3</td><td>入金の登録（日付・金額・一部入金）</td><td>入金は日付と金額で。一部入金も追える</td><td class=s>入金は日付と金額で。一部入金も追えます</td></tr><tr class=""><td class=n>46</td><td class=n>カット</td><td class=n>189.4</td><td class=n>191.6</td><td class=n>2.2</td><td>督促の記録・今日の行動に督促が出る</td><td>督促した相手には、二度掛けない</td><td class=s>さいそくの履歴も残ります</td></tr><tr class=""><td class=n>49</td><td class=n>カット</td><td class=n>194.6</td><td class=n>199.4</td><td class=n>4.8</td><td>全画面（エンディング）</td><td>裏側はすべて、AIとシステムが。</td><td class=s>裏側はすべて、エーアイとシステムが</td></tr><tr class="tt"><td class=n>50</td><td class=n>タイトル</td><td class=n>202.4</td><td class=n>206.2</td><td class=n>3.8</td><td>ロゴ</td><td>求人広告の営業プロセスをAIで変える。ASUMO</td><td class=s>営業プロセスをエーアイで変える。アスモ！</td></tr>
+</table></div>
+<p class="sub" style="margin-top:20px">この指示書は <code>_docs/CODEX_VIDEO_INSTRUCTIONS.html</code>。データの正は <code>_audio/timeline_v2.json</code>。</p>
+</div></body></html>
